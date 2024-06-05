@@ -118,12 +118,12 @@ public class TeacherFunc {
     /**
      * sắp xếp danh sách teacher theo GPA theo tứ tự tăng dần
      */
-    public void sortTeacherByGPA() {
+    public void sortTeacherByAge() {
         Collections.sort(listTeachers, new Comparator<Teacher>() {
             public int compare(Teacher teacher1, Teacher teacher2) {
-//                if (teacher1.getGpa() > teacher2.getGpa()) {
-//                    return 1;
-//                }
+                if (teacher1.getAge()> teacher2.getAge()) {
+                    return 1;
+                }
                 return -1;
             }
         });

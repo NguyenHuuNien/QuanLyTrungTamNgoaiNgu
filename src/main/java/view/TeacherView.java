@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,7 +29,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     private JButton editTeacherBtn;
     private JButton deleteTeacherBtn;
     private JButton clearBtn;
-    private JButton sortTeacherGPABtn;
+    private JButton sortTeacherAgeBtn;
     private JButton sortTeacherNameBtn;
     private JScrollPane jScrollPaneTeacherTable;
     private JScrollPane jScrollPaneAddress;
@@ -44,11 +45,11 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     private JTextField nameField;
     private JTextField ageField;
     private JTextArea addressTA;
-    private JTextField gpaField;
+    private JComboBox<String> capBacField;
     
     // định nghĩa các cột của bảng teacher
     private String [] columnNames = new String [] {
-            "ID", "Name", "Age", "Address", "GPA"};
+            "ID", "Name", "Age", "Address", "Academic Titles"};
     // định nghĩa dữ liệu mặc định của bẳng teacher là rỗng
     private Object data = new Object [][] {};
     
@@ -57,13 +58,13 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     }
 
     private void initComponents() {
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         // khởi tạo các phím chức năng
         addTeacherBtn = new JButton("Add");
         editTeacherBtn = new JButton("Edit");
         deleteTeacherBtn = new JButton("Delete");
         clearBtn = new JButton("Clear");
-        sortTeacherGPABtn = new JButton("Sort By GPA");
+        sortTeacherAgeBtn = new JButton("Sort By Age");
         sortTeacherNameBtn = new JButton("Sort By Name");
         // khởi tạo bảng teacher
         jScrollPaneTeacherTable = new JScrollPane();
@@ -74,7 +75,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         nameLabel = new JLabel("Name");
         ageLabel = new JLabel("Age");
         addressLabel = new JLabel("Address");
-        gpaLabel = new JLabel("GPA");
+        gpaLabel = new JLabel("Academic");
         
         // khởi tạo các trường nhập dữ liệu cho teacher
         idField = new JTextField(6);
@@ -86,8 +87,12 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         addressTA.setRows(5);
         jScrollPaneAddress = new JScrollPane();
         jScrollPaneAddress.setViewportView(addressTA);
-        gpaField = new JTextField(6);
         
+        String[] arrCapBac = new String[]{"Khác","Trợ giảng", "Giảng viên", "Thạc sĩ", "Phó giáo sư", "Giáo sư", "Tiến sĩ"};
+
+        capBacField  = new JComboBox<>(arrCapBac);
+        capBacField.setBounds(150, 50, 200, 20);
+        capBacField.setSelectedIndex(0);
         // cài đặt các cột và data cho bảng teacher
         teacherTable.setModel(new DefaultTableModel((Object[][]) data, columnNames));
         jScrollPaneTeacherTable.setViewportView(teacherTable);
@@ -105,7 +110,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         panel.add(editTeacherBtn);
         panel.add(deleteTeacherBtn);
         panel.add(clearBtn);
-        panel.add(sortTeacherGPABtn);
+        panel.add(sortTeacherAgeBtn);
         panel.add(sortTeacherNameBtn);
         
         panel.add(idLabel);
@@ -118,7 +123,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         panel.add(nameField);
         panel.add(ageField);
         panel.add(jScrollPaneAddress);
-        panel.add(gpaField);
+        panel.add(capBacField);
         
         // cài đặt vị trí các thành phần trên màn hình login
         layout.putConstraint(SpringLayout.WEST, idLabel, 10, SpringLayout.WEST, panel);
@@ -140,8 +145,8 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.NORTH, ageField, 70, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, jScrollPaneAddress, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneAddress, 100, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, gpaField, 100, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, gpaField, 200, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, capBacField, 100, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, capBacField, 200, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, jScrollPaneTeacherTable, 300, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneTeacherTable, 10, SpringLayout.NORTH, panel);
@@ -156,9 +161,9 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.WEST, clearBtn, 80, SpringLayout.WEST, deleteTeacherBtn);
         
         layout.putConstraint(SpringLayout.NORTH, deleteTeacherBtn, 240, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortTeacherGPABtn, 300, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, sortTeacherGPABtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortTeacherNameBtn, 115, SpringLayout.WEST, sortTeacherGPABtn);
+        layout.putConstraint(SpringLayout.WEST, sortTeacherAgeBtn, 300, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, sortTeacherAgeBtn, 330, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, sortTeacherNameBtn, 115, SpringLayout.WEST, sortTeacherAgeBtn);
         layout.putConstraint(SpringLayout.NORTH, sortTeacherNameBtn, 330, SpringLayout.NORTH, panel);
         
         this.add(panel);
@@ -210,7 +215,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
             nameField.setText(teacherTable.getModel().getValueAt(row, 1).toString());
             ageField.setText(teacherTable.getModel().getValueAt(row, 2).toString());
             addressTA.setText(teacherTable.getModel().getValueAt(row, 3).toString());
-            gpaField.setText(teacherTable.getModel().getValueAt(row, 4).toString());
+            capBacField.setSelectedItem(teacherTable.getModel().getValueAt(row, 4).toString());
             // enable Edit and Delete buttons
             editTeacherBtn.setEnabled(true);
             deleteTeacherBtn.setEnabled(true);
@@ -227,7 +232,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         nameField.setText("");
         ageField.setText("");
         addressTA.setText("");
-        gpaField.setText("");
+        capBacField.setSelectedIndex(0);
         // disable Edit and Delete buttons
         editTeacherBtn.setEnabled(false);
         deleteTeacherBtn.setEnabled(false);
@@ -245,7 +250,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         nameField.setText(teacher.getName());
         ageField.setText("" + teacher.getAge());
         addressTA.setText(teacher.getAddress());
-        gpaField.setText("" + teacher.getTrinhDo());
+        capBacField.setSelectedItem("" + teacher.getTrinhDo());
         // enable Edit and Delete buttons
         editTeacherBtn.setEnabled(true);
         deleteTeacherBtn.setEnabled(true);
@@ -271,7 +276,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
             teacher.setName(nameField.getText().trim());
             teacher.setAge(Byte.parseByte(ageField.getText().trim()));
             teacher.setAddress(addressTA.getText().trim());
-            teacher.setTrinhDo((gpaField.getText().trim()));
+            teacher.setTrinhDo(capBacField.getSelectedItem().toString());
             return teacher;
         } catch (Exception e) {
             showMessage(e.getMessage());
@@ -316,18 +321,6 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     }
     
     private boolean validateGPA() {
-        try {
-            Float gpa = Float.parseFloat(gpaField.getText().trim());
-            if (gpa < 0 || gpa > 10) {
-                gpaField.requestFocus();
-                showMessage("GPA không hợp lệ, gpa nên trong khoảng 0 đến 10.");
-                return false;
-            }
-        } catch (Exception e) {
-            gpaField.requestFocus();
-            showMessage("GPA không hợp lệ!");
-            return false;
-        }
         return true;
     }
     
@@ -354,7 +347,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     }
     
     public void addSortTeacherGPAListener(ActionListener listener) {
-        sortTeacherGPABtn.addActionListener(listener);
+        sortTeacherAgeBtn.addActionListener(listener);
     }
     
     public void addSortTeacherNameListener(ActionListener listener) {

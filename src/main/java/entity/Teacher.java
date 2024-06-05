@@ -1,6 +1,5 @@
 package entity;
 
-import enumObject.eBacGiangVien;
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,12 +15,12 @@ public class Teacher implements Serializable {
     private byte age;
     private String address;
     /* trình độ giáo viên */
-    private eBacGiangVien trinhDo;
+    private String trinhDo;
 
     public Teacher() {
     }
 
-    public Teacher(int id, String name, byte age, String address, eBacGiangVien trinhDo) {
+    public Teacher(int id, String name, byte age, String address, String trinhDo) {
         super();
         this.id = id;
         this.name = name;
@@ -62,13 +61,12 @@ public class Teacher implements Serializable {
         this.address = address;
     }
 
-    public eBacGiangVien getTrinhDo() {
+    public String getTrinhDo() {
         return trinhDo;
     }
 
-    public void setTrinhDo(eBacGiangVien trinhDo) {
+    public void setTrinhDo(String trinhDo) {
         this.trinhDo = trinhDo;
     }
 
-    
 }

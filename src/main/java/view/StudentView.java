@@ -58,7 +58,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     }
 
     private void initComponents() {
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         // khởi tạo các phím chức năng
         addStudentBtn = new JButton("Add");
         editStudentBtn = new JButton("Edit");

@@ -2,16 +2,72 @@
 <teachers>
     <teacher>
         <id>1</id>
-        <name>Mai Thanh Haha</name>
+        <name>Mai Thu Thuy</name>
         <age>22</age>
         <address>Ha Noi</address>
-        <trinhDo>TienSi</trinhDo>
+        <trinhDo>Giảng viên</trinhDo>
     </teacher>
     <teacher>
         <id>2</id>
-        <name>Vinh The Huhu</name>
+        <name>Tran The Vinh</name>
         <age>23</age>
         <address>Vinh Phuc</address>
-        <trinhDo>ThacSi</trinhDo>
+        <trinhDo>Giáo sư</trinhDo>
+    </teacher>
+    <teacher>
+        <id>3</id>
+        <name>Nguyen Van Cuong</name>
+        <age>30</age>
+        <address>Da Nang</address>
+        <trinhDo>Tiến sĩ</trinhDo>
+    </teacher>
+    <teacher>
+        <id>4</id>
+        <name>Le Thi Cuc</name>
+        <age>28</age>
+        <address>Ho Chi Minh</address>
+        <trinhDo>Phó giáo sư</trinhDo>
+    </teacher>
+    <teacher>
+        <id>5</id>
+        <name>Tran Van Cuong</name>
+        <age>40</age>
+        <address>Hue</address>
+        <trinhDo>Thạc sĩ</trinhDo>
+    </teacher>
+    <teacher>
+        <id>6</id>
+        <name>Pham Thi Duong</name>
+        <age>35</age>
+        <address>Nha Trang</address>
+        <trinhDo>Giảng viên</trinhDo>
+    </teacher>
+    <teacher>
+        <id>7</id>
+        <name>Hoang Van Phu</name>
+        <age>45</age>
+        <address>Can Tho</address>
+        <trinhDo>Giáo sư</trinhDo>
+    </teacher>
+    <teacher>
+        <id>8</id>
+        <name>Nguyen Thi Hoa Quynh</name>
+        <age>32</age>
+        <address>Ha Noi</address>
+        <trinhDo>Tiến sĩ</trinhDo>
+    </teacher>
+    <teacher>
+        <id>9</id>
+        <name>Do Van Trung</name>
+        <age>38</age>
+        <address>Quang Ninh</address>
+        <trinhDo>Phó giáo sư</trinhDo>
+    </teacher>
+    <teacher>
+        <id>10</id>
+        <name>Le Van Hai</name>
+        <age>29</age>
+        <address>Hai Phong</address>
+        <trinhDo>Thạc sĩ</trinhDo>
     </teacher>
 </teachers>
