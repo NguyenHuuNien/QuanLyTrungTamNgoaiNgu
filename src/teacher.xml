@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<teachers>
+    <teacher>
+        <id>1</id>
+        <name>Mai Thanh Haha</name>
+        <age>22</age>
+        <address>Ha Noi</address>
+        <trinhDo>TienSi</trinhDo>
+    </teacher>
+    <teacher>
+        <id>2</id>
+        <name>Vinh The Huhu</name>
+        <age>23</age>
+        <address>Vinh Phuc</address>
+        <trinhDo>ThacSi</trinhDo>
+    </teacher>
+</teachers>
