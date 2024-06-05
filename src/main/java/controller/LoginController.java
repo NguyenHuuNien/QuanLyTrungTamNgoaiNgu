@@ -7,6 +7,7 @@ import view.StudentView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.HomeFrame;
 import view.TeacherView;
 
 public class LoginController {
@@ -37,9 +38,11 @@ public class LoginController {
 //                studentView = new StudentView();
 //                StudentController studentController = new StudentController(studentView);
 //                studentController.showStudentView();
-                TeacherView teacherView = new   TeacherView();
-                TeacherController teacherController = new TeacherController(teacherView);
-                teacherController.showTeacherView();
+//                TeacherView teacherView = new   TeacherView();
+//                TeacherController teacherController = new TeacherController(teacherView);
+//                teacherController.showTeacherView();
+                    HomeFrame openHomeFrame  =  new HomeFrame();
+                    openHomeFrame.setVisible(true);
                 loginView.setVisible(false);
             } else {
                 loginView.showMessage("username hoặc password không đúng.");

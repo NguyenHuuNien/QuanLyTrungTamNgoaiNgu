@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.StudentController;
+import controller.TeacherController;
+
 /**
  *
  * @author hyunie
@@ -15,6 +18,7 @@ public class HomeFrame extends javax.swing.JFrame {
      */
     public HomeFrame() {
         initComponents();
+        
     }
 
     /**
@@ -26,23 +30,77 @@ public class HomeFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 420));
-        setResizable(false);
+        jPanel1 = new javax.swing.JPanel();
+        qlSV = new javax.swing.JButton();
+        qlGV = new javax.swing.JButton();
+        qlMonHoc = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        ThongKe = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Manager");
+        setPreferredSize(new java.awt.Dimension(750, 420));
+        setResizable(false);
+        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 50));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lý", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Liberation Sans", 3, 18), new java.awt.Color(0, 0, 255))); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 100));
+        jPanel1.setLayout(new java.awt.GridLayout(1, 3, 20, 0));
+
+        qlSV.setText("Quản lý Sinh viên");
+        qlSV.setPreferredSize(new java.awt.Dimension(800, 400));
+        qlSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qlSVActionPerformed(evt);
+            }
+        });
+        jPanel1.add(qlSV);
+
+        qlGV.setText("Quản lý Giảng viên");
+        qlGV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qlGVActionPerformed(evt);
+            }
+        });
+        jPanel1.add(qlGV);
+
+        qlMonHoc.setText("Quản lý Môn học");
+        qlMonHoc.setToolTipText("");
+        jPanel1.add(qlMonHoc);
+
+        getContentPane().add(jPanel1);
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(700, 100));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 50));
+
+        ThongKe.setText("Thống kê");
+        ThongKe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ThongKeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ThongKe);
+
+        getContentPane().add(jPanel2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThongKeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ThongKeActionPerformed
+
+    private void qlSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qlSVActionPerformed
+        StudentView studentView = new StudentView();
+        StudentController studentController = new StudentController(studentView);
+        studentController.showStudentView();      
+    }//GEN-LAST:event_qlSVActionPerformed
+
+    private void qlGVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qlGVActionPerformed
+        TeacherView teacherView = new   TeacherView();
+        TeacherController teacherController = new TeacherController(teacherView);
+        teacherController.showTeacherView();
+    }//GEN-LAST:event_qlGVActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,14 +129,14 @@ public class HomeFrame extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomeFrame().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ThongKe;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton qlGV;
+    private javax.swing.JButton qlMonHoc;
+    private javax.swing.JButton qlSV;
     // End of variables declaration//GEN-END:variables
 }
