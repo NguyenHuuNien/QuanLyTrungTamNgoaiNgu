@@ -7,10 +7,6 @@ package view;
 import controller.StudentController;
 import controller.TeacherController;
 
-/**
- *
- * @author hyunie
- */
 public class HomeFrame extends javax.swing.JFrame {
 
     /**

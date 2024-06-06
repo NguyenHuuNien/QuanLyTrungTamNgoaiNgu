@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-@XmlRootElement(name = "student")
+@XmlRootElement(name = "khoahoc")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class KhoaHoc implements Serializable{
     private String tenKhoaHoc;
