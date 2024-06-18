@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<khoahocs>
+    <khoahoc>
+        <tenKhoaHoc>Java Programming</tenKhoaHoc>
+        <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
+        <giaKhoaHoc>100.0</giaKhoaHoc>
+        <taiLieu>
+            <taiLieu>Java Basics</taiLieu>
+            <taiLieu>Advanced Java</taiLieu>
+        </taiLieu>
+        <dsStudent>
+            <student>
+                <id>1</id>
+                <name>John Doe</name>
+                <age>25</age>
+                <address>New York</address>
+            </student>
+            <student>
+                <id>2</id>
+                <name>Alice Smith</name>
+                <age>23</age>
+                <address>Los Angeles</address>
+            </student>
+        </dsStudent>
+        <dsTeacher>
+            <teacher>
+                <id>1</id>
+                <name>Prof. James Johnson</name>
+                <age>40</age>
+                <address>Chicago</address>
+                <trinhDo>Professor</trinhDo>
+            </teacher>
+            <teacher>
+                <id>2</id>
+                <name>Dr. Emily Brown</name>
+                <age>35</age>
+                <address>Boston</address>
+                <trinhDo>PhD</trinhDo>
+            </teacher>
+        </dsTeacher>
+    </khoahoc>
+    <!-- Thêm các đối tượng khoahoc khác ở đây -->
+</khoahocs>

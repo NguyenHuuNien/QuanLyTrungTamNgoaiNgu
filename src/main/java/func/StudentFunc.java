@@ -73,9 +73,9 @@ public class StudentFunc {
         for (int i = 0; i < size; i++) {
             if (listStudents.get(i).getId() == student.getId()) {
                 listStudents.get(i).setName(student.getName());
-                listStudents.get(i).setAge(student.getAge());
+                listStudents.get(i).setDOB(student.getDOB());
                 listStudents.get(i).setAddress(student.getAddress());
-                listStudents.get(i).setGpa(student.getGpa());
+                listStudents.get(i).setDSKhoaHoc(student.getDSKhoaHoc());
                 writeListStudents(listStudents);
                 break;
             }
@@ -119,10 +119,10 @@ public class StudentFunc {
     /**
      * sắp xếp danh sách student theo GPA theo tứ tự tăng dần
      */
-    public void sortStudentByGPA() {
+    public void sortStudentByAge() {
         Collections.sort(listStudents, new Comparator<Student>() {
             public int compare(Student student1, Student student2) {
-                if (student1.getGpa() > student2.getGpa()) {
+                if (student1.getAge()> student2.getAge()) {
                     return 1;
                 }
                 return -1;

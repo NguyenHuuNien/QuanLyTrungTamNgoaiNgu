@@ -1,6 +1,10 @@
 package entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,21 +16,22 @@ public class Student implements Serializable {
     private static final long serialVersionUID = 1L;
     private int id;
     private String name;
-    private byte age;
+    private String dob;
     private String address;
-    /* điểm trung bình của sinh viên */
-    private float gpa;
+    private List<KhoaHoc> dsKhoaHoc;
+    private byte age;
 
     public Student() {
     }
 
-    public Student(int id, String name, byte age, String address, float gpa) {
+    public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc) {
         super();
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.dob = dob;
         this.address = address;
-        this.gpa = gpa;
+        this.dsKhoaHoc = dsKhoaHoc;
+        this.age = (byte) Period.between(LocalDate.parse(dob,DateTimeFormatter.ofPattern("dd/MM/yyyy")),LocalDate.now()).getYears();
     }
 
     public int getId() {
@@ -45,12 +50,13 @@ public class Student implements Serializable {
         this.name = name;
     }
 
-    public byte getAge() {
-        return age;
+    public String getDOB() {
+        return dob;
     }
 
-    public void setAge(byte age) {
-        this.age = age;
+    public void setDOB(String dob) {
+        this.age = (byte) Period.between(LocalDate.parse(dob,DateTimeFormatter.ofPattern("dd/MM/yyyy")),LocalDate.now()).getYears();
+        this.dob = dob;
     }
 
     public String getAddress() {
@@ -61,11 +67,29 @@ public class Student implements Serializable {
         this.address = address;
     }
 
-    public float getGpa() {
-        return gpa;
+    public List<KhoaHoc> getDSKhoaHoc() {
+        return dsKhoaHoc;
     }
-
-    public void setGpa(float gpa) {
-        this.gpa = gpa;
+    public String getStringDSKhoaHoc(){
+        String s = "";
+        if(dsKhoaHoc!=null){
+            for (KhoaHoc o : dsKhoaHoc){
+                s += o.getTenKhoaHoc();
+                s+="\n";
+            }
+        }
+        return s;
+    }
+    public void setDSKhoaHoc(List<KhoaHoc> dsKH) {
+        this.dsKhoaHoc = dsKH;
+    }
+    public void addKhoaHoc(KhoaHoc kh){
+        this.dsKhoaHoc.add(kh);
+    }
+    public void removeKhoaHoc(KhoaHoc kh){
+        this.dsKhoaHoc.remove(kh);
+    }
+    public byte getAge(){
+        return this.age;
     }
 }

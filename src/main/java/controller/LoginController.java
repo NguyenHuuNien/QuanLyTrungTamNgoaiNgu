@@ -17,7 +17,7 @@ public class LoginController {
     
     public LoginController(LoginView view) {
         this.loginView = view;
-        this.userDao = new UserFunc();
+        this.userDao = TrungTamController.Instance().getUserFunc();
         view.addLoginListener(new LoginListener());
     }
     

@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "khoahoc")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class KhoaHoc implements Serializable{
+    private int id;
     private String tenKhoaHoc;
     private String thoiGianKhoaHoc;
     private double giaKhoaHoc;
@@ -21,13 +22,22 @@ public class KhoaHoc implements Serializable{
     public KhoaHoc() {
     }
 
-    public KhoaHoc(String tenKhoaHoc, String thoiGianKhoaHoc, double giaKhoaHoc, String[] taiLieu, List<Student> dsStudent, List<Teacher> dsTeacher) {
+    public KhoaHoc(int id, String tenKhoaHoc, String thoiGianKhoaHoc, double giaKhoaHoc, String[] taiLieu, List<Student> dsStudent, List<Teacher> dsTeacher) {
+        this.id = id;
         this.tenKhoaHoc = tenKhoaHoc;
         this.thoiGianKhoaHoc = thoiGianKhoaHoc;
         this.giaKhoaHoc = giaKhoaHoc;
         this.taiLieu = taiLieu;
         this.dsStudent = dsStudent;
         this.dsTeacher = dsTeacher;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTenKhoaHoc() {

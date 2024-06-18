@@ -16,7 +16,7 @@ public class KhoaHocXML {
         return khoahoc;
     }
 
-    public void setStudent(List<KhoaHoc> khoahoc) {
+    public void setKhoaHoc(List<KhoaHoc> khoahoc) {
         this.khoahoc = khoahoc;
     }
 }

@@ -17,7 +17,7 @@ public class TeacherController {
 
     public TeacherController(TeacherView view) {
         this.teacherView = view;
-        teacherDao = new TeacherFunc();
+        teacherDao = TrungTamController.Instance().getTeacherFunc();
 
         view.addAddTeacherListener(new AddTeacherListener());
         view.addEditTeacherListener(new EditTeacherListener());

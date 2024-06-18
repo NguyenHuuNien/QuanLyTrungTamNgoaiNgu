@@ -1,21 +1,29 @@
 package view;
 
+import controller.TrungTamController;
+import entity.KhoaHoc;
 import entity.Student;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ListModel;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
@@ -37,19 +45,20 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     
     private JLabel idLabel;
     private JLabel nameLabel;
-    private JLabel ageLabel;
+    private JLabel dobLabel;
     private JLabel addressLabel;
-    private JLabel gpaLabel;
+    private JLabel dsKhoaHocLabel;
     
     private JTextField idField;
     private JTextField nameField;
-    private JTextField ageField;
+    private JTextField dobField;
     private JTextArea addressTA;
-    private JTextField gpaField;
+    private JList<String> dsKhoaHocField;
+    private JScrollPane scrollPaneDSKhoaHoc = new JScrollPane();
     
     // định nghĩa các cột của bảng student
     private String [] columnNames = new String [] {
-            "ID", "Name", "Age", "Address", "GPA"};
+            "ID", "Name", "Age", "Address", "Courses"};
     // định nghĩa dữ liệu mặc định của bẳng student là rỗng
     private Object data = new Object [][] {};
     
@@ -64,7 +73,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         editStudentBtn = new JButton("Edit");
         deleteStudentBtn = new JButton("Delete");
         clearBtn = new JButton("Clear");
-        sortStudentGPABtn = new JButton("Sort By GPA");
+        sortStudentGPABtn = new JButton("Sort By Age");
         sortStudentNameBtn = new JButton("Sort By Name");
         // khởi tạo bảng student
         jScrollPaneStudentTable = new JScrollPane();
@@ -73,22 +82,23 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         // khởi tạo các label
         idLabel = new JLabel("Id");
         nameLabel = new JLabel("Name");
-        ageLabel = new JLabel("Age");
+        dobLabel = new JLabel("DOB");
         addressLabel = new JLabel("Address");
-        gpaLabel = new JLabel("GPA");
+        dsKhoaHocLabel = new JLabel("Courses");
         
         // khởi tạo các trường nhập dữ liệu cho student
         idField = new JTextField(6);
         idField.setEditable(false);
         nameField = new JTextField(15);
-        ageField = new JTextField(6);
+        dobField = new JTextField(6);
         addressTA = new JTextArea();
         addressTA.setColumns(15);
         addressTA.setRows(5);
         jScrollPaneAddress = new JScrollPane();
         jScrollPaneAddress.setViewportView(addressTA);
-        gpaField = new JTextField(6);
-        
+        dsKhoaHocField = new JList<>();
+        scrollPaneDSKhoaHoc.setViewportView(dsKhoaHocField);
+        scrollPaneDSKhoaHoc.setPreferredSize(new Dimension(170,115));
         // cài đặt các cột và data cho bảng student
         studentTable.setModel(new DefaultTableModel((Object[][]) data, columnNames));
         jScrollPaneStudentTable.setViewportView(studentTable);
@@ -111,53 +121,53 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         
         panel.add(idLabel);
         panel.add(nameLabel);
-        panel.add(ageLabel);
+        panel.add(dobLabel);
         panel.add(addressLabel);
-        panel.add(gpaLabel);
+        panel.add(dsKhoaHocLabel);
         
         panel.add(idField);
         panel.add(nameField);
-        panel.add(ageField);
+        panel.add(dobField);
         panel.add(jScrollPaneAddress);
-        panel.add(gpaField);
+        panel.add(scrollPaneDSKhoaHoc);
         
         // cài đặt vị trí các thành phần trên màn hình login
         layout.putConstraint(SpringLayout.WEST, idLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, idLabel, 10, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, nameLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, nameLabel, 40, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, ageLabel, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, ageLabel, 70, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, dobLabel, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, dobLabel, 70, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, addressLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, addressLabel, 100, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, gpaLabel, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, gpaLabel, 200, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, dsKhoaHocLabel, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, dsKhoaHocLabel, 200, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, idField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, idField, 10, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, nameField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, nameField, 40, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, ageField, 100, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, ageField, 70, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, dobField, 100, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, dobField, 70, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, jScrollPaneAddress, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneAddress, 100, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, gpaField, 100, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, gpaField, 200, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, scrollPaneDSKhoaHoc, 100, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, scrollPaneDSKhoaHoc, 200, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, jScrollPaneStudentTable, 300, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneStudentTable, 10, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, addStudentBtn, 20, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, addStudentBtn, 240, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, addStudentBtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, editStudentBtn, 60, SpringLayout.WEST, addStudentBtn);
-        layout.putConstraint(SpringLayout.NORTH, editStudentBtn, 240, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, editStudentBtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, deleteStudentBtn, 60, SpringLayout.WEST, editStudentBtn);
         
-        layout.putConstraint(SpringLayout.NORTH, clearBtn, 240, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, clearBtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, clearBtn, 80, SpringLayout.WEST, deleteStudentBtn);
         
-        layout.putConstraint(SpringLayout.NORTH, deleteStudentBtn, 240, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortStudentGPABtn, 300, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, deleteStudentBtn, 330, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, sortStudentGPABtn, 500, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, sortStudentGPABtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, sortStudentNameBtn, 115, SpringLayout.WEST, sortStudentGPABtn);
         layout.putConstraint(SpringLayout.NORTH, sortStudentNameBtn, 330, SpringLayout.NORTH, panel);
@@ -194,7 +204,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
             students[i][1] = list.get(i).getName();
             students[i][2] = list.get(i).getAge();
             students[i][3] = list.get(i).getAddress();
-            students[i][4] = list.get(i).getGpa();
+            students[i][4] = list.get(i).getStringDSKhoaHoc();
         }
         studentTable.setModel(new DefaultTableModel(students, columnNames));
     }
@@ -209,9 +219,12 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         if (row >= 0) {
             idField.setText(studentTable.getModel().getValueAt(row, 0).toString());
             nameField.setText(studentTable.getModel().getValueAt(row, 1).toString());
-            ageField.setText(studentTable.getModel().getValueAt(row, 2).toString());
+            dobField.setText(TrungTamController.Instance().getStudentFunc().getListStudents().get(Integer.parseInt(idField.getText())-1).getDOB());
             addressTA.setText(studentTable.getModel().getValueAt(row, 3).toString());
-            gpaField.setText(studentTable.getModel().getValueAt(row, 4).toString());
+            // Create array string - add data to dsKhoaHocField
+            String ss = studentTable.getModel().getValueAt(row, 4).toString();
+            String[] arrS = ss.split("\n");
+            dsKhoaHocField = new JList<String>(arrS);
             // enable Edit and Delete buttons
             editStudentBtn.setEnabled(true);
             deleteStudentBtn.setEnabled(true);
@@ -226,9 +239,9 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     public void clearStudentInfo() {
         idField.setText("");
         nameField.setText("");
-        ageField.setText("");
+        dobField.setText("");
         addressTA.setText("");
-        gpaField.setText("");
+        dsKhoaHocField.clearSelection();
         // disable Edit and Delete buttons
         editStudentBtn.setEnabled(false);
         deleteStudentBtn.setEnabled(false);
@@ -244,9 +257,9 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     public void showStudent(Student student) {
         idField.setText("" + student.getId());
         nameField.setText(student.getName());
-        ageField.setText("" + student.getAge());
+        dobField.setText("" + student.getDOB());
         addressTA.setText(student.getAddress());
-        gpaField.setText("" + student.getGpa());
+        dsKhoaHocField = new JList<String>(student.getDSKhoaHoc().toArray(new String[0]));
         // enable Edit and Delete buttons
         editStudentBtn.setEnabled(true);
         deleteStudentBtn.setEnabled(true);
@@ -261,7 +274,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
      */
     public Student getStudentInfo() {
         // validate student
-        if (!validateName() || !validateAge() || !validateAddress() || !validateGPA()) {
+        if (!validateName() || !validateDOB() || !validateAddress() || !validateDSKhoaHoc()) {
             return null;
         }
         try {
@@ -270,16 +283,48 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
                 student.setId(Integer.parseInt(idField.getText()));
             }
             student.setName(nameField.getText().trim());
-            student.setAge(Byte.parseByte(ageField.getText().trim()));
+            student.setDOB(formatterDate(dobField.getText()));
             student.setAddress(addressTA.getText().trim());
-            student.setGpa(Float.parseFloat(gpaField.getText().trim()));
+            // set danh sach khoa hoc cho hoc sinh
+            List<KhoaHoc> dsKH_this_Student = new ArrayList<>();
+            // Sử dụng singleton để lấy danh sách khóa học
+            List<KhoaHoc> dsKH = TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc();
+            for(int i = 0;i<dsKhoaHocField.getModel().getSize();i++){
+                KhoaHoc flag = null;
+                for(int j = 0;j<dsKH.size();j++){
+                    if(dsKhoaHocField.getModel().getElementAt(i).equals(dsKH.get(i).getTenKhoaHoc())){
+                        flag = dsKH.get(i);
+                        break;
+                    }
+                }
+                if(flag!=null)
+                    dsKH_this_Student.add(flag);
+            }
+            student.setDSKhoaHoc(dsKH_this_Student);
             return student;
         } catch (Exception e) {
             showMessage(e.getMessage());
         }
         return null;
     }
-    
+    private String formatterDate(String inputDate) {
+        List<String> dateFormats = Arrays.asList("d/M/yyyy", "dd/M/yyyy", "d/MM/yyyy", "dd/MM/yyyy");
+        LocalDate date = null;
+        for (String format : dateFormats) {
+            try {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+                date = LocalDate.parse(inputDate, formatter);
+                if (date != null) {
+                    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    return date.format(outputFormatter);
+                }
+            } catch (Exception exception) {
+            }
+        }
+        return null;
+    }
+
+        
     private boolean validateName() {
         String name = nameField.getText();
         if (name == null || "".equals(name.trim())) {
@@ -300,32 +345,37 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         return true;
     }
     
-    private boolean validateAge() {
+    private boolean validateDOB() {
         try {
-            Byte age = Byte.parseByte(ageField.getText().trim());
-            if (age < 0 || age > 100) {
-                ageField.requestFocus();
-                showMessage("Age không hợp lệ, age nên trong khoảng 0 đến 100.");
+            String txtDOB = dobField.getText();
+            List<String> dateFormats = Arrays.asList("d/M/yyyy", "dd/M/yyyy", "d/MM/yyyy", "dd/MM/yyyy");
+            boolean validate = false;
+            for(String o : dateFormats){
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(o);
+                try {
+                    LocalDate.parse(txtDOB, formatter);
+                    validate = true;
+                    break;
+                } catch (Exception exception) {
+                }
+            }
+            if(!validate){
+                dobField.requestFocus();
+                showMessage("Ngày/Tháng/Năm sinh không hợp lệ!");
                 return false;
             }
         } catch (Exception e) {
-            ageField.requestFocus();
-            showMessage("Age không hợp lệ!");
+            dobField.requestFocus();
+            showMessage("Ngày/Tháng/Năm sinh không hợp lệ!");
             return false;
         }
         return true;
     }
     
-    private boolean validateGPA() {
+    private boolean validateDSKhoaHoc() {
         try {
-            Float gpa = Float.parseFloat(gpaField.getText().trim());
-            if (gpa < 0 || gpa > 10) {
-                gpaField.requestFocus();
-                showMessage("GPA không hợp lệ, gpa nên trong khoảng 0 đến 10.");
-                return false;
-            }
+            
         } catch (Exception e) {
-            gpaField.requestFocus();
             showMessage("GPA không hợp lệ!");
             return false;
         }
@@ -354,7 +404,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         clearBtn.addActionListener(listener);
     }
     
-    public void addSortStudentGPAListener(ActionListener listener) {
+    public void addSortStudentAgeListener(ActionListener listener) {
         sortStudentGPABtn.addActionListener(listener);
     }
     

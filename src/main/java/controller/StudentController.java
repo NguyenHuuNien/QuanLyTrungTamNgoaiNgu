@@ -17,13 +17,13 @@ public class StudentController {
 
     public StudentController(StudentView view) {
         this.studentView = view;
-        studentDao = new StudentFunc();
+        studentDao = TrungTamController.Instance().getStudentFunc();
 
         view.addAddStudentListener(new AddStudentListener());
         view.addEdiStudentListener(new EditStudentListener());
         view.addDeleteStudentListener(new DeleteStudentListener());
         view.addClearListener(new ClearStudentListener());
-        view.addSortStudentGPAListener(new SortStudentGPAListener());
+        view.addSortStudentAgeListener(new SortStudentAgeListener());
         view.addSortStudentNameListener(new SortStudentNameListener());
         view.addListStudentSelectionListener(new ListStudentSelectionListener());
     }
@@ -106,9 +106,9 @@ public class StudentController {
      * 
      * @author viettuts.vn
      */
-    class SortStudentGPAListener implements ActionListener {
+    class SortStudentAgeListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            studentDao.sortStudentByGPA();
+            studentDao.sortStudentByAge();
             studentView.showListStudents(studentDao.getListStudents());
         }
     }
