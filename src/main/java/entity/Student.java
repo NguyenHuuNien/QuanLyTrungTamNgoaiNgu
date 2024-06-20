@@ -1,9 +1,9 @@
 package entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,22 +16,20 @@ public class Student implements Serializable {
     private static final long serialVersionUID = 1L;
     private int id;
     private String name;
-    private String dob;
+    private Calendar dob = Calendar.getInstance();
     private String address;
     private List<KhoaHoc> dsKhoaHoc;
-    private byte age;
 
     public Student() {
     }
 
-    public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc) {
+    public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc) throws ParseException {
         super();
         this.id = id;
         this.name = name;
-        this.dob = dob;
+        this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));
         this.address = address;
         this.dsKhoaHoc = dsKhoaHoc;
-        this.age = (byte) Period.between(LocalDate.parse(dob,DateTimeFormatter.ofPattern("dd/MM/yyyy")),LocalDate.now()).getYears();
     }
 
     public int getId() {
@@ -51,12 +49,16 @@ public class Student implements Serializable {
     }
 
     public String getDOB() {
-        return dob;
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.dob.getTime());
     }
 
-    public void setDOB(String dob) {
-        this.age = (byte) Period.between(LocalDate.parse(dob,DateTimeFormatter.ofPattern("dd/MM/yyyy")),LocalDate.now()).getYears();
-        this.dob = dob;
+    public void setDOB(String dob){
+        try{
+            this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));
+        }catch (ParseException e){
+            System.err.println(e);
+        }
+        
     }
 
     public String getAddress() {
@@ -88,8 +90,5 @@ public class Student implements Serializable {
     }
     public void removeKhoaHoc(KhoaHoc kh){
         this.dsKhoaHoc.remove(kh);
-    }
-    public byte getAge(){
-        return this.age;
     }
 }

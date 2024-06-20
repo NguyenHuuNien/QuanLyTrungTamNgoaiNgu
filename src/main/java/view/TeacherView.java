@@ -37,19 +37,19 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     
     private JLabel idLabel;
     private JLabel nameLabel;
-    private JLabel ageLabel;
+    private JLabel dobLabel;
     private JLabel addressLabel;
-    private JLabel gpaLabel;
+    private JLabel academicLabel;
     
     private JTextField idField;
     private JTextField nameField;
-    private JTextField ageField;
+    private JTextField dobField;
     private JTextArea addressTA;
     private JComboBox<String> capBacField;
     
     // định nghĩa các cột của bảng teacher
     private String [] columnNames = new String [] {
-            "ID", "Name", "Age", "Address", "Academic Titles"};
+            "ID", "Name", "DOB", "Address", "Academic Titles"};
     // định nghĩa dữ liệu mặc định của bẳng teacher là rỗng
     private Object data = new Object [][] {};
     
@@ -64,7 +64,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         editTeacherBtn = new JButton("Edit");
         deleteTeacherBtn = new JButton("Delete");
         clearBtn = new JButton("Clear");
-        sortTeacherAgeBtn = new JButton("Sort By Age");
+        sortTeacherAgeBtn = new JButton("Sort By ID");
         sortTeacherNameBtn = new JButton("Sort By Name");
         // khởi tạo bảng teacher
         jScrollPaneTeacherTable = new JScrollPane();
@@ -73,18 +73,18 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         // khởi tạo các label
         idLabel = new JLabel("Id");
         nameLabel = new JLabel("Name");
-        ageLabel = new JLabel("Age");
+        dobLabel = new JLabel("DOB");
         addressLabel = new JLabel("Address");
-        gpaLabel = new JLabel("Academic");
+        academicLabel = new JLabel("Academic");
         
         // khởi tạo các trường nhập dữ liệu cho teacher
         idField = new JTextField(6);
         idField.setEditable(false);
         nameField = new JTextField(15);
-        ageField = new JTextField(6);
+        dobField = new JTextField(8);
         addressTA = new JTextArea();
         addressTA.setColumns(15);
-        addressTA.setRows(5);
+        addressTA.setRows(3);
         jScrollPaneAddress = new JScrollPane();
         jScrollPaneAddress.setViewportView(addressTA);
         
@@ -115,13 +115,13 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         
         panel.add(idLabel);
         panel.add(nameLabel);
-        panel.add(ageLabel);
+        panel.add(dobLabel);
         panel.add(addressLabel);
-        panel.add(gpaLabel);
+        panel.add(academicLabel);
         
         panel.add(idField);
         panel.add(nameField);
-        panel.add(ageField);
+        panel.add(dobField);
         panel.add(jScrollPaneAddress);
         panel.add(capBacField);
         
@@ -130,38 +130,38 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.NORTH, idLabel, 10, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, nameLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, nameLabel, 40, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, ageLabel, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, ageLabel, 70, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, dobLabel, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, dobLabel, 70, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, addressLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, addressLabel, 100, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, gpaLabel, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, gpaLabel, 200, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, academicLabel, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, academicLabel, 170, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, idField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, idField, 10, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, nameField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, nameField, 40, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, ageField, 100, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, ageField, 70, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, dobField, 100, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, dobField, 70, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, jScrollPaneAddress, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneAddress, 100, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, capBacField, 100, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, capBacField, 200, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, capBacField, 170, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, jScrollPaneTeacherTable, 300, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneTeacherTable, 10, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, addTeacherBtn, 20, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, addTeacherBtn, 240, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, addTeacherBtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, editTeacherBtn, 60, SpringLayout.WEST, addTeacherBtn);
-        layout.putConstraint(SpringLayout.NORTH, editTeacherBtn, 240, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, editTeacherBtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, deleteTeacherBtn, 60, SpringLayout.WEST, editTeacherBtn);
         
-        layout.putConstraint(SpringLayout.NORTH, clearBtn, 240, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, clearBtn, 80, SpringLayout.WEST, deleteTeacherBtn);
+        layout.putConstraint(SpringLayout.NORTH, clearBtn, 330, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, clearBtn, 75, SpringLayout.WEST, deleteTeacherBtn);
         
-        layout.putConstraint(SpringLayout.NORTH, deleteTeacherBtn, 240, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortTeacherAgeBtn, 300, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, deleteTeacherBtn, 330, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, sortTeacherAgeBtn, 550, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, sortTeacherAgeBtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, sortTeacherNameBtn, 115, SpringLayout.WEST, sortTeacherAgeBtn);
         layout.putConstraint(SpringLayout.NORTH, sortTeacherNameBtn, 330, SpringLayout.NORTH, panel);
@@ -196,7 +196,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         for (int i = 0; i < size; i++) {
             teachers[i][0] = list.get(i).getId();
             teachers[i][1] = list.get(i).getName();
-            teachers[i][2] = list.get(i).getAge();
+            teachers[i][2] = list.get(i).getDOB();
             teachers[i][3] = list.get(i).getAddress();
             teachers[i][4] = list.get(i).getTrinhDo();
         }
@@ -213,7 +213,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         if (row >= 0) {
             idField.setText(teacherTable.getModel().getValueAt(row, 0).toString());
             nameField.setText(teacherTable.getModel().getValueAt(row, 1).toString());
-            ageField.setText(teacherTable.getModel().getValueAt(row, 2).toString());
+            dobField.setText(teacherTable.getModel().getValueAt(row, 2).toString());
             addressTA.setText(teacherTable.getModel().getValueAt(row, 3).toString());
             capBacField.setSelectedItem(teacherTable.getModel().getValueAt(row, 4).toString());
             // enable Edit and Delete buttons
@@ -230,7 +230,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     public void clearTeacherInfo() {
         idField.setText("");
         nameField.setText("");
-        ageField.setText("");
+        dobField.setText("");
         addressTA.setText("");
         capBacField.setSelectedIndex(0);
         // disable Edit and Delete buttons
@@ -248,7 +248,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     public void showTeacher(Teacher teacher) {
         idField.setText("" + teacher.getId());
         nameField.setText(teacher.getName());
-        ageField.setText("" + teacher.getAge());
+        dobField.setText("" + teacher.getDOB());
         addressTA.setText(teacher.getAddress());
         capBacField.setSelectedItem("" + teacher.getTrinhDo());
         // enable Edit and Delete buttons
@@ -274,7 +274,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
                 teacher.setId(Integer.parseInt(idField.getText()));
             }
             teacher.setName(nameField.getText().trim());
-            teacher.setAge(Byte.parseByte(ageField.getText().trim()));
+            teacher.setDOB(dobField.getText());
             teacher.setAddress(addressTA.getText().trim());
             teacher.setTrinhDo(capBacField.getSelectedItem().toString());
             return teacher;
@@ -306,14 +306,14 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     
     private boolean validateAge() {
         try {
-            Byte age = Byte.parseByte(ageField.getText().trim());
+            Byte age = Byte.parseByte(dobField.getText().trim());
             if (age < 0 || age > 100) {
-                ageField.requestFocus();
+                dobField.requestFocus();
                 showMessage("Age không hợp lệ, age nên trong khoảng 0 đến 100.");
                 return false;
             }
         } catch (Exception e) {
-            ageField.requestFocus();
+            dobField.requestFocus();
             showMessage("Age không hợp lệ!");
             return false;
         }

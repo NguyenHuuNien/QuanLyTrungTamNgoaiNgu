@@ -1,6 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,7 +15,7 @@ public class Teacher implements Serializable {
     private static final long serialVersionUID = 1L;
     private int id;
     private String name;
-    private byte age;
+    private Calendar dob = Calendar.getInstance();
     private String address;
     /* trình độ giáo viên */
     private String trinhDo;
@@ -20,11 +23,11 @@ public class Teacher implements Serializable {
     public Teacher() {
     }
 
-    public Teacher(int id, String name, byte age, String address, String trinhDo) {
+    public Teacher(int id, String name, String dob, String address, String trinhDo) throws ParseException {
         super();
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));
         this.address = address;
         this.trinhDo = trinhDo;
     }
@@ -45,12 +48,17 @@ public class Teacher implements Serializable {
         this.name = name;
     }
 
-    public byte getAge() {
-        return age;
+    public String getDOB() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.dob.getTime());
     }
 
-    public void setAge(byte age) {
-        this.age = age;
+    public void setDOB(String DOB) {
+        try{
+            this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(DOB));
+        }catch(ParseException e){
+            System.err.println(e);
+        }
+        
     }
 
     public String getAddress() {

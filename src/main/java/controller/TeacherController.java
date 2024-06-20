@@ -108,7 +108,7 @@ public class TeacherController {
      */
     class SortTeacherGPAListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            teacherDao.sortTeacherByAge();
+            teacherDao.sortTeacherByID();
             teacherView.showListTeachers(teacherDao.getListTeachers());
         }
     }

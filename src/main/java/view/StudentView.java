@@ -58,7 +58,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     
     // định nghĩa các cột của bảng student
     private String [] columnNames = new String [] {
-            "ID", "Name", "Age", "Address", "Courses"};
+            "ID", "Name", "DOB", "Address", "Courses"};
     // định nghĩa dữ liệu mặc định của bẳng student là rỗng
     private Object data = new Object [][] {};
     
@@ -73,7 +73,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         editStudentBtn = new JButton("Edit");
         deleteStudentBtn = new JButton("Delete");
         clearBtn = new JButton("Clear");
-        sortStudentGPABtn = new JButton("Sort By Age");
+        sortStudentGPABtn = new JButton("Sort By ID");
         sortStudentNameBtn = new JButton("Sort By Name");
         // khởi tạo bảng student
         jScrollPaneStudentTable = new JScrollPane();
@@ -90,10 +90,10 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         idField = new JTextField(6);
         idField.setEditable(false);
         nameField = new JTextField(15);
-        dobField = new JTextField(6);
+        dobField = new JTextField(8);
         addressTA = new JTextArea();
         addressTA.setColumns(15);
-        addressTA.setRows(5);
+        addressTA.setRows(3);
         jScrollPaneAddress = new JScrollPane();
         jScrollPaneAddress.setViewportView(addressTA);
         dsKhoaHocField = new JList<>();
@@ -141,7 +141,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.WEST, addressLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, addressLabel, 100, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, dsKhoaHocLabel, 10, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, dsKhoaHocLabel, 200, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, dsKhoaHocLabel, 170, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, idField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, idField, 10, SpringLayout.NORTH, panel);
@@ -152,7 +152,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.WEST, jScrollPaneAddress, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneAddress, 100, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, scrollPaneDSKhoaHoc, 100, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, scrollPaneDSKhoaHoc, 200, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, scrollPaneDSKhoaHoc, 170, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, jScrollPaneStudentTable, 300, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneStudentTable, 10, SpringLayout.NORTH, panel);
@@ -164,10 +164,10 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.WEST, deleteStudentBtn, 60, SpringLayout.WEST, editStudentBtn);
         
         layout.putConstraint(SpringLayout.NORTH, clearBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, clearBtn, 80, SpringLayout.WEST, deleteStudentBtn);
+        layout.putConstraint(SpringLayout.WEST, clearBtn, 75, SpringLayout.WEST, deleteStudentBtn);
         
         layout.putConstraint(SpringLayout.NORTH, deleteStudentBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortStudentGPABtn, 500, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.WEST, sortStudentGPABtn, 550, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, sortStudentGPABtn, 330, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, sortStudentNameBtn, 115, SpringLayout.WEST, sortStudentGPABtn);
         layout.putConstraint(SpringLayout.NORTH, sortStudentNameBtn, 330, SpringLayout.NORTH, panel);
@@ -202,7 +202,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         for (int i = 0; i < size; i++) {
             students[i][0] = list.get(i).getId();
             students[i][1] = list.get(i).getName();
-            students[i][2] = list.get(i).getAge();
+            students[i][2] = list.get(i).getDOB();
             students[i][3] = list.get(i).getAddress();
             students[i][4] = list.get(i).getStringDSKhoaHoc();
         }

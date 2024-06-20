@@ -119,10 +119,10 @@ public class StudentFunc {
     /**
      * sắp xếp danh sách student theo GPA theo tứ tự tăng dần
      */
-    public void sortStudentByAge() {
+    public void sortStudentByID() {
         Collections.sort(listStudents, new Comparator<Student>() {
             public int compare(Student student1, Student student2) {
-                if (student1.getAge()> student2.getAge()) {
+                if(student1.getId()>student2.getId()){
                     return 1;
                 }
                 return -1;

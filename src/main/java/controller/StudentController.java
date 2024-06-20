@@ -108,7 +108,7 @@ public class StudentController {
      */
     class SortStudentAgeListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            studentDao.sortStudentByAge();
+            studentDao.sortStudentByID();
             studentView.showListStudents(studentDao.getListStudents());
         }
     }

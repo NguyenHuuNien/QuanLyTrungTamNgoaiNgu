@@ -72,7 +72,7 @@ public class TeacherFunc {
         for (int i = 0; i < size; i++) {
             if (listTeachers.get(i).getId() == teacher.getId()) {
                 listTeachers.get(i).setName(teacher.getName());
-                listTeachers.get(i).setAge(teacher.getAge());
+                listTeachers.get(i).setDOB(teacher.getDOB());
                 listTeachers.get(i).setAddress(teacher.getAddress());
                 listTeachers.get(i).setTrinhDo(teacher.getTrinhDo());
                 writeListTeachers(listTeachers);
@@ -118,10 +118,10 @@ public class TeacherFunc {
     /**
      * sắp xếp danh sách teacher theo GPA theo tứ tự tăng dần
      */
-    public void sortTeacherByAge() {
+    public void sortTeacherByID() {
         Collections.sort(listTeachers, new Comparator<Teacher>() {
             public int compare(Teacher teacher1, Teacher teacher2) {
-                if (teacher1.getAge()> teacher2.getAge()) {
+                if(teacher1.getId()>teacher2.getId()){
                     return 1;
                 }
                 return -1;
