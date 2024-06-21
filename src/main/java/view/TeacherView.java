@@ -5,6 +5,9 @@ import entity.Teacher;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -265,7 +268,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
      */
     public Teacher getTeacherInfo() {
         // validate teacher
-        if (!validateName() || !validateAge() || !validateAddress() || !validateGPA()) {
+        if (!validateName() || !validateDOB() || !validateAddress() || !validateTrinhDo()) {
             return null;
         }
         try {
@@ -304,23 +307,34 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         return true;
     }
     
-    private boolean validateAge() {
+    private boolean validateDOB() {
         try {
-            Byte age = Byte.parseByte(dobField.getText().trim());
-            if (age < 0 || age > 100) {
+            String txtDOB = dobField.getText();
+            List<String> dateFormats = Arrays.asList("d/M/yyyy", "dd/M/yyyy", "d/MM/yyyy", "dd/MM/yyyy");
+            boolean validate = false;
+            for(String o : dateFormats){
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(o);
+                try {
+                    LocalDate.parse(txtDOB, formatter);
+                    validate = true;
+                    break;
+                } catch (Exception exception) {
+                }
+            }
+            if(!validate){
                 dobField.requestFocus();
-                showMessage("Age không hợp lệ, age nên trong khoảng 0 đến 100.");
+                showMessage("Ngày/Tháng/Năm sinh không hợp lệ!");
                 return false;
             }
         } catch (Exception e) {
             dobField.requestFocus();
-            showMessage("Age không hợp lệ!");
+            showMessage("Ngày/Tháng/Năm sinh không hợp lệ!");
             return false;
         }
         return true;
     }
     
-    private boolean validateGPA() {
+    private boolean validateTrinhDo() {
         return true;
     }
     

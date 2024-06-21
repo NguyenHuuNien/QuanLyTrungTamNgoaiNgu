@@ -12,61 +12,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "student")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Student implements Serializable {
+public class Student extends Person implements Serializable {
     private static final long serialVersionUID = 1L;
-    private int id;
-    private String name;
-    private Calendar dob = Calendar.getInstance();
-    private String address;
     private List<KhoaHoc> dsKhoaHoc;
 
     public Student() {
     }
 
-    public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc) throws ParseException {
-        super();
-        this.id = id;
-        this.name = name;
-        this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));
-        this.address = address;
+    public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc) throws ParseException{
+        super(id,name,dob,address);
         this.dsKhoaHoc = dsKhoaHoc;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDOB() {
-        return new SimpleDateFormat("dd/MM/yyyy").format(this.dob.getTime());
-    }
-
-    public void setDOB(String dob){
-        try{
-            this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));
-        }catch (ParseException e){
-            System.err.println(e);
-        }
-        
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public List<KhoaHoc> getDSKhoaHoc() {

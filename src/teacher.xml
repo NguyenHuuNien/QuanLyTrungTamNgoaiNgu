@@ -3,71 +3,78 @@
     <teacher>
         <id>1</id>
         <name>Mai Thu Thuy</name>
-        <age>22</age>
-        <address>Ha Noi</address>
+        <dob>2024-12-14T00:00:00+07:00</dob>
+        <address>Ninh Binh</address>
         <trinhDo>Giảng viên</trinhDo>
     </teacher>
     <teacher>
         <id>2</id>
         <name>Tran The Vinh</name>
-        <age>23</age>
+        <dob>2024-06-21T17:07:23.150+07:00</dob>
         <address>Vinh Phuc</address>
         <trinhDo>Giáo sư</trinhDo>
     </teacher>
     <teacher>
         <id>3</id>
         <name>Nguyen Van Cuong</name>
-        <age>30</age>
+        <dob>2024-06-21T17:07:23.150+07:00</dob>
         <address>Da Nang</address>
         <trinhDo>Tiến sĩ</trinhDo>
     </teacher>
     <teacher>
         <id>4</id>
         <name>Le Thi Cuc</name>
-        <age>28</age>
+        <dob>2024-06-21T17:07:23.151+07:00</dob>
         <address>Ho Chi Minh</address>
         <trinhDo>Phó giáo sư</trinhDo>
     </teacher>
     <teacher>
         <id>5</id>
         <name>Tran Van Cuong</name>
-        <age>40</age>
+        <dob>2024-06-21T00:00:00+07:00</dob>
         <address>Hue</address>
-        <trinhDo>Thạc sĩ</trinhDo>
+        <trinhDo>Phó giáo sư</trinhDo>
     </teacher>
     <teacher>
         <id>6</id>
         <name>Pham Thi Duong</name>
-        <age>35</age>
+        <dob>2024-06-21T17:07:23.151+07:00</dob>
         <address>Nha Trang</address>
         <trinhDo>Giảng viên</trinhDo>
     </teacher>
     <teacher>
         <id>7</id>
         <name>Hoang Van Phu</name>
-        <age>45</age>
+        <dob>2024-06-21T17:07:23.151+07:00</dob>
         <address>Can Tho</address>
         <trinhDo>Giáo sư</trinhDo>
     </teacher>
     <teacher>
         <id>8</id>
         <name>Nguyen Thi Hoa Quynh</name>
-        <age>32</age>
+        <dob>2024-06-21T17:07:23.152+07:00</dob>
         <address>Ha Noi</address>
         <trinhDo>Tiến sĩ</trinhDo>
     </teacher>
     <teacher>
         <id>9</id>
         <name>Do Van Trung</name>
-        <age>38</age>
+        <dob>2024-06-21T17:07:23.152+07:00</dob>
         <address>Quang Ninh</address>
         <trinhDo>Phó giáo sư</trinhDo>
     </teacher>
     <teacher>
         <id>10</id>
         <name>Le Van Hai</name>
-        <age>29</age>
+        <dob>2024-06-21T17:07:23.152+07:00</dob>
         <address>Hai Phong</address>
         <trinhDo>Thạc sĩ</trinhDo>
+    </teacher>
+    <teacher>
+        <id>11</id>
+        <name>Pham Thi Hong Anh</name>
+        <dob>2004-05-01T00:00:00+07:00</dob>
+        <address>Ninh Binh</address>
+        <trinhDo>Phó giáo sư</trinhDo>
     </teacher>
 </teachers>

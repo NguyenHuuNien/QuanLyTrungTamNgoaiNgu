@@ -3,461 +3,187 @@
     <student>
         <id>1</id>
         <name>Mai Thanh Toan</name>
-        <dob>2004-03-07</dob>
+        <dob>2008-07-06T00:00:00+07:00</dob>
         <address>Ha Noi</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>2</id>
         <name>Vinh The Mac</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Vinh Phuc</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>3</id>
         <name>Nguyen Van Khai</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Da Nang</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>4</id>
         <name>Le Thi Quoc Nghiep</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ho Chi Minh</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>5</id>
         <name>Tran Van Quoc Co</name>
-        <dob>01/05/2004</dob>
-        <address>Hue</address>
-        <age>20</age>
+        <dob>2024-06-21T00:00:00+07:00</dob>
+        <address>Da Nang</address>
     </student>
     <student>
         <id>6</id>
         <name>Pham Thi Duong</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Nha Trang</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>7</id>
         <name>Hoang Van Thang</name>
-        <dob>06/06/2006</dob>
+        <dob>2024-06-21T17:03:41.817+07:00</dob>
         <address>Can Tho</address>
-        <age>18</age>
     </student>
     <student>
         <id>8</id>
         <name>Nguyen Thi Oanh</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ha Noi</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>9</id>
         <name>Do Van Nghiep</name>
-        <dob>07/03/2004</dob>
+        <dob>2024-06-21T17:03:41.818+07:00</dob>
         <address>Quang Ninh</address>
-        <age>20</age>
     </student>
     <student>
         <id>10</id>
         <name>Le Van Hai</name>
-        <dob>01/02/1999</dob>
+        <dob>2024-06-21T17:03:41.818+07:00</dob>
         <address>Hai Phong</address>
-        <age>25</age>
     </student>
     <student>
         <id>11</id>
         <name>Pham Thi Nga</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ha Tinh</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>12</id>
         <name>Hoang Van Trung</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Nghe An</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>13</id>
         <name>Nguyen Thi Ha Linh</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ha Noi</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>14</id>
         <name>Do Van Cuong</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Da Nang</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>15</id>
         <name>Le Van Minh Khai</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Hue</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>16</id>
         <name>Pham Thi Ngoc Oanh</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ho Chi Minh</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>17</id>
         <name>Hoang Van Phap</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Nha Trang</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>18</id>
         <name>Nguyen Thi Phuong</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Can Tho</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>19</id>
         <name>Do Van Quang</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Quang Ninh</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>20</id>
         <name>Le Van Minh</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Hai Phong</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>21</id>
         <name>Pham Thi Sau</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ha Noi</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>22</id>
         <name>Hoang Van Khai</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ha Tinh</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>23</id>
         <name>Nguyen Thi Tra</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Nghe An</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>24</id>
         <name>Do Van Ngoc</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ha Noi</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>25</id>
         <name>Le Van Quoc</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Da Nang</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>26</id>
         <name>Pham Thi Le</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Hue</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>27</id>
         <name>Hoang Van Quy</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ho Chi Minh</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>28</id>
         <name>Nguyen Thi Minh Nguyet</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Nha Trang</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>29</id>
         <name>Do Van Hoang</name>
-        <dob>2004-03-07</dob>
+        <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Can Tho</address>
-        <khoahocs>
-            <khoahoc>
-                <tenKhoaHoc>Java Programming</tenKhoaHoc>
-                <thoiGianKhoaHoc>2024-07-01</thoiGianKhoaHoc>
-                <giaKhoaHoc>100.0</giaKhoaHoc>
-                <taiLieu>
-                    <taiLieu>Java Basics</taiLieu>
-                    <taiLieu>Advanced Java</taiLieu>
-                </taiLieu>
-            </khoahoc>
-        </khoahocs>
     </student>
     <student>
         <id>30</id>
         <name>Le Van Quang</name>
-        <dob>09/09/2009</dob>
+        <dob>2024-06-21T17:03:41.822+07:00</dob>
         <address>Quang Ninh</address>
-        <age>14</age>
+    </student>
+    <student>
+        <id>31</id>
+        <name>Nguyen Huu Nien</name>
+        <dob>2004-05-01T00:00:00+07:00</dob>
+        <address>Ninh Binh</address>
     </student>
 </students>

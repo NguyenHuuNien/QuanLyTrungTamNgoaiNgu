@@ -26,7 +26,10 @@ public class HomeFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
+        txtNameCenter = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         qlSV = new javax.swing.JButton();
         qlGV = new javax.swing.JButton();
         qlMonHoc = new javax.swing.JButton();
@@ -37,20 +40,32 @@ public class HomeFrame extends javax.swing.JFrame {
         setTitle("Manager");
         setPreferredSize(new java.awt.Dimension(750, 420));
         setResizable(false);
-        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 50));
+        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 40));
+
+        jPanel4.setForeground(new java.awt.Color(153, 153, 153));
+
+        txtNameCenter.setFont(new java.awt.Font("Monospaced", 1, 28)); // NOI18N
+        txtNameCenter.setForeground(new java.awt.Color(102, 102, 102));
+        txtNameCenter.setText("Trung tâm ngoại ngữ TLinh");
+        txtNameCenter.setToolTipText("");
+        jPanel4.add(txtNameCenter);
+
+        getContentPane().add(jPanel4);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lý", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Liberation Sans", 3, 18), new java.awt.Color(0, 0, 255))); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 100));
-        jPanel1.setLayout(new java.awt.GridLayout(1, 3, 20, 0));
+
+        jPanel3.setLayout(new java.awt.GridLayout(1, 3, 40, 0));
 
         qlSV.setText("Quản lý Sinh viên");
-        qlSV.setPreferredSize(new java.awt.Dimension(800, 400));
+        qlSV.setMaximumSize(new java.awt.Dimension(150, 50));
+        qlSV.setPreferredSize(new java.awt.Dimension(150, 50));
         qlSV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 qlSVActionPerformed(evt);
             }
         });
-        jPanel1.add(qlSV);
+        jPanel3.add(qlSV);
 
         qlGV.setText("Quản lý Giảng viên");
         qlGV.addActionListener(new java.awt.event.ActionListener() {
@@ -58,11 +73,13 @@ public class HomeFrame extends javax.swing.JFrame {
                 qlGVActionPerformed(evt);
             }
         });
-        jPanel1.add(qlGV);
+        jPanel3.add(qlGV);
 
         qlMonHoc.setText("Quản lý Môn học");
         qlMonHoc.setToolTipText("");
-        jPanel1.add(qlMonHoc);
+        jPanel3.add(qlMonHoc);
+
+        jPanel1.add(jPanel3);
 
         getContentPane().add(jPanel1);
 
@@ -131,8 +148,11 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JButton ThongKe;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JButton qlGV;
     private javax.swing.JButton qlMonHoc;
     private javax.swing.JButton qlSV;
+    private javax.swing.JLabel txtNameCenter;
     // End of variables declaration//GEN-END:variables
 }
