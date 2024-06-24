@@ -18,11 +18,21 @@ public class Person implements Serializable{
     private String address;
     public Person() {
     }
-
-    public Person(int id, String name, String dob,String address) throws ParseException {
+    
+    public Person(int id, String name){ // use when create admin
         this.id = id;
         this.name = name;
-        this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));
+    }
+
+    public Person(int id, String name, String dob,String address){
+        this.id = id;
+        this.name = name;
+        try{
+            this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));    
+        }catch(Exception e){
+            System.err.println(e);
+        }
+        
         this.address = address;
     }
 
@@ -60,6 +70,5 @@ public class Person implements Serializable{
         }catch (ParseException e){
             System.err.println(e);
         }
-        
     }
 }

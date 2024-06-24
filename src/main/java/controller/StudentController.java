@@ -33,7 +33,10 @@ public class StudentController {
         studentView.setVisible(true);
         studentView.showListStudents(studentList);
     }
-
+    public void showStudentView(List<Student> lsStudent){
+        studentView.setVisible(true);
+        studentView.showListStudents(lsStudent);
+    }
     /**
      * Lớp AddStudentListener 
      * chứa cài đặt cho sự kiện click button "Add"

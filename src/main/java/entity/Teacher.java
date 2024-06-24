@@ -19,7 +19,7 @@ public class Teacher extends Person implements Serializable {
     public Teacher() {
     }
 
-    public Teacher(int id, String name, String dob, String address, String trinhDo) throws ParseException {
+    public Teacher(int id, String name, String dob, String address, String trinhDo){
         super(id,name,dob,address);
         this.trinhDo = trinhDo;
     }

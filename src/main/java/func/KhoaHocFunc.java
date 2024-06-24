@@ -17,22 +17,12 @@ public class KhoaHocFunc {
         this.listKhoaHoc = readListKhoaHoc();
     }
 
-    /**
-     * Lưu danh sách các khóa học vào file khoahoc.xml
-     *
-     * @param khoaHocList Danh sách các khóa học
-     */
     public void writeListKhoaHoc(List<KhoaHoc> khoaHocList) {
         KhoaHocXML khoaHocXML = new KhoaHocXML();
         khoaHocXML.setKhoaHoc(khoaHocList);
         FileUtils.writeXMLtoFile(KHOA_HOC_FILE_NAME, khoaHocXML);
     }
 
-    /**
-     * Đọc danh sách các khóa học từ file khoahoc.xml
-     *
-     * @return Danh sách các khóa học
-     */
     public List<KhoaHoc> readListKhoaHoc() {
         List<KhoaHoc> list = new ArrayList<>();
         KhoaHocXML khoaHocXML = (KhoaHocXML) FileUtils.readXMLFile(KHOA_HOC_FILE_NAME, KhoaHocXML.class);
@@ -42,23 +32,13 @@ public class KhoaHocFunc {
         return list;
     }
 
-    /**
-     * Thêm một khóa học vào danh sách và lưu danh sách vào file
-     *
-     * @param khoaHoc Khóa học cần thêm
-     */
     public void add(KhoaHoc khoaHoc) {
-        int id = (listKhoaHoc.size() > 0) ? (listKhoaHoc.size() + 1) : 1;
+        int id = (!listKhoaHoc.isEmpty()) ? (listKhoaHoc.size() + 1) : 1;
         khoaHoc.setId(id);
         listKhoaHoc.add(khoaHoc);
         writeListKhoaHoc(listKhoaHoc);
     }
 
-    /**
-     * Cập nhật thông tin một khóa học trong danh sách và lưu danh sách vào file
-     *
-     * @param khoaHoc Khóa học cần cập nhật
-     */
     public void edit(KhoaHoc khoaHoc) {
         for (KhoaHoc kh : listKhoaHoc) {
             if (kh.getId() == khoaHoc.getId()) {
@@ -74,12 +54,6 @@ public class KhoaHocFunc {
         writeListKhoaHoc(listKhoaHoc);
     }
 
-    /**
-     * Xóa một khóa học từ danh sách và lưu danh sách vào file
-     *
-     * @param khoaHoc Khóa học cần xóa
-     * @return true nếu xóa thành công, ngược lại là false
-     */
     public boolean delete(KhoaHoc khoaHoc) {
         boolean isFound = false;
         int size = listKhoaHoc.size();
@@ -96,12 +70,7 @@ public class KhoaHocFunc {
         }
         return isFound;
     }
- 
 
-
-    /**
-     * Sắp xếp danh sách khóa học theo tên theo thứ tự tăng dần
-     */
     public void sortKhoaHocByName() {
         Collections.sort(listKhoaHoc, new Comparator<KhoaHoc>() {
             public int compare(KhoaHoc kh1, KhoaHoc kh2) {
@@ -110,13 +79,13 @@ public class KhoaHocFunc {
         });
     }
 
-    /**
-     * Sắp xếp danh sách khóa học theo thời gian theo thứ tự tăng dần
-     */
-    public void sortKhoaHocByTime() {
+    public void sortKhoaHocByGia() {
         Collections.sort(listKhoaHoc, new Comparator<KhoaHoc>() {
             public int compare(KhoaHoc kh1, KhoaHoc kh2) {
-                return kh1.getThoiGianKhoaHoc().compareTo(kh2.getThoiGianKhoaHoc());
+                if(kh1.getGiaKhoaHoc()>kh2.getGiaKhoaHoc()){
+                    return 1;
+                }
+                return -1;
             }
         });
     }

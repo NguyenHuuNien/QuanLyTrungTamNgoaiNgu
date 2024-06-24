@@ -19,7 +19,7 @@ public class Student extends Person implements Serializable {
     public Student() {
     }
 
-    public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc) throws ParseException{
+    public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc){
         super(id,name,dob,address);
         this.dsKhoaHoc = dsKhoaHoc;
     }

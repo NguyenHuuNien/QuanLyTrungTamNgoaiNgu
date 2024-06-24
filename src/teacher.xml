@@ -77,4 +77,11 @@
         <address>Ninh Binh</address>
         <trinhDo>Phó giáo sư</trinhDo>
     </teacher>
+    <teacher>
+        <id>12</id>
+        <name>Vũ TRần Kim Oanh</name>
+        <dob>2004-11-29T00:00:00+07:00</dob>
+        <address>Vũng Tàu</address>
+        <trinhDo>Tiến sĩ</trinhDo>
+    </teacher>
 </teachers>

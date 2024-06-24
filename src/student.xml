@@ -186,4 +186,10 @@
         <dob>2004-05-01T00:00:00+07:00</dob>
         <address>Ninh Binh</address>
     </student>
+    <student>
+        <id>32</id>
+        <name>Vu Oanh</name>
+        <dob>2004-11-29T00:00:00+07:00</dob>
+        <address>Vũng Tàu</address>
+    </student>
 </students>

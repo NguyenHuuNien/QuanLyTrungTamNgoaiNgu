@@ -12,7 +12,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class KhoaHoc implements Serializable{
     private int id;
     private String tenKhoaHoc;
-    private String thoiGianKhoaHoc;
+    private String ngonNgu;
+    private String skill;
+    private int thoiGianKhoaHoc;
     private double giaKhoaHoc;
     private String[] taiLieu;
     private List<Student> dsStudent;
@@ -21,10 +23,12 @@ public class KhoaHoc implements Serializable{
     public KhoaHoc() {
     }
 
-    public KhoaHoc(int id, String tenKhoaHoc, String thoiGianKhoaHoc, double giaKhoaHoc, String[] taiLieu, List<Student> dsStudent, List<Teacher> dsTeacher) {
+    public KhoaHoc(int id, String tenKhoaHoc,String ngonNgu,String skill, int thoiGianKhoaHoc, double giaKhoaHoc, String[] taiLieu, List<Student> dsStudent, List<Teacher> dsTeacher) {
         this.id = id;
         this.tenKhoaHoc = tenKhoaHoc;
         this.thoiGianKhoaHoc = thoiGianKhoaHoc;
+        this.ngonNgu = ngonNgu;
+        this.skill = skill;
         this.giaKhoaHoc = giaKhoaHoc;
         this.taiLieu = taiLieu;
         this.dsStudent = dsStudent;
@@ -47,12 +51,28 @@ public class KhoaHoc implements Serializable{
         this.tenKhoaHoc = tenKhoaHoc;
     }
 
-    public String getThoiGianKhoaHoc() {
-        return thoiGianKhoaHoc;
+    public int getThoiGianKhoaHoc() {
+        return this.thoiGianKhoaHoc;
     }
 
-    public void setThoiGianKhoaHoc(String thoiGianKhoaHoc) {
+    public void setThoiGianKhoaHoc(int thoiGianKhoaHoc) {
         this.thoiGianKhoaHoc = thoiGianKhoaHoc;
+    }
+
+    public String getNgonNgu() {
+        return ngonNgu;
+    }
+
+    public void setNgonNgu(String ngonNgu) {
+        this.ngonNgu = ngonNgu;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 
     public double getGiaKhoaHoc() {
