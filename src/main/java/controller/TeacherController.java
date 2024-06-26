@@ -34,12 +34,6 @@ public class TeacherController {
         teacherView.showListTeachers(teacherList);
     }
 
-    /**get
-     * Lớp AddTeacherListener 
-     * chứa cài đặt cho sự kiện click button "Add"
-     * 
-     * @author viettuts.vn
-     */
     class AddTeacherListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Teacher teacher = teacherView.getTeacherInfo();
@@ -52,12 +46,6 @@ public class TeacherController {
         }
     }
 
-    /**
-     * Lớp EditTeacherListener 
-     * chứa cài đặt cho sự kiện click button "Edit"
-     * 
-     * @author viettuts.vn
-     */
     class EditTeacherListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Teacher teacher = teacherView.getTeacherInfo();
@@ -70,12 +58,6 @@ public class TeacherController {
         }
     }
 
-    /**
-     * Lớp DeleteTeacherListener 
-     * chứa cài đặt cho sự kiện click button "Delete"
-     * 
-     * @author viettuts.vn
-     */
     class DeleteTeacherListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Teacher teacher = teacherView.getTeacherInfo();
@@ -88,24 +70,12 @@ public class TeacherController {
         }
     }
 
-    /**
-     * Lớp ClearTeacherListener 
-     * chứa cài đặt cho sự kiện click button "Clear"
-     * 
-     * @author viettuts.vn
-     */
     class ClearTeacherListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             teacherView.clearTeacherInfo();
         }
     }
 
-    /**
-     * Lớp SortTeacherGPAListener 
-     * chứa cài đặt cho sự kiện click button "Sort By GPA"
-     * 
-     * @author viettuts.vn
-     */
     class SortTeacherGPAListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             teacherDao.sortTeacherByID();
@@ -113,12 +83,6 @@ public class TeacherController {
         }
     }
 
-    /**
-     * Lớp SortTeacherGPAListener 
-     * chứa cài đặt cho sự kiện click button "Sort By Name"
-     * 
-     * @author viettuts.vn
-     */
     class SortTeacherNameListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             teacherDao.sortTeacherByName();
@@ -126,12 +90,6 @@ public class TeacherController {
         }
     }
 
-    /**
-     * Lớp ListTeacherSelectionListener 
-     * chứa cài đặt cho sự kiện chọn teacher trong bảng Teacher
-     * 
-     * @author viettuts.vn
-     */
     class ListTeacherSelectionListener implements ListSelectionListener {
         public void valueChanged(ListSelectionEvent e) {
             teacherView.fillTeacherFromSelectedRow();

@@ -71,10 +71,13 @@ public class KhoaHocFunc {
         return isFound;
     }
 
-    public void sortKhoaHocByName() {
+    public void sortKhoaHocByID() {
         Collections.sort(listKhoaHoc, new Comparator<KhoaHoc>() {
             public int compare(KhoaHoc kh1, KhoaHoc kh2) {
-                return kh1.getTenKhoaHoc().compareTo(kh2.getTenKhoaHoc());
+                if(kh1.getId() > kh2.getId()){
+                    return 1;
+                }
+                return -1;
             }
         });
     }
