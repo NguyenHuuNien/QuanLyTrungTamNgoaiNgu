@@ -1,6 +1,5 @@
 package controller;
 
-
 import entity.Student;
 import func.StudentFunc;
 import java.awt.event.ActionEvent;

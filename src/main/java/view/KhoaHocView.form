@@ -80,7 +80,7 @@
             <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="userID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Mono" size="18" style="0"/>
@@ -92,7 +92,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="userHoTen">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Mono" size="18" style="0"/>
@@ -104,7 +104,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="userNgaySinh">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Mono" size="18" style="0"/>
@@ -202,7 +202,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                <Component class="javax.swing.JComboBox" name="cbNgonNgu">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Liberation Sans" size="18" style="3"/>
@@ -249,7 +249,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="txtID">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -282,7 +282,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="txtTenKhoaHoc">
                   <Properties>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[200, 25]"/>
@@ -317,7 +317,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Container class="javax.swing.JPanel" name="jPanel4">
+                <Container class="javax.swing.JPanel" name="pnThoiLuong">
                   <Properties>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[99, 60]"/>
@@ -362,7 +362,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JSpinner" name="jSpinner5">
+                        <Component class="javax.swing.JSpinner" name="spinFromThang">
                           <Properties>
                             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                               <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -404,7 +404,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JSpinner" name="jSpinner6">
+                        <Component class="javax.swing.JSpinner" name="spinToThang">
                           <Properties>
                             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                               <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -443,7 +443,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Container class="javax.swing.JPanel" name="jPanel13">
+                <Container class="javax.swing.JPanel" name="pnKyNang">
                   <Properties>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[220, 25]"/>
@@ -455,36 +455,36 @@
                     <Property name="verticalGap" type="int" value="0"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                    <Component class="javax.swing.JCheckBox" name="checkNghe">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nghe"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkNgheActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+                    <Component class="javax.swing.JCheckBox" name="checkNoi">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="N&#xf3;i"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkNoiActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+                    <Component class="javax.swing.JCheckBox" name="checkDoc">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="&#x110;&#x1ecd;c"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkDocActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+                    <Component class="javax.swing.JCheckBox" name="checkViet">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Vi&#x1ebf;t"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox4ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkVietActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -514,7 +514,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Container class="javax.swing.JPanel" name="jPanel1">
+                <Container class="javax.swing.JPanel" name="pnGia">
                   <Properties>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[99, 60]"/>
@@ -537,7 +537,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSpinner" name="jSpinner2">
+                    <Component class="javax.swing.JSpinner" name="spinFromGia">
                       <Properties>
                         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                           <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="100000" type="number"/>
@@ -563,7 +563,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSpinner" name="jSpinner3">
+                    <Component class="javax.swing.JSpinner" name="spinToGia">
                       <Properties>
                         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                           <SpinnerModel initial="100000" minimum="100000" numberType="java.lang.Integer" stepSize="100000" type="number"/>
@@ -597,12 +597,12 @@
                 <Property name="verticalGap" type="int" value="3"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="btnTimKiem">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton7">
+                <Component class="javax.swing.JButton" name="btnDangKy">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng k&#xfd;"/>
                   </Properties>
@@ -639,7 +639,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton3">
+                <Component class="javax.swing.JButton" name="btnShowTaiLieu">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Xem t&#xe0;i li&#x1ec7;u"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -658,7 +658,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton4">
+                <Component class="javax.swing.JButton" name="btnShowDSSinhVien">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Xem DS Sinh vi&#xea;n"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -666,7 +666,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowDSSinhVienActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel21">
@@ -682,7 +682,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton5">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Xem  DS Gi&#x1ea3;ng vi&#xea;n"/>
+                    <Property name="text" type="java.lang.String" value="Xem DS Gi&#x1ea3;ng vi&#xea;n"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[180, 24]"/>
                     </Property>
@@ -743,7 +743,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="table">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
@@ -764,7 +764,7 @@
                 <Property name="verticalGap" type="int" value="10"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="btnSapXepID">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="S&#x1eaf;p x&#x1ebf;p theo ID"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -772,7 +772,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
+                <Component class="javax.swing.JButton" name="btnSapXepGia">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="S&#x1eaf;p x&#x1ebf;p theo Gi&#xe1;"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -780,7 +780,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSapXepGiaActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

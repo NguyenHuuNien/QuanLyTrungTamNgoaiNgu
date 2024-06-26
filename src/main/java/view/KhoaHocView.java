@@ -6,14 +6,31 @@ public class KhoaHocView extends javax.swing.JFrame {
     private Person person;
     public KhoaHocView() {
         initComponents();
-        person = new Person(0, "admin", "1/1/0001", "Trung tâm ngoại ngữ TLing");
-        
+        setDuLieu();
     }
     public KhoaHocView(Person person) {
         initComponents();
         this.person = person;
+        setDuLieu();
     }
-
+    
+    private void setDuLieu(){
+        setupInfoUserView();
+    }
+    
+    private void setupInfoUserView(){
+        if(person == null){
+            avtLabel.setText("@");
+            userID.setText("admin");
+            userHoTen.setText("Trung tâm ngoại ngữ TLing");
+            userNgaySinh.setText("");
+        }else{
+            avtLabel.setText(person.getName().substring(0, 1));
+            userID.setText("ID: " + person.getId());
+            userHoTen.setText("Họ và Tên: " + person.getName());
+            userNgaySinh.setText("Ngày sinh: " + person.getDOB());
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,66 +38,66 @@ public class KhoaHocView extends javax.swing.JFrame {
         UserInfoPanel = new javax.swing.JPanel();
         avtLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        userID = new javax.swing.JLabel();
+        userHoTen = new javax.swing.JLabel();
+        userNgaySinh = new javax.swing.JLabel();
         hr1 = new javax.swing.JPanel();
         centerPanel = new javax.swing.JPanel();
         InforPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbNgonNgu = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtTenKhoaHoc = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        pnThoiLuong = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
+        spinFromThang = new javax.swing.JSpinner();
         jPanel6 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jSpinner6 = new javax.swing.JSpinner();
+        spinToThang = new javax.swing.JSpinner();
         jPanel12 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        pnKyNang = new javax.swing.JPanel();
+        checkNghe = new javax.swing.JCheckBox();
+        checkNoi = new javax.swing.JCheckBox();
+        checkDoc = new javax.swing.JCheckBox();
+        checkViet = new javax.swing.JCheckBox();
         jPanel14 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pnGia = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        spinFromGia = new javax.swing.JSpinner();
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
+        spinToGia = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnTimKiem = new javax.swing.JButton();
+        btnDangKy = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnShowTaiLieu = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnShowDSSinhVien = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         hr2 = new javax.swing.JPanel();
         TablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnSapXepID = new javax.swing.JButton();
+        btnSapXepGia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1500, 800));
@@ -104,23 +121,23 @@ public class KhoaHocView extends javax.swing.JFrame {
         jPanel2.setRequestFocusEnabled(false);
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 1));
 
-        jLabel1.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("ID: 1");
-        jLabel1.setPreferredSize(new java.awt.Dimension(480, 30));
-        jPanel2.add(jLabel1);
+        userID.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
+        userID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        userID.setText("ID: 1");
+        userID.setPreferredSize(new java.awt.Dimension(480, 30));
+        jPanel2.add(userID);
 
-        jLabel2.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Họ và Tên: Nguyen Thi A");
-        jLabel2.setPreferredSize(new java.awt.Dimension(480, 30));
-        jPanel2.add(jLabel2);
+        userHoTen.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
+        userHoTen.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        userHoTen.setText("Họ và Tên: Nguyen Thi A");
+        userHoTen.setPreferredSize(new java.awt.Dimension(480, 30));
+        jPanel2.add(userHoTen);
 
-        jLabel3.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("Ngày sinh: 01/01/2004");
-        jLabel3.setPreferredSize(new java.awt.Dimension(480, 30));
-        jPanel2.add(jLabel3);
+        userNgaySinh.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
+        userNgaySinh.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        userNgaySinh.setText("Ngày sinh: 01/01/2004");
+        userNgaySinh.setPreferredSize(new java.awt.Dimension(480, 30));
+        jPanel2.add(userNgaySinh);
 
         UserInfoPanel.add(jPanel2);
 
@@ -162,10 +179,10 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel7.setPreferredSize(new java.awt.Dimension(100, 25));
         jPanel10.add(jLabel7);
 
-        jComboBox1.setFont(new java.awt.Font("Liberation Sans", 3, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Tiếng Anh", "Tiếng Nhật", "Tiếng Hàn", "Tiếng Trung Quốc" }));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(200, 25));
-        jPanel10.add(jComboBox1);
+        cbNgonNgu.setFont(new java.awt.Font("Liberation Sans", 3, 18)); // NOI18N
+        cbNgonNgu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Tiếng Anh", "Tiếng Nhật", "Tiếng Hàn", "Tiếng Trung Quốc" }));
+        cbNgonNgu.setPreferredSize(new java.awt.Dimension(200, 25));
+        jPanel10.add(cbNgonNgu);
 
         InforPanel.add(jPanel10);
 
@@ -177,9 +194,9 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel5.setPreferredSize(new java.awt.Dimension(100, 25));
         jPanel8.add(jLabel5);
 
-        jTextField1.setEnabled(false);
-        jTextField1.setPreferredSize(new java.awt.Dimension(200, 25));
-        jPanel8.add(jTextField1);
+        txtID.setEnabled(false);
+        txtID.setPreferredSize(new java.awt.Dimension(200, 25));
+        jPanel8.add(txtID);
 
         InforPanel.add(jPanel8);
 
@@ -191,8 +208,8 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel6.setPreferredSize(new java.awt.Dimension(100, 25));
         jPanel9.add(jLabel6);
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(200, 25));
-        jPanel9.add(jTextField2);
+        txtTenKhoaHoc.setPreferredSize(new java.awt.Dimension(200, 25));
+        jPanel9.add(txtTenKhoaHoc);
 
         InforPanel.add(jPanel9);
 
@@ -205,9 +222,9 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(100, 25));
         jPanel11.add(jLabel8);
 
-        jPanel4.setMinimumSize(new java.awt.Dimension(99, 60));
-        jPanel4.setPreferredSize(new java.awt.Dimension(200, 60));
-        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
+        pnThoiLuong.setMinimumSize(new java.awt.Dimension(99, 60));
+        pnThoiLuong.setPreferredSize(new java.awt.Dimension(200, 60));
+        pnThoiLuong.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
 
         jPanel5.setPreferredSize(new java.awt.Dimension(200, 25));
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
@@ -221,11 +238,11 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel17.setPreferredSize(new java.awt.Dimension(50, 18));
         jPanel5.add(jLabel17);
 
-        jSpinner5.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinner5.setPreferredSize(new java.awt.Dimension(60, 25));
-        jPanel5.add(jSpinner5);
+        spinFromThang.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spinFromThang.setPreferredSize(new java.awt.Dimension(60, 25));
+        jPanel5.add(spinFromThang);
 
-        jPanel4.add(jPanel5);
+        pnThoiLuong.add(jPanel5);
 
         jPanel6.setPreferredSize(new java.awt.Dimension(200, 25));
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
@@ -239,13 +256,13 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel23.setPreferredSize(new java.awt.Dimension(50, 18));
         jPanel6.add(jLabel23);
 
-        jSpinner6.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinner6.setPreferredSize(new java.awt.Dimension(60, 25));
-        jPanel6.add(jSpinner6);
+        spinToThang.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spinToThang.setPreferredSize(new java.awt.Dimension(60, 25));
+        jPanel6.add(spinToThang);
 
-        jPanel4.add(jPanel6);
+        pnThoiLuong.add(jPanel6);
 
-        jPanel11.add(jPanel4);
+        jPanel11.add(pnThoiLuong);
 
         InforPanel.add(jPanel11);
 
@@ -257,42 +274,42 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel9.setPreferredSize(new java.awt.Dimension(80, 25));
         jPanel12.add(jLabel9);
 
-        jPanel13.setPreferredSize(new java.awt.Dimension(220, 25));
-        jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+        pnKyNang.setPreferredSize(new java.awt.Dimension(220, 25));
+        pnKyNang.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
 
-        jCheckBox1.setText("Nghe");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        checkNghe.setText("Nghe");
+        checkNghe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                checkNgheActionPerformed(evt);
             }
         });
-        jPanel13.add(jCheckBox1);
+        pnKyNang.add(checkNghe);
 
-        jCheckBox2.setText("Nói");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        checkNoi.setText("Nói");
+        checkNoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                checkNoiActionPerformed(evt);
             }
         });
-        jPanel13.add(jCheckBox2);
+        pnKyNang.add(checkNoi);
 
-        jCheckBox3.setText("Đọc");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        checkDoc.setText("Đọc");
+        checkDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                checkDocActionPerformed(evt);
             }
         });
-        jPanel13.add(jCheckBox3);
+        pnKyNang.add(checkDoc);
 
-        jCheckBox4.setText("Viết");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        checkViet.setText("Viết");
+        checkViet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                checkVietActionPerformed(evt);
             }
         });
-        jPanel13.add(jCheckBox4);
+        pnKyNang.add(checkViet);
 
-        jPanel12.add(jPanel13);
+        jPanel12.add(pnKyNang);
 
         InforPanel.add(jPanel12);
 
@@ -304,46 +321,46 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel11.setPreferredSize(new java.awt.Dimension(80, 25));
         jPanel14.add(jLabel11);
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(99, 60));
-        jPanel1.setPreferredSize(new java.awt.Dimension(220, 60));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
+        pnGia.setMinimumSize(new java.awt.Dimension(99, 60));
+        pnGia.setPreferredSize(new java.awt.Dimension(220, 60));
+        pnGia.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
 
         jLabel12.setText("Từ");
         jLabel12.setPreferredSize(new java.awt.Dimension(40, 25));
-        jPanel1.add(jLabel12);
+        pnGia.add(jLabel12);
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 100000));
-        jSpinner2.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel1.add(jSpinner2);
+        spinFromGia.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 100000));
+        spinFromGia.setPreferredSize(new java.awt.Dimension(120, 25));
+        pnGia.add(spinFromGia);
 
         jLabel14.setText("  VNĐ");
         jLabel14.setPreferredSize(new java.awt.Dimension(50, 18));
-        jPanel1.add(jLabel14);
+        pnGia.add(jLabel14);
 
         jLabel13.setText("Đến");
         jLabel13.setPreferredSize(new java.awt.Dimension(40, 25));
-        jPanel1.add(jLabel13);
+        pnGia.add(jLabel13);
 
-        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(100000, 100000, null, 100000));
-        jSpinner3.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel1.add(jSpinner3);
+        spinToGia.setModel(new javax.swing.SpinnerNumberModel(100000, 100000, null, 100000));
+        spinToGia.setPreferredSize(new java.awt.Dimension(120, 25));
+        pnGia.add(spinToGia);
 
         jLabel15.setText("  VNĐ");
         jLabel15.setPreferredSize(new java.awt.Dimension(50, 18));
-        jPanel1.add(jLabel15);
+        pnGia.add(jLabel15);
 
-        jPanel14.add(jPanel1);
+        jPanel14.add(pnGia);
 
         InforPanel.add(jPanel14);
 
         jPanel15.setPreferredSize(new java.awt.Dimension(400, 30));
         jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 3));
 
-        jButton2.setText("Tìm kiếm");
-        jPanel15.add(jButton2);
+        btnTimKiem.setText("Tìm kiếm");
+        jPanel15.add(btnTimKiem);
 
-        jButton7.setText("Đăng ký");
-        jPanel15.add(jButton7);
+        btnDangKy.setText("Đăng ký");
+        jPanel15.add(btnDangKy);
 
         InforPanel.add(jPanel15);
 
@@ -356,30 +373,30 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel10.setPreferredSize(new java.awt.Dimension(150, 18));
         jPanel3.add(jLabel10);
 
-        jButton3.setText("Xem tài liệu");
-        jButton3.setPreferredSize(new java.awt.Dimension(180, 24));
-        jPanel3.add(jButton3);
+        btnShowTaiLieu.setText("Xem tài liệu");
+        btnShowTaiLieu.setPreferredSize(new java.awt.Dimension(180, 24));
+        jPanel3.add(btnShowTaiLieu);
 
         jLabel20.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel20.setText("Danh sách sinh viên");
         jLabel20.setPreferredSize(new java.awt.Dimension(150, 18));
         jPanel3.add(jLabel20);
 
-        jButton4.setText("Xem DS Sinh viên");
-        jButton4.setPreferredSize(new java.awt.Dimension(180, 24));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnShowDSSinhVien.setText("Xem DS Sinh viên");
+        btnShowDSSinhVien.setPreferredSize(new java.awt.Dimension(180, 24));
+        btnShowDSSinhVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnShowDSSinhVienActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4);
+        jPanel3.add(btnShowDSSinhVien);
 
         jLabel21.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel21.setText("Danh sách giảng viên");
         jLabel21.setPreferredSize(new java.awt.Dimension(150, 18));
         jPanel3.add(jLabel21);
 
-        jButton5.setText("Xem  DS Giảng viên");
+        jButton5.setText("Xem DS Giảng viên");
         jButton5.setPreferredSize(new java.awt.Dimension(180, 24));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -413,7 +430,7 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(950, 600));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -424,24 +441,24 @@ public class KhoaHocView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
 
         TablePanel.add(jScrollPane1);
 
         jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 10));
 
-        jButton1.setText("Sắp xếp theo ID");
-        jButton1.setPreferredSize(new java.awt.Dimension(150, 24));
-        jPanel7.add(jButton1);
+        btnSapXepID.setText("Sắp xếp theo ID");
+        btnSapXepID.setPreferredSize(new java.awt.Dimension(150, 24));
+        jPanel7.add(btnSapXepID);
 
-        jButton6.setText("Sắp xếp theo Giá");
-        jButton6.setPreferredSize(new java.awt.Dimension(150, 24));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnSapXepGia.setText("Sắp xếp theo Giá");
+        btnSapXepGia.setPreferredSize(new java.awt.Dimension(150, 24));
+        btnSapXepGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnSapXepGiaActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton6);
+        jPanel7.add(btnSapXepGia);
 
         TablePanel.add(jPanel7);
 
@@ -452,33 +469,33 @@ public class KhoaHocView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void checkNgheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkNgheActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_checkNgheActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void checkNoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkNoiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_checkNoiActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void checkDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkDocActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_checkDocActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void checkVietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVietActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_checkVietActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnShowDSSinhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowDSSinhVienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnShowDSSinhVienActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnSapXepGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepGiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnSapXepGiaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -486,22 +503,21 @@ public class KhoaHocView extends javax.swing.JFrame {
     private javax.swing.JPanel TablePanel;
     private javax.swing.JPanel UserInfoPanel;
     private javax.swing.JLabel avtLabel;
+    private javax.swing.JButton btnDangKy;
+    private javax.swing.JButton btnSapXepGia;
+    private javax.swing.JButton btnSapXepID;
+    private javax.swing.JButton btnShowDSSinhVien;
+    private javax.swing.JButton btnShowTaiLieu;
+    private javax.swing.JButton btnTimKiem;
+    private javax.swing.JComboBox<String> cbNgonNgu;
     private javax.swing.JPanel centerPanel;
+    private javax.swing.JCheckBox checkDoc;
+    private javax.swing.JCheckBox checkNghe;
+    private javax.swing.JCheckBox checkNoi;
+    private javax.swing.JCheckBox checkViet;
     private javax.swing.JPanel hr1;
     private javax.swing.JPanel hr2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -510,40 +526,41 @@ public class KhoaHocView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel pnGia;
+    private javax.swing.JPanel pnKyNang;
+    private javax.swing.JPanel pnThoiLuong;
+    private javax.swing.JSpinner spinFromGia;
+    private javax.swing.JSpinner spinFromThang;
+    private javax.swing.JSpinner spinToGia;
+    private javax.swing.JSpinner spinToThang;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtTenKhoaHoc;
+    private javax.swing.JLabel userHoTen;
+    private javax.swing.JLabel userID;
+    private javax.swing.JLabel userNgaySinh;
     // End of variables declaration//GEN-END:variables
 }
