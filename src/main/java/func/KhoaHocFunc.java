@@ -24,12 +24,11 @@ public class KhoaHocFunc {
     }
 
     public List<KhoaHoc> readListKhoaHoc() {
-        List<KhoaHoc> list = new ArrayList<>();
         KhoaHocXML khoaHocXML = (KhoaHocXML) FileUtils.readXMLFile(KHOA_HOC_FILE_NAME, KhoaHocXML.class);
-        if (khoaHocXML != null) {
-            list = khoaHocXML.getKhoaHoc();
+        if (khoaHocXML != null && khoaHocXML.getKhoaHoc() != null) {
+            return khoaHocXML.getKhoaHoc();
         }
-        return list;
+        return new ArrayList<>();
     }
 
     public void add(KhoaHoc khoaHoc) {

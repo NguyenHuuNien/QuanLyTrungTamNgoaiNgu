@@ -84,4 +84,36 @@
         <address>Vũng Tàu</address>
         <trinhDo>Tiến sĩ</trinhDo>
     </teacher>
+    <teacher>
+        <id>13</id>
+        <name>Nguyen Huu Nien</name>
+        <dob>2004-03-07T00:00:00+07:00</dob>
+        <address>Ninh Binh</address>
+        <role>GV</role>
+        <trinhDo>Trợ giảng</trinhDo>
+    </teacher>
+    <teacher>
+        <id>14</id>
+        <name>Nguyen Huu Nien</name>
+        <dob>2004-03-07T00:00:00+07:00</dob>
+        <address>Ninh Binh</address>
+        <role>GV</role>
+        <trinhDo>Trợ giảng</trinhDo>
+    </teacher>
+    <teacher>
+        <id>15</id>
+        <name>Nguyen Huu Nien</name>
+        <dob>2004-03-07T00:00:00+07:00</dob>
+        <address>Ninh Binh</address>
+        <role>GV</role>
+        <trinhDo>Trợ giảng</trinhDo>
+        <dsKH>
+            <id>1</id>
+            <tenKhoaHoc>Mimikara oboeru N2</tenKhoaHoc>
+            <ngonNgu>Tiếng Nhật</ngonNgu>
+            <skill>Nghe Nói Đọc Viết </skill>
+            <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+            <giaKhoaHoc>600000.0</giaKhoaHoc>
+        </dsKH>
+    </teacher>
 </teachers>

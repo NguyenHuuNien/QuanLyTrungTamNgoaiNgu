@@ -1,9 +1,8 @@
 package entity;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,12 +14,12 @@ public class Teacher extends Person implements Serializable {
     private static final long serialVersionUID = 1L;
     /* trình độ giáo viên */
     private String trinhDo;
-
+    private List<KhoaHoc> dsKH = new ArrayList<>();
     public Teacher() {
     }
 
     public Teacher(int id, String name, String dob, String address, String trinhDo){
-        super(id,name,dob,address);
+        super(id,name,dob,address,"GV");
         this.trinhDo = trinhDo;
     }
 
@@ -31,5 +30,7 @@ public class Teacher extends Person implements Serializable {
     public void setTrinhDo(String trinhDo) {
         this.trinhDo = trinhDo;
     }
-
+    public void addKhoaHoc(KhoaHoc kh){
+        dsKH.add(kh);
+    }
 }

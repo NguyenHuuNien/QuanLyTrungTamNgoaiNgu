@@ -105,6 +105,9 @@
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; M&#xf4;n h&#x1ecd;c"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="qlMonHocActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

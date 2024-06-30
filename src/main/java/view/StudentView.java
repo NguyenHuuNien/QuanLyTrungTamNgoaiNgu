@@ -23,7 +23,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;

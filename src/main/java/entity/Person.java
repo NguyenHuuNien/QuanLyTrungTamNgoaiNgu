@@ -16,6 +16,7 @@ public class Person implements Serializable{
     private String name;
     private Calendar dob = Calendar.getInstance();
     private String address;
+    private String role;
     public Person() {
     }
     
@@ -24,7 +25,7 @@ public class Person implements Serializable{
         this.name = name;
     }
 
-    public Person(int id, String name, String dob,String address){
+    public Person(int id, String name, String dob,String address, String role){
         this.id = id;
         this.name = name;
         try{
@@ -32,8 +33,8 @@ public class Person implements Serializable{
         }catch(Exception e){
             System.err.println(e);
         }
-        
         this.address = address;
+        this.role = role;
     }
 
     public int getId() {
@@ -71,4 +72,13 @@ public class Person implements Serializable{
             System.err.println(e);
         }
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    
 }

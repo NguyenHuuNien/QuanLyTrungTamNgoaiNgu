@@ -1,21 +1,253 @@
-package view;
 
+
+import controller.TrungTamController;
+import entity.KhoaHoc;
 import entity.Person;
+import entity.Student;
+import entity.Teacher;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 public class KhoaHocView extends javax.swing.JFrame {
     private Person person;
+    private List<KhoaHoc> dsKH;
     public KhoaHocView() {
         initComponents();
+        setViewAdmin();
         setDuLieu();
     }
     public KhoaHocView(Person person) {
         initComponents();
         this.person = person;
+        InforPanel.remove(pnAllTimKiem);
         setDuLieu();
     }
     
     private void setDuLieu(){
         setupInfoUserView();
+        setEventListener();
+        setDataToTable();
+    }
+    
+    private void setViewAdmin() {
+        pnThoiLuong.removeAll();
+        pnThoiLuong.setPreferredSize(new Dimension(200,25));
+        ((FlowLayout)pnThoiLuong.getLayout()).setVgap(0);
+        JLabel lbThang = new JLabel("  Tháng");
+        lbThang.setPreferredSize(new Dimension(50,18));
+        spnThang = new JSpinner(new SpinnerNumberModel(0,1,null,1));
+        spnThang.setPreferredSize(new Dimension(60,25));
+        pnThoiLuong.add(spnThang); 
+        pnThoiLuong.add(lbThang);
+        pnThoiLuongBig.setPreferredSize(new Dimension(400, 40));
+        
+        pnGia.removeAll();
+        pnGia.setPreferredSize(new Dimension(200,25));
+        ((FlowLayout)pnGia.getLayout()).setVgap(0);
+        JLabel lbGia = new JLabel("  VNĐ");
+        lbGia.setPreferredSize(new Dimension(50,18));
+        spnGia = new JSpinner(new SpinnerNumberModel(0,0,null,100000));
+        spnGia.setPreferredSize(new Dimension(120,25));
+        pnGia.add(spnGia);
+        pnGia.add(lbGia);
+        pnGiaBig.setPreferredSize(new Dimension(400, 40));
+        
+        pnButton.removeAll();
+        btnThem.setSize(new Dimension(90,24));
+        btnSua.setSize(new Dimension(90,24));
+        btnSua.setEnabled(false);
+        btnXoa.setSize(new Dimension(90,24));
+        btnXoa.setEnabled(false);
+        btnLamMoi.setSize(new Dimension(90,24));
+        pnButton.add(btnThem);
+        pnButton.add(btnSua);
+        pnButton.add(btnXoa);
+        pnButton.add(btnLamMoi);
+    }
+    private void setDataToTable() {
+        // định nghĩa các cột của bảng student
+        String [] columnNames = new String [] {
+            "ID", "Tên khóa học", "Ngôn ngữ", "Kỹ năng", "Thời lượng học","Giá"};
+        dsKH = TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc();
+        Object[][] data = new Object [dsKH.size()][6];
+        for(int i=0;i<dsKH.size();i++){
+            data[i][0] = dsKH.get(i).getId();
+            data[i][1] = dsKH.get(i).getTenKhoaHoc();
+            data[i][2] = dsKH.get(i).getNgonNgu();
+            data[i][3] = dsKH.get(i).getSkill();
+            data[i][4] = dsKH.get(i).getThoiGianKhoaHoc();
+            data[i][5] = dsKH.get(i).getGiaKhoaHoc();
+        }
+        table.setModel(new DefaultTableModel(data,columnNames));
+    }
+    private void setEventListener(){
+        spinFromThang.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if((int)spinFromThang.getValue() > (int)spinToThang.getValue()){
+                    spinToThang.setValue(spinToThang.getNextValue());
+                }
+            }
+        });
+        spinFromGia.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if((int)spinFromGia.getValue() > (int)spinToGia.getValue()){
+                    spinToGia.setValue(spinToGia.getNextValue());
+                }
+            }
+        });
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if(!e.getValueIsAdjusting()){
+                    selectKhoaHocInTableListener();
+                }
+            }
+        });
+        btnThem.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addThemBtnListener();
+            }
+        });
+        btnLamMoi.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addLamMoiBtnListener();
+            }
+            
+        });
+        btnXoa.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addXoaBtnListener();
+            }
+        });
+        btnSua.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addSuaBtnListener();
+            }
+        });
+        btnTimKiem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addTimKiemListener();
+            }
+        });
+    }
+    private void selectKhoaHocInTableListener(){
+        int dong = table.getSelectedRow();
+        if(dong!=-1){
+            KhoaHoc kh = null;
+            int id = (int)table.getValueAt(dong, 0);
+            for(int i=0;i<dsKH.size();i++){
+                if(id==dsKH.get(i).getId()){
+                    kh = dsKH.get(i);
+                    break;
+                }
+            }
+            
+            cbNgonNgu.setSelectedItem(kh.getNgonNgu());
+            txtID.setText(kh.getId()+"");
+            txtTenKhoaHoc.setText(kh.getTenKhoaHoc());
+            if(spnThang!=null){
+                spnThang.setValue(kh.getThoiGianKhoaHoc());
+            }
+            if(spnGia!=null){
+                spnGia.setValue(kh.getGiaKhoaHoc());
+            }
+            checkNghe.setSelected(kh.getSkill().contains("Nghe"));
+            checkNoi.setSelected(kh.getSkill().contains("Nói"));
+            checkDoc.setSelected(kh.getSkill().contains("Đọc"));
+            checkViet.setSelected(kh.getSkill().contains("Viết"));
+            btnThem.setEnabled(false);
+            btnSua.setEnabled(true);
+            btnXoa.setEnabled(true);
+        }
+    }
+    private void addTimKiemListener(){
+        
+    }
+    private void addThemBtnListener(){
+        KhoaHoc kh = new KhoaHoc();
+        if(!cbNgonNgu.getSelectedItem().equals("Tất cả"))
+            kh.setNgonNgu(cbNgonNgu.getSelectedItem().toString());
+        else{
+            showMessage("Vui lòng chọn ngôn ngữ");
+            return;
+        }
+        if(txtTenKhoaHoc!=null&&txtTenKhoaHoc.getText().length()!=0)
+            kh.setTenKhoaHoc(txtTenKhoaHoc.getText());
+        if((int)spnThang.getValue()!=0)
+            kh.setThoiGianKhoaHoc((int)spnThang.getValue());
+        String s = (checkNghe.isSelected() ? "Nghe " : "") +
+           (checkNoi.isSelected() ? "Nói " : "") +
+           (checkDoc.isSelected() ? "Đọc " : "") +
+           (checkViet.isSelected() ? "Viết " : "");
+        if(!s.isBlank())
+            kh.setSkill(s);
+        if((int)spnGia.getValue()!=0)
+            kh.setGiaKhoaHoc((int)spnGia.getValue());
+        TrungTamController.Instance().getKhoaHocFunc().add(kh);
+        setDataToTable();
+    }
+    private void addSuaBtnListener(){
+        int id = Integer.parseInt(txtID.getText());
+        for(int i=0;i<dsKH.size();i++){
+            if(dsKH.get(i).getId()==id){
+                dsKH.get(i).setNgonNgu(cbNgonNgu.getSelectedItem().toString());
+                dsKH.get(i).setTenKhoaHoc(txtTenKhoaHoc.getText());
+                dsKH.get(i).setGiaKhoaHoc(Double.parseDouble(spnGia.getValue().toString()));
+                dsKH.get(i).setThoiGianKhoaHoc(Integer.parseInt(spnThang.getValue().toString()));
+                dsKH.get(i).setSkill((checkNghe.isSelected() ? "Nghe " : "") +
+                                    (checkNoi.isSelected() ? "Nói " : "") +
+                                    (checkDoc.isSelected() ? "Đọc " : "") +
+                                    (checkViet.isSelected() ? "Viết " : ""));
+                TrungTamController.Instance().getKhoaHocFunc().edit(dsKH.get(i));
+                
+            }
+        }
+        setDataToTable();
+    }
+    private void addXoaBtnListener(){
+        int id = Integer.parseInt(txtID.getText());
+        for(int i=0;i<dsKH.size();i++){
+            if(dsKH.get(i).getId()==id){
+                TrungTamController.Instance().getKhoaHocFunc().delete(dsKH.get(i));
+                setDataToTable();
+                break;
+            }
+        }
+    }
+    private void addLamMoiBtnListener(){
+        cbNgonNgu.setSelectedIndex(0);
+        txtID.setText("");
+        txtTenKhoaHoc.setText("");
+        spnGia.setValue(0);
+        spnThang.setValue(0);
+        checkDoc.setSelected(false);
+        checkNghe.setSelected(false);
+        checkNoi.setSelected(false);
+        checkViet.setSelected(false);
+        table.clearSelection();
+        btnSua.setEnabled(false);
+        btnXoa.setEnabled(false);
+        btnThem.setEnabled(true);
     }
     
     private void setupInfoUserView(){
@@ -31,10 +263,15 @@ public class KhoaHocView extends javax.swing.JFrame {
             userNgaySinh.setText("Ngày sinh: " + person.getDOB());
         }
     }
+    
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rdoGroupLoc = new javax.swing.ButtonGroup();
         UserInfoPanel = new javax.swing.JPanel();
         avtLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -48,13 +285,15 @@ public class KhoaHocView extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         cbNgonNgu = new javax.swing.JComboBox<>();
+        pnAllTimKiem = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtTenKhoaHoc = new javax.swing.JTextField();
-        jPanel11 = new javax.swing.JPanel();
+        pnThoiLuongBig = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         pnThoiLuong = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -72,7 +311,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         checkNoi = new javax.swing.JCheckBox();
         checkDoc = new javax.swing.JCheckBox();
         checkViet = new javax.swing.JCheckBox();
-        jPanel14 = new javax.swing.JPanel();
+        pnGiaBig = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         pnGia = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -81,10 +320,10 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         spinToGia = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
+        pnButton = new javax.swing.JPanel();
         btnTimKiem = new javax.swing.JButton();
         btnDangKy = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pnKhac = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         btnShowTaiLieu = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
@@ -99,10 +338,10 @@ public class KhoaHocView extends javax.swing.JFrame {
         btnSapXepID = new javax.swing.JButton();
         btnSapXepGia = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 800));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 850));
         setResizable(false);
-        setSize(new java.awt.Dimension(1000, 810));
+        setSize(new java.awt.Dimension(1000, 820));
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         UserInfoPanel.setPreferredSize(new java.awt.Dimension(1500, 100));
@@ -171,7 +410,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel4.setPreferredSize(new java.awt.Dimension(400, 30));
         InforPanel.add(jLabel4);
 
-        jPanel10.setPreferredSize(new java.awt.Dimension(400, 60));
+        jPanel10.setPreferredSize(new java.awt.Dimension(400, 40));
         jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jLabel7.setFont(new java.awt.Font("Liberation Sans", 3, 18)); // NOI18N
@@ -182,9 +421,30 @@ public class KhoaHocView extends javax.swing.JFrame {
         cbNgonNgu.setFont(new java.awt.Font("Liberation Sans", 3, 18)); // NOI18N
         cbNgonNgu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Tiếng Anh", "Tiếng Nhật", "Tiếng Hàn", "Tiếng Trung Quốc" }));
         cbNgonNgu.setPreferredSize(new java.awt.Dimension(200, 25));
+        cbNgonNgu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbNgonNguActionPerformed(evt);
+            }
+        });
         jPanel10.add(cbNgonNgu);
 
         InforPanel.add(jPanel10);
+
+        pnAllTimKiem.setPreferredSize(new java.awt.Dimension(400, 50));
+        pnAllTimKiem.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 50, 5));
+
+        jToggleButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jToggleButton1.setForeground(new java.awt.Color(102, 102, 255));
+        jToggleButton1.setText("Mode Quản lý");
+        jToggleButton1.setPreferredSize(new java.awt.Dimension(120, 24));
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        pnAllTimKiem.add(jToggleButton1);
+
+        InforPanel.add(pnAllTimKiem);
 
         jPanel8.setPreferredSize(new java.awt.Dimension(400, 40));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
@@ -194,6 +454,8 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel5.setPreferredSize(new java.awt.Dimension(100, 25));
         jPanel8.add(jLabel5);
 
+        txtID.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtID.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtID.setEnabled(false);
         txtID.setPreferredSize(new java.awt.Dimension(200, 25));
         jPanel8.add(txtID);
@@ -209,18 +471,23 @@ public class KhoaHocView extends javax.swing.JFrame {
         jPanel9.add(jLabel6);
 
         txtTenKhoaHoc.setPreferredSize(new java.awt.Dimension(200, 25));
+        txtTenKhoaHoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTenKhoaHocActionPerformed(evt);
+            }
+        });
         jPanel9.add(txtTenKhoaHoc);
 
         InforPanel.add(jPanel9);
 
-        jPanel11.setMinimumSize(new java.awt.Dimension(172, 80));
-        jPanel11.setPreferredSize(new java.awt.Dimension(400, 80));
-        jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+        pnThoiLuongBig.setMinimumSize(new java.awt.Dimension(172, 80));
+        pnThoiLuongBig.setPreferredSize(new java.awt.Dimension(400, 80));
+        pnThoiLuongBig.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jLabel8.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel8.setText("Thời lượng");
         jLabel8.setPreferredSize(new java.awt.Dimension(100, 25));
-        jPanel11.add(jLabel8);
+        pnThoiLuongBig.add(jLabel8);
 
         pnThoiLuong.setMinimumSize(new java.awt.Dimension(99, 60));
         pnThoiLuong.setPreferredSize(new java.awt.Dimension(200, 60));
@@ -262,9 +529,9 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         pnThoiLuong.add(jPanel6);
 
-        jPanel11.add(pnThoiLuong);
+        pnThoiLuongBig.add(pnThoiLuong);
 
-        InforPanel.add(jPanel11);
+        InforPanel.add(pnThoiLuongBig);
 
         jPanel12.setPreferredSize(new java.awt.Dimension(400, 40));
         jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
@@ -313,13 +580,13 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         InforPanel.add(jPanel12);
 
-        jPanel14.setPreferredSize(new java.awt.Dimension(400, 80));
-        jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+        pnGiaBig.setPreferredSize(new java.awt.Dimension(400, 80));
+        pnGiaBig.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jLabel11.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel11.setText("Giá");
         jLabel11.setPreferredSize(new java.awt.Dimension(80, 25));
-        jPanel14.add(jLabel11);
+        pnGiaBig.add(jLabel11);
 
         pnGia.setMinimumSize(new java.awt.Dimension(99, 60));
         pnGia.setPreferredSize(new java.awt.Dimension(220, 60));
@@ -349,38 +616,43 @@ public class KhoaHocView extends javax.swing.JFrame {
         jLabel15.setPreferredSize(new java.awt.Dimension(50, 18));
         pnGia.add(jLabel15);
 
-        jPanel14.add(pnGia);
+        pnGiaBig.add(pnGia);
 
-        InforPanel.add(jPanel14);
+        InforPanel.add(pnGiaBig);
 
-        jPanel15.setPreferredSize(new java.awt.Dimension(400, 30));
-        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 3));
+        pnButton.setPreferredSize(new java.awt.Dimension(400, 40));
+        pnButton.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 3));
 
         btnTimKiem.setText("Tìm kiếm");
-        jPanel15.add(btnTimKiem);
+        pnButton.add(btnTimKiem);
 
         btnDangKy.setText("Đăng ký");
-        jPanel15.add(btnDangKy);
+        btnDangKy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangKyActionPerformed(evt);
+            }
+        });
+        pnButton.add(btnDangKy);
 
-        InforPanel.add(jPanel15);
+        InforPanel.add(pnButton);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Khác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Liberation Mono", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
-        jPanel3.setPreferredSize(new java.awt.Dimension(400, 170));
-        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+        pnKhac.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Khác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Liberation Mono", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
+        pnKhac.setPreferredSize(new java.awt.Dimension(400, 150));
+        pnKhac.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         jLabel10.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel10.setText("Tài liệu");
         jLabel10.setPreferredSize(new java.awt.Dimension(150, 18));
-        jPanel3.add(jLabel10);
+        pnKhac.add(jLabel10);
 
         btnShowTaiLieu.setText("Xem tài liệu");
         btnShowTaiLieu.setPreferredSize(new java.awt.Dimension(180, 24));
-        jPanel3.add(btnShowTaiLieu);
+        pnKhac.add(btnShowTaiLieu);
 
         jLabel20.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel20.setText("Danh sách sinh viên");
         jLabel20.setPreferredSize(new java.awt.Dimension(150, 18));
-        jPanel3.add(jLabel20);
+        pnKhac.add(jLabel20);
 
         btnShowDSSinhVien.setText("Xem DS Sinh viên");
         btnShowDSSinhVien.setPreferredSize(new java.awt.Dimension(180, 24));
@@ -389,12 +661,12 @@ public class KhoaHocView extends javax.swing.JFrame {
                 btnShowDSSinhVienActionPerformed(evt);
             }
         });
-        jPanel3.add(btnShowDSSinhVien);
+        pnKhac.add(btnShowDSSinhVien);
 
         jLabel21.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel21.setText("Danh sách giảng viên");
         jLabel21.setPreferredSize(new java.awt.Dimension(150, 18));
-        jPanel3.add(jLabel21);
+        pnKhac.add(jLabel21);
 
         jButton5.setText("Xem DS Giảng viên");
         jButton5.setPreferredSize(new java.awt.Dimension(180, 24));
@@ -403,9 +675,9 @@ public class KhoaHocView extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5);
+        pnKhac.add(jButton5);
 
-        InforPanel.add(jPanel3);
+        InforPanel.add(pnKhac);
 
         centerPanel.add(InforPanel);
 
@@ -428,7 +700,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         TablePanel.setPreferredSize(new java.awt.Dimension(1000, 700));
         TablePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(950, 600));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(950, 650));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -497,6 +769,68 @@ public class KhoaHocView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSapXepGiaActionPerformed
 
+    private void txtTenKhoaHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenKhoaHocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTenKhoaHocActionPerformed
+
+    private void cbNgonNguActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNgonNguActionPerformed
+        if(dsKH==null) return;
+        if(cbNgonNgu.getSelectedItem().equals("Tất cả")){
+            dsKH = TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc();
+        }else{
+            for(int i=0;i<dsKH.size();i++){
+                if(!dsKH.get(i).getNgonNgu().equals(cbNgonNgu.getSelectedItem())){
+                    dsKH.remove(dsKH.get(i));
+                }
+            }
+        }
+        if(txtID.getText().isBlank()){
+            btnSua.setEnabled(false);
+            btnXoa.setEnabled(false);
+            btnThem.setEnabled(true);
+        }else{
+            btnSua.setEnabled(true);
+            btnXoa.setEnabled(true);
+            btnThem.setEnabled(false);
+        }
+    }//GEN-LAST:event_cbNgonNguActionPerformed
+
+    private void btnDangKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangKyActionPerformed
+        KhoaHoc kh = new KhoaHoc();
+        for(int i=0;i<dsKH.size();i++){
+            if(dsKH.get(i).getId()==Integer.parseInt(txtID.getText())){
+                kh = dsKH.get(i);
+                break;
+            }
+        }
+        if(person.getRole().startsWith("S")){
+            List<Student> dsSV = TrungTamController.Instance().getStudentFunc().getListStudents();
+            for(int i=0;i<dsSV.size();i++){
+                if(person.getId()==dsSV.get(i).getId()){
+                    dsSV.get(i).addKhoaHoc(kh);
+                    TrungTamController.Instance().getStudentFunc().edit(dsSV.get(i));
+                    showMessage("Đăng ký thành công!");
+                    break;
+                }
+            }
+        }else{
+            List<Teacher> dsGV = TrungTamController.Instance().getTeacherFunc().getListTeachers();
+            for(int i=0;i<dsGV.size();i++){
+                if(person.getId()==dsGV.get(i).getId()){
+                    dsGV.get(i).addKhoaHoc(kh);
+                    TrungTamController.Instance().getTeacherFunc().edit(dsGV.get(i));
+                    showMessage("Đăng ký thành công!");
+                    break;
+                }
+            }
+        }
+        setDataToTable();
+    }//GEN-LAST:event_btnDangKyActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        System.out.print("WTF");
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InforPanel;
@@ -537,21 +871,24 @@ public class KhoaHocView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JPanel pnAllTimKiem;
+    private javax.swing.JPanel pnButton;
     private javax.swing.JPanel pnGia;
+    private javax.swing.JPanel pnGiaBig;
+    private javax.swing.JPanel pnKhac;
     private javax.swing.JPanel pnKyNang;
     private javax.swing.JPanel pnThoiLuong;
+    private javax.swing.JPanel pnThoiLuongBig;
+    private javax.swing.ButtonGroup rdoGroupLoc;
     private javax.swing.JSpinner spinFromGia;
     private javax.swing.JSpinner spinFromThang;
     private javax.swing.JSpinner spinToGia;
@@ -563,4 +900,10 @@ public class KhoaHocView extends javax.swing.JFrame {
     private javax.swing.JLabel userID;
     private javax.swing.JLabel userNgaySinh;
     // End of variables declaration//GEN-END:variables
+    private JSpinner spnThang;
+    private JSpinner spnGia;
+    private JButton btnThem = new JButton("Thêm");;
+    private JButton btnSua = new JButton("Sửa");;
+    private JButton btnXoa = new JButton("Xóa");;
+    private JButton btnLamMoi = new JButton("Làm mới");;
 }

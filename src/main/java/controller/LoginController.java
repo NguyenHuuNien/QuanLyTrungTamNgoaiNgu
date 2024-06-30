@@ -34,16 +34,8 @@ public class LoginController {
         public void actionPerformed(ActionEvent e) {
             User user = loginView.getUser();
             if (userDao.checkUser(user)) {
-                // nếu đăng nhập thành công, mở màn hình quản lý sinh viên
-//                studentView = new StudentView();
-//                StudentController studentController = new StudentController(studentView);
-//                studentController.showStudentView();
-//                TeacherView teacherView = new   TeacherView();
-//                TeacherController teacherController = new TeacherController(teacherView);
-//                teacherController.showTeacherView();
-                    HomeFrame openHomeFrame  =  new HomeFrame();
-                    openHomeFrame.setVisible(true);
-                loginView.setVisible(false);
+                    new HomeFrame().setVisible(true);
+                    loginView.setVisible(false);
             } else {
                 loginView.showMessage("username hoặc password không đúng.");
             }

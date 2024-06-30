@@ -20,7 +20,7 @@ public class Student extends Person implements Serializable {
     }
 
     public Student(int id, String name, String dob, String address, List<KhoaHoc> dsKhoaHoc){
-        super(id,name,dob,address);
+        super(id,name,dob,address,"SV");
         this.dsKhoaHoc = dsKhoaHoc;
     }
 
