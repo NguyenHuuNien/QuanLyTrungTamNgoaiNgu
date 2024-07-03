@@ -9,14 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -38,6 +36,8 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     private JButton clearBtn;
     private JButton sortStudentGPABtn;
     private JButton sortStudentNameBtn;
+    private JButton courseBtn;
+    private JButton searchBtn;
     private JScrollPane jScrollPaneStudentTable;
     private JScrollPane jScrollPaneAddress;
     private JTable studentTable;
@@ -52,12 +52,10 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     private JTextField nameField;
     private JTextField dobField;
     private JTextArea addressTA;
-    private JList<String> dsKhoaHocField;
-    private JScrollPane scrollPaneDSKhoaHoc = new JScrollPane();
     
     // định nghĩa các cột của bảng student
     private String [] columnNames = new String [] {
-            "ID", "Name", "DOB", "Address", "Courses"};
+            "ID", "Họ tên", "Ngày sinh", "Địa chỉ", "Khóa học"};
     // định nghĩa dữ liệu mặc định của bẳng student là rỗng
     private Object data = new Object [][] {};
     
@@ -68,22 +66,24 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     private void initComponents() {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         // khởi tạo các phím chức năng
-        addStudentBtn = new JButton("Add");
-        editStudentBtn = new JButton("Edit");
-        deleteStudentBtn = new JButton("Delete");
-        clearBtn = new JButton("Clear");
-        sortStudentGPABtn = new JButton("Sort By ID");
-        sortStudentNameBtn = new JButton("Sort By Name");
+        addStudentBtn = new JButton("Thêm");
+        editStudentBtn = new JButton("Sửa");
+        deleteStudentBtn = new JButton("Xóa");
+        clearBtn = new JButton("Làm mới");
+        searchBtn = new JButton("Tìm kiếm");
+        sortStudentGPABtn = new JButton("Sắp xếp theo ID");
+        sortStudentNameBtn = new JButton("Sắp xếp theo tên");
+        courseBtn = new JButton("Quản lý các khóa học");
         // khởi tạo bảng student
         jScrollPaneStudentTable = new JScrollPane();
         studentTable = new JTable();
         
         // khởi tạo các label
         idLabel = new JLabel("Id");
-        nameLabel = new JLabel("Name");
-        dobLabel = new JLabel("DOB");
-        addressLabel = new JLabel("Address");
-        dsKhoaHocLabel = new JLabel("Courses");
+        nameLabel = new JLabel("Tên");
+        dobLabel = new JLabel("Ngày sinh");
+        addressLabel = new JLabel("Địa chỉ");
+        dsKhoaHocLabel = new JLabel("Khóa học");
         
         // khởi tạo các trường nhập dữ liệu cho student
         idField = new JTextField(6);
@@ -95,9 +95,6 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         addressTA.setRows(3);
         jScrollPaneAddress = new JScrollPane();
         jScrollPaneAddress.setViewportView(addressTA);
-        dsKhoaHocField = new JList<>();
-        scrollPaneDSKhoaHoc.setViewportView(dsKhoaHocField);
-        scrollPaneDSKhoaHoc.setPreferredSize(new Dimension(170,115));
         // cài đặt các cột và data cho bảng student
         studentTable.setModel(new DefaultTableModel((Object[][]) data, columnNames));
         jScrollPaneStudentTable.setViewportView(studentTable);
@@ -117,6 +114,8 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         panel.add(clearBtn);
         panel.add(sortStudentGPABtn);
         panel.add(sortStudentNameBtn);
+        panel.add(courseBtn);
+        panel.add(searchBtn);
         
         panel.add(idLabel);
         panel.add(nameLabel);
@@ -128,7 +127,6 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         panel.add(nameField);
         panel.add(dobField);
         panel.add(jScrollPaneAddress);
-        panel.add(scrollPaneDSKhoaHoc);
         
         // cài đặt vị trí các thành phần trên màn hình login
         layout.putConstraint(SpringLayout.WEST, idLabel, 10, SpringLayout.WEST, panel);
@@ -150,25 +148,26 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.NORTH, dobField, 70, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, jScrollPaneAddress, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneAddress, 100, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, scrollPaneDSKhoaHoc, 100, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.NORTH, scrollPaneDSKhoaHoc, 170, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, courseBtn, 170, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, courseBtn, 100, SpringLayout.WEST, panel);
         
         layout.putConstraint(SpringLayout.WEST, jScrollPaneStudentTable, 300, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneStudentTable, 10, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, addStudentBtn, 20, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, addStudentBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, editStudentBtn, 60, SpringLayout.WEST, addStudentBtn);
+        layout.putConstraint(SpringLayout.WEST, editStudentBtn, 80, SpringLayout.WEST, addStudentBtn);
         layout.putConstraint(SpringLayout.NORTH, editStudentBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, deleteStudentBtn, 60, SpringLayout.WEST, editStudentBtn);
-        
+        layout.putConstraint(SpringLayout.WEST, deleteStudentBtn, 70, SpringLayout.WEST, editStudentBtn);
         layout.putConstraint(SpringLayout.NORTH, clearBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, clearBtn, 75, SpringLayout.WEST, deleteStudentBtn);
+        layout.putConstraint(SpringLayout.WEST, clearBtn, 70, SpringLayout.WEST, deleteStudentBtn);
+        layout.putConstraint(SpringLayout.NORTH, searchBtn, 330, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, searchBtn, 100, SpringLayout.WEST, clearBtn);
         
         layout.putConstraint(SpringLayout.NORTH, deleteStudentBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortStudentGPABtn, 550, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.WEST, sortStudentGPABtn, 500, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, sortStudentGPABtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortStudentNameBtn, 115, SpringLayout.WEST, sortStudentGPABtn);
+        layout.putConstraint(SpringLayout.WEST, sortStudentNameBtn, 140, SpringLayout.WEST, sortStudentGPABtn);
         layout.putConstraint(SpringLayout.NORTH, sortStudentNameBtn, 330, SpringLayout.NORTH, panel);
         
         this.add(panel);
@@ -178,8 +177,10 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         // disable Edit and Delete buttons
         editStudentBtn.setEnabled(false);
         deleteStudentBtn.setEnabled(false);
+        courseBtn.setEnabled(false);
         // enable Add button
         addStudentBtn.setEnabled(true);
+        searchBtn.setEnabled(true);
     }
     
     public void showMessage(String message) {
@@ -203,7 +204,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
             students[i][1] = list.get(i).getName();
             students[i][2] = list.get(i).getDOB();
             students[i][3] = list.get(i).getAddress();
-            students[i][4] = list.get(i).getStringDSKhoaHoc();
+            students[i][4] = "+"+list.get(i).getNumKhoaHoc();
         }
         studentTable.setModel(new DefaultTableModel(students, columnNames));
     }
@@ -218,17 +219,15 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         if (row >= 0) {
             idField.setText(studentTable.getModel().getValueAt(row, 0).toString());
             nameField.setText(studentTable.getModel().getValueAt(row, 1).toString());
-            dobField.setText(TrungTamController.Instance().getStudentFunc().getListStudents().get(Integer.parseInt(idField.getText())-1).getDOB());
+            dobField.setText(studentTable.getModel().getValueAt(row, 2).toString());
             addressTA.setText(studentTable.getModel().getValueAt(row, 3).toString());
-            // Create array string - add data to dsKhoaHocField
-            String ss = studentTable.getModel().getValueAt(row, 4).toString();
-            String[] arrS = ss.split("\n");
-            dsKhoaHocField = new JList<String>(arrS);
             // enable Edit and Delete buttons
             editStudentBtn.setEnabled(true);
             deleteStudentBtn.setEnabled(true);
+            courseBtn.setEnabled(true);
             // disable Add button
             addStudentBtn.setEnabled(false);
+            searchBtn.setEnabled(false);
         }
     }
 
@@ -240,12 +239,13 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         nameField.setText("");
         dobField.setText("");
         addressTA.setText("");
-        dsKhoaHocField.clearSelection();
         // disable Edit and Delete buttons
         editStudentBtn.setEnabled(false);
         deleteStudentBtn.setEnabled(false);
+        courseBtn.setEnabled(false);
         // enable Add button
         addStudentBtn.setEnabled(true);
+        searchBtn.setEnabled(true);
     }
     
     /**
@@ -258,19 +258,42 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         nameField.setText(student.getName());
         dobField.setText("" + student.getDOB());
         addressTA.setText(student.getAddress());
-        dsKhoaHocField = new JList<String>(student.getDSKhoaHoc().toArray(new String[0]));
         // enable Edit and Delete buttons
         editStudentBtn.setEnabled(true);
         deleteStudentBtn.setEnabled(true);
+        courseBtn.setEnabled(true);
         // disable Add button
         addStudentBtn.setEnabled(false);
+        searchBtn.setEnabled(false);
     }
-    
+    public void OpenQuanLyKhoaHoc(){
+        int id = Integer.parseInt(idField.getText());
+        List<Student> dsStudent = TrungTamController.Instance().getStudentFunc().getListStudents();
+        for(int i=0;i<dsStudent.size();i++){
+            if(dsStudent.get(i).getId()==id){
+                new KhoaHocView(dsStudent.get(i)).setVisible(true);
+                break;
+            }
+        }
+    }
     /**
      * lấy thông tin student
      * 
      * @return
      */
+    public Student getInfoSearch(){
+        Student student = new Student();
+        if(!nameField.getText().isBlank()){
+            student.setName(nameField.getText());
+        }
+        if(!dobField.getText().isBlank()){
+            student.setDOB(formatterDate(dobField.getText()));
+        }
+        if(!addressTA.getText().isBlank()){
+            student.setAddress(addressTA.getText().trim());
+        }
+        return student;
+    }
     public Student getStudentInfo() {
         // validate student
         if (!validateName() || !validateDOB() || !validateAddress() || !validateDSKhoaHoc()) {
@@ -284,22 +307,6 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
             student.setName(nameField.getText().trim());
             student.setDOB(formatterDate(dobField.getText()));
             student.setAddress(addressTA.getText().trim());
-            // set danh sach khoa hoc cho hoc sinh
-            List<KhoaHoc> dsKH_this_Student = new ArrayList<>();
-            // Sử dụng singleton để lấy danh sách khóa học
-            List<KhoaHoc> dsKH = TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc();
-            for(int i = 0;i<dsKhoaHocField.getModel().getSize();i++){
-                KhoaHoc flag = null;
-                for(int j = 0;j<dsKH.size();j++){
-                    if(dsKhoaHocField.getModel().getElementAt(i).equals(dsKH.get(i).getTenKhoaHoc())){
-                        flag = dsKH.get(i);
-                        break;
-                    }
-                }
-                if(flag!=null)
-                    dsKH_this_Student.add(flag);
-            }
-            student.setDSKhoaHoc(dsKH_this_Student);
             return student;
         } catch (Exception e) {
             showMessage(e.getMessage());
@@ -318,6 +325,8 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
                     return date.format(outputFormatter);
                 }
             } catch (Exception exception) {
+                showMessage("Ngày sinh sai định dạng");
+                return null;
             }
         }
         return null;
@@ -328,7 +337,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         String name = nameField.getText();
         if (name == null || "".equals(name.trim())) {
             nameField.requestFocus();
-            showMessage("Name không được trống.");
+            showMessage("Tên không được trống.");
             return false;
         }
         return true;
@@ -338,7 +347,7 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
         String address = addressTA.getText();
         if (address == null || "".equals(address.trim())) {
             addressTA.requestFocus();
-            showMessage("Address không được trống.");
+            showMessage("Địa chỉ không được trống.");
             return false;
         }
         return true;
@@ -413,5 +422,11 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     
     public void addListStudentSelectionListener(ListSelectionListener listener) {
         studentTable.getSelectionModel().addListSelectionListener(listener);
+    }
+    public void addQuanLyKhoaHoc(ActionListener listener){
+        courseBtn.addActionListener(listener);
+    }
+    public void addSearchListener(ActionListener listener){
+        searchBtn.addActionListener(listener);
     }
 }

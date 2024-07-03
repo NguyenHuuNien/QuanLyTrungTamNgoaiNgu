@@ -2,18 +2,131 @@
 <khoahocs>
     <khoahoc>
         <id>1</id>
-        <tenKhoaHoc>Mimi kara oboeru N3</tenKhoaHoc>
+        <tenKhoaHoc>Hoc giao tiep Tieng Nhat N3</tenKhoaHoc>
         <ngonNgu>Tiếng Nhật</ngonNgu>
-        <skill>Nghe Nói Đọc Viết </skill>
-        <thoiGianKhoaHoc>6</thoiGianKhoaHoc>
-        <giaKhoaHoc>500000.0</giaKhoaHoc>
+        <skill>Nói </skill>
+        <thoiGianKhoaHoc>1</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+        <dsStudent>
+            <id>29</id>
+            <name>Nguyen Huu Nien</name>
+            <dob>2004-03-07T00:00:00+07:00</dob>
+            <address>Ninh Binh</address>
+            <numKhoaHoc>3</numKhoaHoc>
+        </dsStudent>
+        <dsStudent>
+            <id>1</id>
+            <name>Mai Thanh Toan</name>
+            <dob>2008-07-06T00:00:00+07:00</dob>
+            <address>Ha Noi</address>
+            <numKhoaHoc>1</numKhoaHoc>
+        </dsStudent>
+        <dsStudent>
+            <id>12</id>
+            <name>Hoang Van Trung</name>
+            <dob>2004-03-07T00:00:00+07:00</dob>
+            <address>Nghe An</address>
+            <numKhoaHoc>1</numKhoaHoc>
+        </dsStudent>
+        <dsStudent>
+            <id>12</id>
+            <name>Hoang Van Trung</name>
+            <dob>2004-03-07T00:00:00+07:00</dob>
+            <address>Nghe An</address>
+            <numKhoaHoc>1</numKhoaHoc>
+        </dsStudent>
+        <dsTeacher>
+            <id>5</id>
+            <name>Tran Van Cuong</name>
+            <dob>2024-06-21T00:00:00+07:00</dob>
+            <address>Hue</address>
+            <numKhoaHoc>1</numKhoaHoc>
+            <trinhDo>Phó giáo sư</trinhDo>
+        </dsTeacher>
+        <dsTeacher>
+            <id>12</id>
+            <name>Vũ TRần Kim Oanh</name>
+            <dob>2004-11-29T00:00:00+07:00</dob>
+            <address>Vũng Tàu</address>
+            <numKhoaHoc>1</numKhoaHoc>
+            <trinhDo>Tiến sĩ</trinhDo>
+            <dsStudent>
+                <id>12</id>
+                <name>Hoang Van Trung</name>
+                <dob>2004-03-07T00:00:00+07:00</dob>
+                <address>Nghe An</address>
+                <numKhoaHoc>1</numKhoaHoc>
+            </dsStudent>
+        </dsTeacher>
+        <dsTeacher>
+            <id>1</id>
+            <name>Mai Thu Thuy</name>
+            <dob>2024-12-14T00:00:00+07:00</dob>
+            <address>Ninh Binh</address>
+            <numKhoaHoc>1</numKhoaHoc>
+            <trinhDo>Giảng viên</trinhDo>
+        </dsTeacher>
+        <dsTeacher>
+            <id>4</id>
+            <name>Le Thi Cuc</name>
+            <dob>2024-06-21T00:00:00+07:00</dob>
+            <address>Ho Chi Minh</address>
+            <numKhoaHoc>2</numKhoaHoc>
+            <trinhDo>Phó giáo sư</trinhDo>
+        </dsTeacher>
+        <dsTeacher>
+            <id>6</id>
+            <name>Pham Thi Duong</name>
+            <dob>2024-06-21T00:00:00+07:00</dob>
+            <address>Nha Trang</address>
+            <numKhoaHoc>2</numKhoaHoc>
+            <trinhDo>Giảng viên</trinhDo>
+        </dsTeacher>
     </khoahoc>
     <khoahoc>
         <id>2</id>
-        <tenKhoaHoc>Mimi kara oboeru N2</tenKhoaHoc>
+        <tenKhoaHoc>Hoc Tieng Nhat N3 - Mimikara Oboeru</tenKhoaHoc>
         <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Nghe Nói </skill>
+        <thoiGianKhoaHoc>5</thoiGianKhoaHoc>
+        <giaKhoaHoc>500000.0</giaKhoaHoc>
+        <dsStudent>
+            <id>8</id>
+            <name>Nguyen Thi Oanh</name>
+            <dob>2004-03-07T00:00:00+07:00</dob>
+            <address>Ha Noi</address>
+            <numKhoaHoc>1</numKhoaHoc>
+        </dsStudent>
+        <dsStudent>
+            <id>29</id>
+            <name>Nguyen Huu Nien</name>
+            <dob>2004-03-07T00:00:00+07:00</dob>
+            <address>Ninh Binh</address>
+            <numKhoaHoc>1</numKhoaHoc>
+        </dsStudent>
+        <dsTeacher>
+            <id>4</id>
+            <name>Le Thi Cuc</name>
+            <dob>2024-06-21T17:07:23.151+07:00</dob>
+            <address>Ho Chi Minh</address>
+            <numKhoaHoc>1</numKhoaHoc>
+            <trinhDo>Phó giáo sư</trinhDo>
+        </dsTeacher>
+    </khoahoc>
+    <khoahoc>
+        <id>3</id>
+        <tenKhoaHoc>Hoc tieng Han cung nguoi ban xu</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
         <skill>Nghe Nói Đọc </skill>
-        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
-        <giaKhoaHoc>300000.0</giaKhoaHoc>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>200000.0</giaKhoaHoc>
+        <dsTeacher>
+            <id>6</id>
+            <name>Pham Thi Duong</name>
+            <dob>2024-06-21T00:00:00+07:00</dob>
+            <address>Nha Trang</address>
+            <numKhoaHoc>2</numKhoaHoc>
+            <trinhDo>Giảng viên</trinhDo>
+        </dsTeacher>
     </khoahoc>
 </khoahocs>

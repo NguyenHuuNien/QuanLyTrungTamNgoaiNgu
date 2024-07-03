@@ -34,7 +34,6 @@ public class LoginController {
         public void actionPerformed(ActionEvent e) {
             User user = loginView.getUser();
             if (userDao.checkUser(user)) {
-                    new HomeFrame().setVisible(true);
                     loginView.setVisible(false);
             } else {
                 loginView.showMessage("username hoặc password không đúng.");

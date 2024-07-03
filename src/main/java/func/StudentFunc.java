@@ -75,7 +75,6 @@ public class StudentFunc {
                 listStudents.get(i).setName(student.getName());
                 listStudents.get(i).setDOB(student.getDOB());
                 listStudents.get(i).setAddress(student.getAddress());
-                listStudents.get(i).setDSKhoaHoc(student.getDSKhoaHoc());
                 writeListStudents(listStudents);
                 break;
             }

@@ -1,6 +1,8 @@
 package entity;
 
+import controller.TrungTamController;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -17,8 +19,8 @@ public class KhoaHoc implements Serializable{
     private int thoiGianKhoaHoc;
     private double giaKhoaHoc;
     private String[] taiLieu;
-    private List<Student> dsStudent;
-    private List<Teacher> dsTeacher;
+    private List<Student> dsStudent = new ArrayList<>();
+    private List<Teacher> dsTeacher = new ArrayList<>();
 
     public KhoaHoc() {
     }
@@ -98,7 +100,25 @@ public class KhoaHoc implements Serializable{
     public void setDsStudent(List<Student> dsStudent) {
         this.dsStudent = dsStudent;
     }
-
+    
+    public void addStudent(Student student){
+        this.dsStudent.add(student);
+    }
+    public void removeStudent(Student student){
+        for(Student st : dsStudent){
+            if(st.getId()==student.getId()){
+                dsStudent.remove(st);
+                break;
+            }
+        }
+        for(Teacher tch : dsTeacher){
+            if(tch.getDsStudent().contains(student)){
+                tch.getDsStudent().remove(student);
+                TrungTamController.Instance().getTeacherFunc().edit(tch);
+                break;
+            }
+        }
+    }
     public List<Teacher> getDsTeacher() {
         return dsTeacher;
     }
@@ -107,4 +127,31 @@ public class KhoaHoc implements Serializable{
         this.dsTeacher = dsTeacher;
     }
     
+    public void addTeacher(Teacher teacher){
+        this.dsTeacher.add(teacher);
+    }
+    public void removeTeacher(Teacher teacher){
+        for(Teacher tc : dsTeacher){
+            if(tc.getId()==teacher.getId()){
+                dsTeacher.remove(tc);
+                break;
+            }
+        }
+    }
+    public boolean checkContainsStudent(Person per){
+        for(int i=0;i<dsStudent.size();i++){
+            if(per.getId()==dsStudent.get(i).getId()){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean checkContainsTeacher(Person per){
+        for(int i=0;i<dsTeacher.size();i++){
+            if(per.getId()==dsTeacher.get(i).getId()){
+                return true;
+            }
+        }
+        return false;
+    }
 }

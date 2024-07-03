@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Person implements Serializable{
     private int id;
     private String name;
-    private Calendar dob = Calendar.getInstance();
+    private Calendar dob= Calendar.getInstance();
     private String address;
-    private String role;
+    private int numKhoaHoc;
     public Person() {
     }
     
@@ -25,7 +25,7 @@ public class Person implements Serializable{
         this.name = name;
     }
 
-    public Person(int id, String name, String dob,String address, String role){
+    public Person(int id, String name, String dob,String address){
         this.id = id;
         this.name = name;
         try{
@@ -34,7 +34,7 @@ public class Person implements Serializable{
             System.err.println(e);
         }
         this.address = address;
-        this.role = role;
+        this.numKhoaHoc = 0;
     }
 
     public int getId() {
@@ -62,23 +62,32 @@ public class Person implements Serializable{
     }
 
     public String getDOB() {
+        if(dob==null)
+            return null;
         return new SimpleDateFormat("dd/MM/yyyy").format(this.dob.getTime());
     }
 
     public void setDOB(String dob){
+        if(dob==null){
+            return;
+        }
         try{
             this.dob.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(dob));
         }catch (ParseException e){
             System.err.println(e);
         }
     }
-
-    public String getRole() {
-        return role;
+    public int getNumKhoaHoc() {
+        return numKhoaHoc;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setNumKhoaHoc(int x) {
+        this.numKhoaHoc += x;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", name=" + name + ", dob=" + dob + ", address=" + address + ", numKhoaHoc=" + numKhoaHoc + '}';
     }
     
 }

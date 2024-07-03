@@ -1,5 +1,7 @@
 package view;
 
+import controller.TrungTamController;
+import entity.Student;
 import entity.Teacher;
 
 import java.awt.Dimension;
@@ -34,6 +36,8 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     private JButton clearBtn;
     private JButton sortTeacherAgeBtn;
     private JButton sortTeacherNameBtn;
+    private JButton courseBtn;
+    private JButton searchBtn;
     private JScrollPane jScrollPaneTeacherTable;
     private JScrollPane jScrollPaneAddress;
     private JTable teacherTable;
@@ -43,6 +47,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     private JLabel dobLabel;
     private JLabel addressLabel;
     private JLabel academicLabel;
+    private JLabel courseLabel;
     
     private JTextField idField;
     private JTextField nameField;
@@ -52,7 +57,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     
     // định nghĩa các cột của bảng teacher
     private String [] columnNames = new String [] {
-            "ID", "Name", "DOB", "Address", "Academic Titles"};
+            "ID", "Họ tên", "Ngày sinh", "Địa chỉ", "Trình độ","Khóa học"};
     // định nghĩa dữ liệu mặc định của bẳng teacher là rỗng
     private Object data = new Object [][] {};
     
@@ -63,23 +68,25 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     private void initComponents() {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         // khởi tạo các phím chức năng
-        addTeacherBtn = new JButton("Add");
-        editTeacherBtn = new JButton("Edit");
-        deleteTeacherBtn = new JButton("Delete");
-        clearBtn = new JButton("Clear");
-        sortTeacherAgeBtn = new JButton("Sort By ID");
-        sortTeacherNameBtn = new JButton("Sort By Name");
+        addTeacherBtn = new JButton("Thêm");
+        editTeacherBtn = new JButton("Sửa");
+        deleteTeacherBtn = new JButton("Xóa");
+        clearBtn = new JButton("Làm mới");
+        sortTeacherAgeBtn = new JButton("Sắp xếp theo ID");
+        sortTeacherNameBtn = new JButton("Sắp xếp theo Tên");
+        courseBtn = new JButton("Quản lý các khóa học");
+        searchBtn = new JButton("Tìm kiếm");
         // khởi tạo bảng teacher
         jScrollPaneTeacherTable = new JScrollPane();
         teacherTable = new JTable();
         
         // khởi tạo các label
         idLabel = new JLabel("Id");
-        nameLabel = new JLabel("Name");
-        dobLabel = new JLabel("DOB");
-        addressLabel = new JLabel("Address");
-        academicLabel = new JLabel("Academic");
-        
+        nameLabel = new JLabel("Tên");
+        dobLabel = new JLabel("Ngày sinh");
+        addressLabel = new JLabel("Địa chỉ");
+        academicLabel = new JLabel("Trình độ");
+        courseLabel = new JLabel("Khóa học");
         // khởi tạo các trường nhập dữ liệu cho teacher
         idField = new JTextField(6);
         idField.setEditable(false);
@@ -115,12 +122,15 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         panel.add(clearBtn);
         panel.add(sortTeacherAgeBtn);
         panel.add(sortTeacherNameBtn);
+        panel.add(courseBtn);
+        panel.add(searchBtn);
         
         panel.add(idLabel);
         panel.add(nameLabel);
         panel.add(dobLabel);
         panel.add(addressLabel);
         panel.add(academicLabel);
+        panel.add(courseLabel);
         
         panel.add(idField);
         panel.add(nameField);
@@ -139,6 +149,8 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.NORTH, addressLabel, 100, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, academicLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, academicLabel, 170, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, courseLabel, 10, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, courseLabel, 210, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, idField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, idField, 10, SpringLayout.NORTH, panel);
@@ -150,23 +162,27 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneAddress, 100, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, capBacField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, capBacField, 170, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, courseBtn, 100, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, courseBtn, 210, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, jScrollPaneTeacherTable, 300, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, jScrollPaneTeacherTable, 10, SpringLayout.NORTH, panel);
         
         layout.putConstraint(SpringLayout.WEST, addTeacherBtn, 20, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, addTeacherBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, editTeacherBtn, 60, SpringLayout.WEST, addTeacherBtn);
+        layout.putConstraint(SpringLayout.WEST, editTeacherBtn, 80, SpringLayout.WEST, addTeacherBtn);
         layout.putConstraint(SpringLayout.NORTH, editTeacherBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, deleteTeacherBtn, 60, SpringLayout.WEST, editTeacherBtn);
+        layout.putConstraint(SpringLayout.WEST, deleteTeacherBtn, 70, SpringLayout.WEST, editTeacherBtn);
         
         layout.putConstraint(SpringLayout.NORTH, clearBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, clearBtn, 75, SpringLayout.WEST, deleteTeacherBtn);
+        layout.putConstraint(SpringLayout.WEST, clearBtn, 70, SpringLayout.WEST, deleteTeacherBtn);
+        layout.putConstraint(SpringLayout.NORTH, searchBtn, 330, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, searchBtn, 100, SpringLayout.WEST, clearBtn);
         
         layout.putConstraint(SpringLayout.NORTH, deleteTeacherBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortTeacherAgeBtn, 550, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.WEST, sortTeacherAgeBtn, 500, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, sortTeacherAgeBtn, 330, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.WEST, sortTeacherNameBtn, 115, SpringLayout.WEST, sortTeacherAgeBtn);
+        layout.putConstraint(SpringLayout.WEST, sortTeacherNameBtn, 140, SpringLayout.WEST, sortTeacherAgeBtn);
         layout.putConstraint(SpringLayout.NORTH, sortTeacherNameBtn, 330, SpringLayout.NORTH, panel);
         
         this.add(panel);
@@ -176,40 +192,29 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         // disable Edit and Delete buttons
         editTeacherBtn.setEnabled(false);
         deleteTeacherBtn.setEnabled(false);
+        courseBtn.setEnabled(false);
         // enable Add button
         addTeacherBtn.setEnabled(true);
+        searchBtn.setEnabled(true);
     }
     
     public void showMessage(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
-    
-    /**
-     * hiển thị list teacher vào bảng teacherTable
-     * 
-     * @param list
-     */
     public void showListTeachers(List<Teacher> list) {
         int size = list.size();
-        // với bảng teacherTable có 5 cột, 
-        // khởi tạo mảng 2 chiều teachers, trong đó:
-        // số hàng: là kích thước của list teacher 
-        // số cột: là 5
-        Object [][] teachers = new Object[size][5];
+        Object [][] teachers = new Object[size][6];
         for (int i = 0; i < size; i++) {
             teachers[i][0] = list.get(i).getId();
             teachers[i][1] = list.get(i).getName();
             teachers[i][2] = list.get(i).getDOB();
             teachers[i][3] = list.get(i).getAddress();
             teachers[i][4] = list.get(i).getTrinhDo();
+            teachers[i][5] = "+"+list.get(i).getNumKhoaHoc();
         }
         teacherTable.setModel(new DefaultTableModel(teachers, columnNames));
     }
     
-    /**
-     * điền thông tin của hàng được chọn từ bảng teacher 
-     * vào các trường tương ứng của teacher.
-     */
     public void fillTeacherFromSelectedRow() {
         // lấy chỉ số của hàng được chọn 
         int row = teacherTable.getSelectedRow();
@@ -222,8 +227,10 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
             // enable Edit and Delete buttons
             editTeacherBtn.setEnabled(true);
             deleteTeacherBtn.setEnabled(true);
+            courseBtn.setEnabled(true);
             // disable Add button
             addTeacherBtn.setEnabled(false);
+            searchBtn.setEnabled(false);
         }
     }
 
@@ -239,10 +246,21 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         // disable Edit and Delete buttons
         editTeacherBtn.setEnabled(false);
         deleteTeacherBtn.setEnabled(false);
+        courseBtn.setEnabled(false);
         // enable Add button
         addTeacherBtn.setEnabled(true);
+        searchBtn.setEnabled(true);
     }
-    
+    public void OpenQuanLyKhoaHoc(){
+        int id = Integer.parseInt(idField.getText());
+        List<Teacher> dsTeacher = TrungTamController.Instance().getTeacherFunc().getListTeachers();
+        for(int i=0;i<dsTeacher.size();i++){
+            if(dsTeacher.get(i).getId()==id){
+                new KhoaHocView(dsTeacher.get(i)).setVisible(true);
+                break;
+            }
+        }
+    }
     /**
      * hiện thị thông tin teacher
      * 
@@ -257,8 +275,10 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         // enable Edit and Delete buttons
         editTeacherBtn.setEnabled(true);
         deleteTeacherBtn.setEnabled(true);
+        courseBtn.setEnabled(true);
         // disable Add button
         addTeacherBtn.setEnabled(false);
+        searchBtn.setEnabled(false);
     }
     
     /**
@@ -266,6 +286,19 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
      * 
      * @return
      */
+    public Teacher getInfoSearch(){
+        Teacher teacher = new Teacher();
+        if(!nameField.getText().isBlank()){
+            teacher.setName(nameField.getText());
+        }
+        if(!dobField.getText().isBlank()){
+            teacher.setDOB(formatterDate(dobField.getText()));
+        }
+        if(!addressTA.getText().isBlank()){
+            teacher.setAddress(addressTA.getText().trim());
+        }
+        return teacher;
+    }
     public Teacher getTeacherInfo() {
         // validate teacher
         if (!validateName() || !validateDOB() || !validateAddress() || !validateTrinhDo()) {
@@ -277,7 +310,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
                 teacher.setId(Integer.parseInt(idField.getText()));
             }
             teacher.setName(nameField.getText().trim());
-            teacher.setDOB(dobField.getText());
+            teacher.setDOB(formatterDate(dobField.getText()));
             teacher.setAddress(addressTA.getText().trim());
             teacher.setTrinhDo(capBacField.getSelectedItem().toString());
             return teacher;
@@ -286,12 +319,29 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         }
         return null;
     }
-    
+    private String formatterDate(String inputDate) {
+        List<String> dateFormats = Arrays.asList("d/M/yyyy", "dd/M/yyyy", "d/MM/yyyy", "dd/MM/yyyy");
+        LocalDate date = null;
+        for (String format : dateFormats) {
+            try {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+                date = LocalDate.parse(inputDate, formatter);
+                if (date != null) {
+                    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    return date.format(outputFormatter);
+                }
+            } catch (Exception exception) {
+                showMessage("Ngày sinh sai định dạng");
+                return null;
+            }
+        }
+        return null;
+    }
     private boolean validateName() {
         String name = nameField.getText();
         if (name == null || "".equals(name.trim())) {
             nameField.requestFocus();
-            showMessage("Name không được trống.");
+            showMessage("Họ tên không được trống.");
             return false;
         }
         return true;
@@ -301,7 +351,7 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
         String address = addressTA.getText();
         if (address == null || "".equals(address.trim())) {
             addressTA.requestFocus();
-            showMessage("Address không được trống.");
+            showMessage("Địa chỉ không được trống.");
             return false;
         }
         return true;
@@ -370,5 +420,11 @@ public class TeacherView extends JFrame implements ActionListener, ListSelection
     
     public void addListTeacherSelectionListener(ListSelectionListener listener) {
         teacherTable.getSelectionModel().addListSelectionListener(listener);
+    }
+    public void addQuanLyKhoaHoc(ActionListener listener){
+        courseBtn.addActionListener(listener);
+    }
+    public void addSearchListener(ActionListener listener){
+        searchBtn.addActionListener(listener);
     }
 }

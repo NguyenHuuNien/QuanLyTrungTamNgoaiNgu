@@ -14,12 +14,12 @@ public class Teacher extends Person implements Serializable {
     private static final long serialVersionUID = 1L;
     /* trình độ giáo viên */
     private String trinhDo;
-    private List<KhoaHoc> dsKH = new ArrayList<>();
+    private List<Student> dsStudent = new ArrayList<>();
     public Teacher() {
     }
 
     public Teacher(int id, String name, String dob, String address, String trinhDo){
-        super(id,name,dob,address,"GV");
+        super(id,name,dob,address);
         this.trinhDo = trinhDo;
     }
 
@@ -30,7 +30,16 @@ public class Teacher extends Person implements Serializable {
     public void setTrinhDo(String trinhDo) {
         this.trinhDo = trinhDo;
     }
-    public void addKhoaHoc(KhoaHoc kh){
-        dsKH.add(kh);
+
+    public List<Student> getDsStudent() {
+        return dsStudent;
     }
+
+    public void setDsStudent(List<Student> dsStudent) {
+        this.dsStudent = dsStudent;
+    }
+    public void addStudent(Student student){
+        this.dsStudent.add(student);
+    }
+    
 }
