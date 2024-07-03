@@ -1,6 +1,5 @@
 package view;
 
-import controller.StudentController;
 import controller.TrungTamController;
 import entity.KhoaHoc;
 import entity.Person;
@@ -10,9 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -172,26 +169,26 @@ public class KhoaHocView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 850));
+        setPreferredSize(new java.awt.Dimension(1510, 875));
         setResizable(false);
-        setSize(new java.awt.Dimension(1500, 820));
-        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
+        setSize(new java.awt.Dimension(1500, 875));
+        getContentPane().setLayout(new java.awt.FlowLayout(1, 5, 10));
 
         UserInfoPanel.setPreferredSize(new java.awt.Dimension(1500, 100));
-        UserInfoPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 0));
+        UserInfoPanel.setLayout(new java.awt.FlowLayout(0, 10, 0));
 
         avtLabel.setBackground(new java.awt.Color(255, 0, 255));
         avtLabel.setFont(new java.awt.Font("Liberation Serif", 1, 48)); // NOI18N
         avtLabel.setForeground(new java.awt.Color(0, 0, 255));
         avtLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         avtLabel.setText("N");
-        avtLabel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        avtLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         avtLabel.setPreferredSize(new java.awt.Dimension(100, 100));
         UserInfoPanel.add(avtLabel);
 
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 100));
         jPanel2.setRequestFocusEnabled(false);
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 1));
+        jPanel2.setLayout(new java.awt.FlowLayout(1, 5, 1));
 
         userID.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
         userID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -232,7 +229,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         getContentPane().add(hr1);
 
         centerPanel.setPreferredSize(new java.awt.Dimension(1500, 700));
-        centerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+        centerPanel.setLayout(new java.awt.FlowLayout(0, 5, 0));
 
         InforPanel.setPreferredSize(new java.awt.Dimension(400, 700));
 
@@ -244,7 +241,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         InforPanel.add(jLabel4);
 
         pnAllTimKiem.setPreferredSize(new java.awt.Dimension(400, 50));
-        pnAllTimKiem.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 50, 5));
+        pnAllTimKiem.setLayout(new java.awt.FlowLayout(2, 50, 5));
 
         togModeQuanLy.setBackground(new java.awt.Color(255, 153, 153));
         togModeQuanLy.setForeground(new java.awt.Color(51, 51, 255));
@@ -263,13 +260,13 @@ public class KhoaHocView extends javax.swing.JFrame {
         pnMode.setPreferredSize(new java.awt.Dimension(400, 410));
         InforPanel.add(pnMode);
 
-        pnKhac.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Khác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Liberation Mono", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
-        pnKhac.setPreferredSize(new java.awt.Dimension(400, 125));
-        pnKhac.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+        pnKhac.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        pnKhac.setPreferredSize(new java.awt.Dimension(390, 120));
+        pnKhac.setLayout(new java.awt.FlowLayout(1, 5, 20));
 
         jLabel20.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel20.setText("Danh sách sinh viên");
-        jLabel20.setPreferredSize(new java.awt.Dimension(150, 18));
+        jLabel20.setPreferredSize(new java.awt.Dimension(150, 20));
         pnKhac.add(jLabel20);
 
         btnShowDSSinhVien.setText("Xem DS Sinh viên");
@@ -283,7 +280,7 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel21.setText("Danh sách giảng viên");
-        jLabel21.setPreferredSize(new java.awt.Dimension(150, 18));
+        jLabel21.setPreferredSize(new java.awt.Dimension(150, 20));
         pnKhac.add(jLabel21);
 
         btnShowDSGiangVien.setText("Xem DS Giảng viên");
@@ -299,7 +296,7 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         centerPanel.add(InforPanel);
 
-        hr2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hr2.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         hr2.setPreferredSize(new java.awt.Dimension(2, 700));
 
         javax.swing.GroupLayout hr2Layout = new javax.swing.GroupLayout(hr2);
@@ -316,7 +313,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         centerPanel.add(hr2);
 
         TablePanel.setPreferredSize(new java.awt.Dimension(1000, 700));
-        TablePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
+        TablePanel.setLayout(new java.awt.FlowLayout(1, 0, 5));
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(950, 650));
 
@@ -336,7 +333,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         TablePanel.add(jScrollPane1);
 
         jPanel7.setPreferredSize(new java.awt.Dimension(600, 44));
-        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 10));
+        jPanel7.setLayout(new java.awt.FlowLayout(1, 20, 10));
 
         btnSapXepID.setText("Sắp xếp theo ID");
         btnSapXepID.setPreferredSize(new java.awt.Dimension(150, 24));
@@ -374,43 +371,51 @@ public class KhoaHocView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnShowDSSinhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowDSSinhVienActionPerformed
-        String [] columnNames = new String [] {
-            "ID", "Họ tên", "Ngày sinh", "Địa chỉ"};
-        List<Student> dsStudents = new ArrayList<Student>();
-        for(KhoaHoc kh : dsKH){
-            if(kh.getId()==(int)table.getValueAt(table.getSelectedRow(), 0)){
-                dsStudents = kh.getDsStudent();
-                break;
+        if(table.getSelectedRow()!=-1){
+            String [] columnNames = new String [] {"ID", "Họ tên", "Ngày sinh", "Địa chỉ"};
+            List<Student> dsStudents = new ArrayList<Student>();
+            for(KhoaHoc kh : dsKH){
+                if(kh.getId()==(int)table.getValueAt(table.getSelectedRow(), 0)){
+                    dsStudents = kh.getDsStudent();
+                    break;
+                }
             }
+            Object [][] datas = new Object[dsStudents.size()][4];
+            for (int i = 0; i < dsStudents.size(); i++) {
+                datas[i][0] = dsStudents.get(i).getId();
+                datas[i][1] = dsStudents.get(i).getName();
+                datas[i][2] = dsStudents.get(i).getDOB();
+                datas[i][3] = dsStudents.get(i).getAddress();
+            }
+            new ShowListView(columnNames, datas).setVisible(true);
+        }else{
+            showMessage("Vui lòng chọn một khóa học");
         }
-        Object [][] datas = new Object[dsStudents.size()][4];
-        for (int i = 0; i < dsStudents.size(); i++) {
-            datas[i][0] = dsStudents.get(i).getId();
-            datas[i][1] = dsStudents.get(i).getName();
-            datas[i][2] = dsStudents.get(i).getDOB();
-            datas[i][3] = dsStudents.get(i).getAddress();
-        }
-        new ShowListView(columnNames, datas).setVisible(true);
     }//GEN-LAST:event_btnShowDSSinhVienActionPerformed
 
     private void btnShowDSGiangVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowDSGiangVienActionPerformed
-        String [] columnNames = new String [] {
-            "ID", "Họ tên", "Ngày sinh", "Địa chỉ", "Trình độ"};
-        List<Teacher> dsTeachers = new ArrayList<Teacher>();
-        for(KhoaHoc kh : dsKH){
-            if(kh.getId()==(int)table.getValueAt(table.getSelectedRow(), 0)){
-                dsTeachers = kh.getDsTeacher();
-                break;
+        if(table.getSelectedRow()!=-1){
+            String [] columnNames = new String [] {
+                "ID", "Họ tên", "Ngày sinh", "Địa chỉ", "Trình độ"};
+            List<Teacher> dsTeachers = new ArrayList<Teacher>();
+            for(KhoaHoc kh : dsKH){
+                if(kh.getId()==(int)table.getValueAt(table.getSelectedRow(), 0)){
+                    dsTeachers = kh.getDsTeacher();
+                    break;
+                }
             }
+            Object [][] datas = new Object[dsTeachers.size()][5];
+            for (int i = 0; i < dsTeachers.size(); i++) {
+                datas[i][0] = dsTeachers.get(i).getId();
+                datas[i][1] = dsTeachers.get(i).getName();
+                datas[i][2] = dsTeachers.get(i).getDOB();
+                datas[i][3] = dsTeachers.get(i).getAddress();
+                datas[i][4] = dsTeachers.get(i).getTrinhDo();
+            }
+            new ShowListView(columnNames, datas).setVisible(true);
+        }else{
+            showMessage("Vui lòng chọn một khóa học");
         }
-        Object [][] datas = new Object[dsTeachers.size()][4];
-        for (int i = 0; i < dsTeachers.size(); i++) {
-            datas[i][0] = dsTeachers.get(i).getId();
-            datas[i][1] = dsTeachers.get(i).getName();
-            datas[i][2] = dsTeachers.get(i).getDOB();
-            datas[i][3] = dsTeachers.get(i).getAddress();
-        }
-        new ShowListView(columnNames, datas).setVisible(true);
     }//GEN-LAST:event_btnShowDSGiangVienActionPerformed
 
     private void btnSapXepGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepGiaActionPerformed

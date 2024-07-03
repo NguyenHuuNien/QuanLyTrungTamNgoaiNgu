@@ -54,10 +54,10 @@ public class ShowListView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(650, 650));
         setResizable(false);
-        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 10));
+        getContentPane().setLayout(new java.awt.FlowLayout(1, 0, 10));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 500));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+        jPanel1.setLayout(new java.awt.FlowLayout(1, 0, 0));
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 500));
 
@@ -79,7 +79,7 @@ public class ShowListView extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
 
         pnButton.setPreferredSize(new java.awt.Dimension(600, 100));
-        pnButton.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 30));
+        pnButton.setLayout(new java.awt.FlowLayout(1, 5, 30));
 
         jButton1.setText("Chọn");
         jButton1.setPreferredSize(new java.awt.Dimension(100, 25));

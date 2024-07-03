@@ -17,7 +17,7 @@ import utils.FileUtils;
  * @author viettuts.vn
  */
 public class StudentFunc {
-    private static final String STUDENT_FILE_NAME = "src/student.xml";
+    private static final String STUDENT_FILE_NAME = "student.xml";
     private List<Student> listStudents;
 
     public StudentFunc() {

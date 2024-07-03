@@ -112,6 +112,14 @@
             <numKhoaHoc>1</numKhoaHoc>
             <trinhDo>Phó giáo sư</trinhDo>
         </dsTeacher>
+        <dsTeacher>
+            <id>12</id>
+            <name>Vũ TRần Kim Oanh</name>
+            <dob>2004-11-29T00:00:00+07:00</dob>
+            <address>Vũng Tàu</address>
+            <numKhoaHoc>2</numKhoaHoc>
+            <trinhDo>Tiến sĩ</trinhDo>
+        </dsTeacher>
     </khoahoc>
     <khoahoc>
         <id>3</id>

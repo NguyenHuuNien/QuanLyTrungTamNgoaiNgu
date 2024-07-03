@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class KhoaHocFunc {
-    private static final String KHOA_HOC_FILE_NAME = "src/khoahoc.xml";
+    private static final String KHOA_HOC_FILE_NAME = "khoahoc.xml";
     private List<KhoaHoc> listKhoaHoc;
 
     public KhoaHocFunc() {

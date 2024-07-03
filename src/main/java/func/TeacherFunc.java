@@ -15,7 +15,7 @@ import utils.FileUtils;
  * @author viettuts.vn
  */
 public class TeacherFunc {
-    private static final String TEACHER_FILE_NAME = "src/teacher.xml";
+    private static final String TEACHER_FILE_NAME = "teacher.xml";
     private List<Teacher> listTeachers;
 
     public TeacherFunc() {
