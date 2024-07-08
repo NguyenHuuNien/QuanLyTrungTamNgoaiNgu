@@ -5,7 +5,7 @@
         <name>Mai Thanh Toan</name>
         <dob>2008-07-06T00:00:00+07:00</dob>
         <address>Ha Noi</address>
-        <numKhoaHoc>1</numKhoaHoc>
+        <numKhoaHoc>0</numKhoaHoc>
     </student>
     <student>
         <id>2</id>
@@ -40,7 +40,7 @@
         <name>Nguyen Thi Oanh</name>
         <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ha Noi</address>
-        <numKhoaHoc>1</numKhoaHoc>
+        <numKhoaHoc>0</numKhoaHoc>
     </student>
     <student>
         <id>9</id>
@@ -187,6 +187,6 @@
         <name>Nguyen Huu Nien</name>
         <dob>2004-03-07T00:00:00+07:00</dob>
         <address>Ninh Binh</address>
-        <numKhoaHoc>2</numKhoaHoc>
+        <numKhoaHoc>0</numKhoaHoc>
     </student>
 </students>

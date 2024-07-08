@@ -2,7 +2,6 @@ package utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,7 +19,7 @@ public class FileUtils {
      */
     public static void writeXMLtoFile(String fileName, Object object) {
         try {
-            File xmlFile = new File(getResourceFilePath(fileName));
+            File xmlFile = new File("data/" + fileName);
             // tạo đối tượng JAXB Context
             JAXBContext jaxbContext = JAXBContext.newInstance(object.getClass());
             // Create đối tượng Marshaller
@@ -33,10 +32,6 @@ public class FileUtils {
             e.printStackTrace();
         }
     }
-    // Phương thức để lấy đường dẫn tệp XML trong resources
-    private static String getResourceFilePath(String fileName) {
-        return FileUtils.class.getClassLoader().getResource(fileName).getFile();
-    }
     /**
      * Đọc nội dung fileName, sau đó chuyển đổi nội dung của file 
      * thành đối tượng có kiểu là clazz.
@@ -47,14 +42,15 @@ public class FileUtils {
      */
     public static Object readXMLFile(String fileName, Class<?> clazz) {
         try {
-            InputStream inputStream = FileUtils.class.getClassLoader().getResourceAsStream(fileName);
-            if (inputStream == null) {
+            File xmlFile = new File("data/" + fileName);
+            System.out.println("Đường dẫn tuyệt đối: " + xmlFile.getAbsolutePath());
+            if (!xmlFile.exists()) {
                 throw new FileNotFoundException("File not found: " + fileName);
             }
 
             JAXBContext jaxbContext = JAXBContext.newInstance(clazz);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            return jaxbUnmarshaller.unmarshal(inputStream);
+            return jaxbUnmarshaller.unmarshal(xmlFile);
         } catch (JAXBException | FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -7,6 +7,13 @@
         <address>Ninh Binh</address>
         <numKhoaHoc>1</numKhoaHoc>
         <trinhDo>Giảng viên</trinhDo>
+        <dsStudent>
+            <id>1</id>
+            <name>Mai Thanh Toan</name>
+            <dob>2008-07-06T00:00:00+07:00</dob>
+            <address>Ha Noi</address>
+            <numKhoaHoc>1</numKhoaHoc>
+        </dsStudent>
     </teacher>
     <teacher>
         <id>2</id>
@@ -29,7 +36,7 @@
         <name>Le Thi Cuc</name>
         <dob>2024-06-21T00:00:00+07:00</dob>
         <address>Ho Chi Minh</address>
-        <numKhoaHoc>2</numKhoaHoc>
+        <numKhoaHoc>0</numKhoaHoc>
         <trinhDo>Phó giáo sư</trinhDo>
     </teacher>
     <teacher>
@@ -37,7 +44,7 @@
         <name>Tran Van Cuong</name>
         <dob>2024-06-21T00:00:00+07:00</dob>
         <address>Hue</address>
-        <numKhoaHoc>1</numKhoaHoc>
+        <numKhoaHoc>0</numKhoaHoc>
         <trinhDo>Phó giáo sư</trinhDo>
     </teacher>
     <teacher>
@@ -45,7 +52,7 @@
         <name>Pham Thi Duong</name>
         <dob>2024-06-21T00:00:00+07:00</dob>
         <address>Nha Trang</address>
-        <numKhoaHoc>2</numKhoaHoc>
+        <numKhoaHoc>0</numKhoaHoc>
         <trinhDo>Giảng viên</trinhDo>
     </teacher>
     <teacher>
@@ -93,7 +100,7 @@
         <name>Vũ TRần Kim Oanh</name>
         <dob>2004-11-29T00:00:00+07:00</dob>
         <address>Vũng Tàu</address>
-        <numKhoaHoc>2</numKhoaHoc>
+        <numKhoaHoc>0</numKhoaHoc>
         <trinhDo>Tiến sĩ</trinhDo>
     </teacher>
     <teacher>

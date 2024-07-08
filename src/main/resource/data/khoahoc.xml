@@ -114,9 +114,9 @@
     </khoahoc>
     <khoahoc>
         <id>15</id>
-        <tenKhoaHoc>Hoc tieng Anh - Nghe co ban</tenKhoaHoc>
+        <tenKhoaHoc>Hoc tieng Anh - Nghe noi co ban</tenKhoaHoc>
         <ngonNgu>Tiếng Anh</ngonNgu>
-        <skill>Nghe</skill>
+        <skill>Nghe Nói</skill>
         <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
         <giaKhoaHoc>350000.0</giaKhoaHoc>
     </khoahoc>

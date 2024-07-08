@@ -40,5 +40,21 @@
             <version>2.3.2</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <!-- Bổ sung thêm resource cho thư mục data -->
+            <resource>
+                <directory>src/main/resources/data</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>
