@@ -480,7 +480,7 @@ public class pnModeSearch extends javax.swing.JPanel implements ISelectRowTable{
                     datas[i][3] = dsTeacher.get(i).getAddress();
                     datas[i][4] = dsTeacher.get(i).getTrinhDo();
                 }
-                new ShowListView(person,khoaHocSelected,columnNames,datas).setVisible(true);
+                new ShowListView(person,khoaHocSelected,khView,columnNames,datas).setVisible(true);
             }else{
                 List<Teacher> dsGV = TrungTamController.Instance().getTeacherFunc().getListTeachers();
                 for(int i=0;i<dsGV.size();i++){

@@ -313,6 +313,7 @@ public class pnModeAdmin extends javax.swing.JPanel implements ISelectRowTable{
             }
         }
         khView.resetData();
+        khView.showMessage("Sửa thành công!");
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -324,9 +325,10 @@ public class pnModeAdmin extends javax.swing.JPanel implements ISelectRowTable{
                 break;
             }
         }
+        lamMoi();
+        khView.showMessage("Xóa thành công!");
     }//GEN-LAST:event_btnXoaActionPerformed
-
-    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+    private void lamMoi(){
         cbNgonNgu.setSelectedIndex(0);
         txtID.setText("");
         txtTenKhoaHoc.setText("");
@@ -341,6 +343,9 @@ public class pnModeAdmin extends javax.swing.JPanel implements ISelectRowTable{
         btnXoa.setEnabled(false);
         btnThem.setEnabled(true);
         khView.resetData();
+    }
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        lamMoi();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
@@ -381,6 +386,7 @@ public class pnModeAdmin extends javax.swing.JPanel implements ISelectRowTable{
         }
         TrungTamController.Instance().getKhoaHocFunc().add(kh);
         khView.resetData();
+        khView.showMessage("Thêm thành công!");
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void cbNgonNguActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNgonNguActionPerformed

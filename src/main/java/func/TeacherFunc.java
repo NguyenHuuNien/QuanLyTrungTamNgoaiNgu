@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import controller.TrungTamController;
+import entity.KhoaHoc;
 import entity.Teacher;
 import entity.TeacherXML;
 import utils.FileUtils;
@@ -55,10 +57,19 @@ public class TeacherFunc {
      * 
      * @param teacher
      */
+    private int pullID(){
+        for(int i=0;i<listTeachers.size()-1;i++){
+            if(listTeachers.get(i).getId()+1!=listTeachers.get(i+1).getId()){
+                return listTeachers.get(i).getId()+1;
+            }
+        }
+        return listTeachers.isEmpty()?1:listTeachers.get(listTeachers.size()-1).getId()+1;
+    }
     public void add(Teacher teacher) {
-        int id = (listTeachers.size() > 0) ? (listTeachers.size() + 1) : 1;
+        int id = pullID();
         teacher.setId(id);
         listTeachers.add(teacher);
+        listTeachers.sort(Comparator.comparingInt(Teacher::getId));
         writeListTeachers(listTeachers);
     }
 
@@ -76,6 +87,13 @@ public class TeacherFunc {
                 listTeachers.get(i).setAddress(teacher.getAddress());
                 listTeachers.get(i).setTrinhDo(teacher.getTrinhDo());
                 writeListTeachers(listTeachers);
+                for(KhoaHoc kh : TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc()){
+                    if(kh.checkContainsTeacher(listTeachers.get(i))){
+                        kh.removeTeacher(listTeachers.get(i));
+                        kh.addTeacher(listTeachers.get(i));
+                        TrungTamController.Instance().getKhoaHocFunc().edit(kh);
+                    }
+                }
                 break;
             }
         }
@@ -99,6 +117,12 @@ public class TeacherFunc {
         if (isFound) {
             listTeachers.remove(teacher);
             writeListTeachers(listTeachers);
+            for(KhoaHoc kh : TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc()){
+                if(kh.checkContainsTeacher(teacher)){
+                    kh.removeTeacher(teacher);
+                    TrungTamController.Instance().getKhoaHocFunc().edit(kh);
+                }
+            }
             return true;
         }
         return false;

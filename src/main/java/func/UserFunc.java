@@ -20,7 +20,7 @@ public class UserFunc {
             }else{
                 List<Student> dsStudent = TrungTamController.Instance().getStudentFunc().getListStudents();
                 for(Student st : dsStudent){
-                    String tk = st.getId()+"";
+                    String tk = "HV"+st.getId();
                     String mk = st.getDOB().substring(0, 2) + st.getDOB().substring(3,5) + st.getDOB().substring(6);
                     if(tk.equals(user.getUserName())&&mk.equals(user.getPassword())){
                         KhoaHocView khView = new KhoaHocView(st);
@@ -31,7 +31,7 @@ public class UserFunc {
                 }
                 List<Teacher> dsTeacher = TrungTamController.Instance().getTeacherFunc().getListTeachers();
                 for(Teacher tc : dsTeacher){
-                    String tk = tc.getId()+"";
+                    String tk = "GV"+tc.getId()+"";
                     String mk = tc.getDOB().substring(0, 2) + tc.getDOB().substring(3,5) + tc.getDOB().substring(6);
                     if(tk.equals(user.getUserName())&&mk.equals(user.getPassword())){
                         KhoaHocView khView = new KhoaHocView(tc);

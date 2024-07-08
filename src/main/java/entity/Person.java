@@ -19,11 +19,6 @@ public class Person implements Serializable{
     private int numKhoaHoc;
     public Person() {
     }
-    
-    public Person(int id, String name){ // use when create admin
-        this.id = id;
-        this.name = name;
-    }
 
     public Person(int id, String name, String dob,String address){
         this.id = id;

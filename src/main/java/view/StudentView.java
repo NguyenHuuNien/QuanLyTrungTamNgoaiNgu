@@ -38,8 +38,8 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
     private JButton sortStudentNameBtn;
     private JButton courseBtn;
     private JButton searchBtn;
-    private JScrollPane jScrollPaneStudentTable;
     private JScrollPane jScrollPaneAddress;
+    private JScrollPane jScrollPaneStudentTable;
     private JTable studentTable;
     
     private JLabel idLabel;
@@ -194,10 +194,6 @@ public class StudentView extends JFrame implements ActionListener, ListSelection
      */
     public void showListStudents(List<Student> list) {
         int size = list.size();
-        // với bảng studentTable có 5 cột, 
-        // khởi tạo mảng 2 chiều students, trong đó:
-        // số hàng: là kích thước của list student 
-        // số cột: là 5
         Object [][] students = new Object[size][5];
         for (int i = 0; i < size; i++) {
             students[i][0] = list.get(i).getId();

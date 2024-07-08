@@ -4,137 +4,392 @@
         <id>1</id>
         <tenKhoaHoc>Hoc giao tiep Tieng Nhat N3</tenKhoaHoc>
         <ngonNgu>Tiếng Nhật</ngonNgu>
-        <skill>Nói </skill>
+        <skill>Nói</skill>
         <thoiGianKhoaHoc>1</thoiGianKhoaHoc>
         <giaKhoaHoc>300000.0</giaKhoaHoc>
-        <dsStudent>
-            <id>29</id>
-            <name>Nguyen Huu Nien</name>
-            <dob>2004-03-07T00:00:00+07:00</dob>
-            <address>Ninh Binh</address>
-            <numKhoaHoc>3</numKhoaHoc>
-        </dsStudent>
-        <dsStudent>
-            <id>1</id>
-            <name>Mai Thanh Toan</name>
-            <dob>2008-07-06T00:00:00+07:00</dob>
-            <address>Ha Noi</address>
-            <numKhoaHoc>1</numKhoaHoc>
-        </dsStudent>
-        <dsStudent>
-            <id>12</id>
-            <name>Hoang Van Trung</name>
-            <dob>2004-03-07T00:00:00+07:00</dob>
-            <address>Nghe An</address>
-            <numKhoaHoc>1</numKhoaHoc>
-        </dsStudent>
-        <dsStudent>
-            <id>12</id>
-            <name>Hoang Van Trung</name>
-            <dob>2004-03-07T00:00:00+07:00</dob>
-            <address>Nghe An</address>
-            <numKhoaHoc>1</numKhoaHoc>
-        </dsStudent>
-        <dsTeacher>
-            <id>5</id>
-            <name>Tran Van Cuong</name>
-            <dob>2024-06-21T00:00:00+07:00</dob>
-            <address>Hue</address>
-            <numKhoaHoc>1</numKhoaHoc>
-            <trinhDo>Phó giáo sư</trinhDo>
-        </dsTeacher>
-        <dsTeacher>
-            <id>12</id>
-            <name>Vũ TRần Kim Oanh</name>
-            <dob>2004-11-29T00:00:00+07:00</dob>
-            <address>Vũng Tàu</address>
-            <numKhoaHoc>1</numKhoaHoc>
-            <trinhDo>Tiến sĩ</trinhDo>
-            <dsStudent>
-                <id>12</id>
-                <name>Hoang Van Trung</name>
-                <dob>2004-03-07T00:00:00+07:00</dob>
-                <address>Nghe An</address>
-                <numKhoaHoc>1</numKhoaHoc>
-            </dsStudent>
-        </dsTeacher>
-        <dsTeacher>
-            <id>1</id>
-            <name>Mai Thu Thuy</name>
-            <dob>2024-12-14T00:00:00+07:00</dob>
-            <address>Ninh Binh</address>
-            <numKhoaHoc>1</numKhoaHoc>
-            <trinhDo>Giảng viên</trinhDo>
-        </dsTeacher>
-        <dsTeacher>
-            <id>4</id>
-            <name>Le Thi Cuc</name>
-            <dob>2024-06-21T00:00:00+07:00</dob>
-            <address>Ho Chi Minh</address>
-            <numKhoaHoc>2</numKhoaHoc>
-            <trinhDo>Phó giáo sư</trinhDo>
-        </dsTeacher>
-        <dsTeacher>
-            <id>6</id>
-            <name>Pham Thi Duong</name>
-            <dob>2024-06-21T00:00:00+07:00</dob>
-            <address>Nha Trang</address>
-            <numKhoaHoc>2</numKhoaHoc>
-            <trinhDo>Giảng viên</trinhDo>
-        </dsTeacher>
     </khoahoc>
     <khoahoc>
         <id>2</id>
         <tenKhoaHoc>Hoc Tieng Nhat N3 - Mimikara Oboeru</tenKhoaHoc>
         <ngonNgu>Tiếng Nhật</ngonNgu>
-        <skill>Nghe Nói </skill>
+        <skill>Nghe Nói</skill>
         <thoiGianKhoaHoc>5</thoiGianKhoaHoc>
         <giaKhoaHoc>500000.0</giaKhoaHoc>
-        <dsStudent>
-            <id>8</id>
-            <name>Nguyen Thi Oanh</name>
-            <dob>2004-03-07T00:00:00+07:00</dob>
-            <address>Ha Noi</address>
-            <numKhoaHoc>1</numKhoaHoc>
-        </dsStudent>
-        <dsStudent>
-            <id>29</id>
-            <name>Nguyen Huu Nien</name>
-            <dob>2004-03-07T00:00:00+07:00</dob>
-            <address>Ninh Binh</address>
-            <numKhoaHoc>1</numKhoaHoc>
-        </dsStudent>
-        <dsTeacher>
-            <id>4</id>
-            <name>Le Thi Cuc</name>
-            <dob>2024-06-21T17:07:23.151+07:00</dob>
-            <address>Ho Chi Minh</address>
-            <numKhoaHoc>1</numKhoaHoc>
-            <trinhDo>Phó giáo sư</trinhDo>
-        </dsTeacher>
-        <dsTeacher>
-            <id>12</id>
-            <name>Vũ TRần Kim Oanh</name>
-            <dob>2004-11-29T00:00:00+07:00</dob>
-            <address>Vũng Tàu</address>
-            <numKhoaHoc>2</numKhoaHoc>
-            <trinhDo>Tiến sĩ</trinhDo>
-        </dsTeacher>
     </khoahoc>
     <khoahoc>
         <id>3</id>
         <tenKhoaHoc>Hoc tieng Han cung nguoi ban xu</tenKhoaHoc>
         <ngonNgu>Tiếng Hàn</ngonNgu>
-        <skill>Nghe Nói Đọc </skill>
+        <skill>Nghe Nói Đọc</skill>
         <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
         <giaKhoaHoc>200000.0</giaKhoaHoc>
-        <dsTeacher>
-            <id>6</id>
-            <name>Pham Thi Duong</name>
-            <dob>2024-06-21T00:00:00+07:00</dob>
-            <address>Nha Trang</address>
-            <numKhoaHoc>2</numKhoaHoc>
-            <trinhDo>Giảng viên</trinhDo>
-        </dsTeacher>
+    </khoahoc>
+    <khoahoc>
+        <id>4</id>
+        <tenKhoaHoc>Hoc tieng Anh - Giao tiep co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>400000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>5</id>
+        <tenKhoaHoc>Hoc tieng Trung - Giao tiep co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Nghe Nói</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>6</id>
+        <tenKhoaHoc>Hoc tieng Han - Doc viet co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Đọc Viết</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>7</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Doc viet co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Đọc Viết</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>8</id>
+        <tenKhoaHoc>Hoc tieng Anh - Nghe noi doc viet</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Nghe Nói Đọc Viết</skill>
+        <thoiGianKhoaHoc>6</thoiGianKhoaHoc>
+        <giaKhoaHoc>600000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>9</id>
+        <tenKhoaHoc>Hoc tieng Trung - Nghe co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>10</id>
+        <tenKhoaHoc>Hoc tieng Han - Nghe noi doc viet</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Nghe Nói Đọc Viết</skill>
+        <thoiGianKhoaHoc>5</thoiGianKhoaHoc>
+        <giaKhoaHoc>500000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>11</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Giao tiep co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>12</id>
+        <tenKhoaHoc>Hoc tieng Anh - Viet co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>400000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>13</id>
+        <tenKhoaHoc>Hoc tieng Trung - Doc viet co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Đọc Viết</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>14</id>
+        <tenKhoaHoc>Hoc tieng Han - Giao tiep co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>15</id>
+        <tenKhoaHoc>Hoc tieng Anh - Nghe co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>16</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Nghe noi doc viet</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Nghe Nói Đọc Viết</skill>
+        <thoiGianKhoaHoc>5</thoiGianKhoaHoc>
+        <giaKhoaHoc>500000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>17</id>
+        <tenKhoaHoc>Hoc tieng Trung - Viet co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>400000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>18</id>
+        <tenKhoaHoc>Hoc tieng Han - Nghe co ban</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>19</id>
+        <tenKhoaHoc>Hoc tieng Anh - Đọc cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Đọc</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>400000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>20</id>
+        <tenKhoaHoc>Hoc tieng Trung - Nghe Nói Đọc Viết</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Nghe Nói Đọc Viết</skill>
+        <thoiGianKhoaHoc>6</thoiGianKhoaHoc>
+        <giaKhoaHoc>600000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>21</id>
+        <tenKhoaHoc>Hoc tieng Han - Đọc Viết cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Đọc Viết</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>22</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Nghe cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>23</id>
+        <tenKhoaHoc>Hoc tieng Anh - Viết nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>24</id>
+        <tenKhoaHoc>Hoc tieng Trung - Nghe cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>25</id>
+        <tenKhoaHoc>Hoc tieng Han - Nói nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>26</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Viết nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>27</id>
+        <tenKhoaHoc>Hoc tieng Anh - Nghe nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>28</id>
+        <tenKhoaHoc>Hoc tieng Trung - Đọc nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Đọc</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>29</id>
+        <tenKhoaHoc>Hoc tieng Han - Nghe nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>30</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Đọc nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Đọc</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>31</id>
+        <tenKhoaHoc>Hoc tieng Anh - Nói nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>32</id>
+        <tenKhoaHoc>Hoc tieng Trung - Viết nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>33</id>
+        <tenKhoaHoc>Hoc tieng Han - Nói cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>34</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Nghe nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>35</id>
+        <tenKhoaHoc>Hoc tieng Anh - Đọc nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Đọc</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>36</id>
+        <tenKhoaHoc>Hoc tieng Trung - Nghe nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>37</id>
+        <tenKhoaHoc>Hoc tieng Han - Viết cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>400000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>38</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Đọc cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Đọc</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>39</id>
+        <tenKhoaHoc>Hoc tieng Anh - Viết cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>400000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>40</id>
+        <tenKhoaHoc>Hoc tieng Trung - Nói cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>41</id>
+        <tenKhoaHoc>Hoc tieng Han - Đọc nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Đọc</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>42</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Viết cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>2</thoiGianKhoaHoc>
+        <giaKhoaHoc>400000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>43</id>
+        <tenKhoaHoc>Hoc tieng Anh - Nghe cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>44</id>
+        <tenKhoaHoc>Hoc tieng Trung - Đọc cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Đọc</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>45</id>
+        <tenKhoaHoc>Hoc tieng Han - Viết nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>46</id>
+        <tenKhoaHoc>Hoc tieng Nhat - Nghe cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Nhật</ngonNgu>
+        <skill>Nghe</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>350000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>47</id>
+        <tenKhoaHoc>Hoc tieng Anh - Nói cơ bản</tenKhoaHoc>
+        <ngonNgu>Tiếng Anh</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>3</thoiGianKhoaHoc>
+        <giaKhoaHoc>300000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>48</id>
+        <tenKhoaHoc>Hoc tieng Trung - Viết nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Trung</ngonNgu>
+        <skill>Viết</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
+    </khoahoc>
+    <khoahoc>
+        <id>49</id>
+        <tenKhoaHoc>Hoc tieng Han - Nói nâng cao</tenKhoaHoc>
+        <ngonNgu>Tiếng Hàn</ngonNgu>
+        <skill>Nói</skill>
+        <thoiGianKhoaHoc>4</thoiGianKhoaHoc>
+        <giaKhoaHoc>450000.0</giaKhoaHoc>
     </khoahoc>
 </khoahocs>

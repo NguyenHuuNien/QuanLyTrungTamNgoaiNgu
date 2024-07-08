@@ -7,8 +7,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import controller.TrungTamController;
+import entity.KhoaHoc;
 import entity.Student;
 import entity.StudentXML;
+import entity.Teacher;
 import utils.FileUtils;
 
 /**
@@ -56,10 +59,19 @@ public class StudentFunc {
      * 
      * @param student
      */
+    private int pullID(){
+        for(int i=0;i<listStudents.size()-1;i++){
+            if(listStudents.get(i).getId()+1!=listStudents.get(i+1).getId()){
+                return listStudents.get(i).getId()+1;
+            }
+        }
+        return listStudents.isEmpty()?1:listStudents.get(listStudents.size()-1).getId()+1;
+    }
     public void add(Student student) {
-        int id = (listStudents.size() > 0) ? (listStudents.size() + 1) : 1;
+        int id = pullID();
         student.setId(id);
         listStudents.add(student);
+        listStudents.sort(Comparator.comparingInt(Student::getId));
         writeListStudents(listStudents);
     }
 
@@ -76,6 +88,20 @@ public class StudentFunc {
                 listStudents.get(i).setDOB(student.getDOB());
                 listStudents.get(i).setAddress(student.getAddress());
                 writeListStudents(listStudents);
+                for(KhoaHoc kh : TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc()){
+                    if(kh.checkContainsStudent(listStudents.get(i))){
+                        kh.removeStudent(listStudents.get(i));
+                        kh.addStudent(listStudents.get(i));
+                        TrungTamController.Instance().getKhoaHocFunc().edit(kh);
+                    }
+                }
+                for(Teacher tc : TrungTamController.Instance().getTeacherFunc().getListTeachers()){
+                    if(tc.checkContainsStudent(listStudents.get(i))){
+                        tc.removeStudent(listStudents.get(i));
+                        tc.addStudent(listStudents.get(i));
+                        TrungTamController.Instance().getTeacherFunc().edit(tc);
+                    }
+                }
                 break;
             }
         }
@@ -86,23 +112,35 @@ public class StudentFunc {
      * 
      * @param student
      */
-    public boolean delete(Student student) {
-        boolean isFound = false;
-        int size = listStudents.size();
-        for (int i = 0; i < size; i++) {
-            if (listStudents.get(i).getId() == student.getId()) {
-                student = listStudents.get(i);
-                isFound = true;
-                break;
+        public boolean delete(Student student) {
+            boolean isFound = false;
+            int size = listStudents.size();
+            for (int i = 0; i < size; i++) {
+                if (listStudents.get(i).getId() == student.getId()) {
+                    student = listStudents.get(i);
+                    isFound = true;
+                    break;
+                }
             }
+            if (isFound) {
+                listStudents.remove(student);
+                writeListStudents(listStudents);
+                for(KhoaHoc kh : TrungTamController.Instance().getKhoaHocFunc().getListKhoaHoc()){
+                    if(kh.checkContainsStudent(student)){
+                        kh.removeStudent(student);
+                        TrungTamController.Instance().getKhoaHocFunc().edit(kh);
+                    }
+                }
+                for(Teacher tc : TrungTamController.Instance().getTeacherFunc().getListTeachers()){
+                    if(tc.checkContainsStudent(student)){
+                        tc.removeStudent(student);
+                        TrungTamController.Instance().getTeacherFunc().edit(tc);
+                    }
+                }
+                return true;
+            }
+            return false;
         }
-        if (isFound) {
-            listStudents.remove(student);
-            writeListStudents(listStudents);
-            return true;
-        }
-        return false;
-    }
 
     /**
      * sắp xếp danh sách student theo name theo tứ tự tăng dần

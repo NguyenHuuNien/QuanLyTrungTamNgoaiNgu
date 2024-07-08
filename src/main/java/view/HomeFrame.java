@@ -26,14 +26,14 @@ public class HomeFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
+        pnTitle = new javax.swing.JPanel();
         txtNameCenter = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        pnGroupQuanLy = new javax.swing.JPanel();
+        pnButton = new javax.swing.JPanel();
         qlSV = new javax.swing.JButton();
         qlGV = new javax.swing.JButton();
         qlMonHoc = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        pnBtnThongKe = new javax.swing.JPanel();
         ThongKe = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,20 +42,20 @@ public class HomeFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 40));
 
-        jPanel4.setForeground(new java.awt.Color(153, 153, 153));
+        pnTitle.setForeground(new java.awt.Color(153, 153, 153));
 
         txtNameCenter.setFont(new java.awt.Font("Monospaced", 1, 28)); // NOI18N
         txtNameCenter.setForeground(new java.awt.Color(102, 102, 102));
         txtNameCenter.setText("Trung tâm ngoại ngữ TLinh");
         txtNameCenter.setToolTipText("");
-        jPanel4.add(txtNameCenter);
+        pnTitle.add(txtNameCenter);
 
-        getContentPane().add(jPanel4);
+        getContentPane().add(pnTitle);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lý", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Liberation Sans", 3, 18), new java.awt.Color(0, 0, 255))); // NOI18N
-        jPanel1.setPreferredSize(new java.awt.Dimension(700, 100));
+        pnGroupQuanLy.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lý", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Liberation Sans", 3, 18), new java.awt.Color(0, 0, 255))); // NOI18N
+        pnGroupQuanLy.setPreferredSize(new java.awt.Dimension(700, 100));
 
-        jPanel3.setLayout(new java.awt.GridLayout(1, 3, 40, 0));
+        pnButton.setLayout(new java.awt.GridLayout(1, 3, 40, 0));
 
         qlSV.setText("Quản lý Sinh viên");
         qlSV.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -65,7 +65,7 @@ public class HomeFrame extends javax.swing.JFrame {
                 qlSVActionPerformed(evt);
             }
         });
-        jPanel3.add(qlSV);
+        pnButton.add(qlSV);
 
         qlGV.setText("Quản lý Giảng viên");
         qlGV.addActionListener(new java.awt.event.ActionListener() {
@@ -73,23 +73,23 @@ public class HomeFrame extends javax.swing.JFrame {
                 qlGVActionPerformed(evt);
             }
         });
-        jPanel3.add(qlGV);
+        pnButton.add(qlGV);
 
-        qlMonHoc.setText("Quản lý Môn học");
+        qlMonHoc.setText("Quản lý Khóa học");
         qlMonHoc.setToolTipText("");
         qlMonHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 qlMonHocActionPerformed(evt);
             }
         });
-        jPanel3.add(qlMonHoc);
+        pnButton.add(qlMonHoc);
 
-        jPanel1.add(jPanel3);
+        pnGroupQuanLy.add(pnButton);
 
-        getContentPane().add(jPanel1);
+        getContentPane().add(pnGroupQuanLy);
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(700, 100));
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 50));
+        pnBtnThongKe.setPreferredSize(new java.awt.Dimension(700, 100));
+        pnBtnThongKe.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 50));
 
         ThongKe.setText("Thống kê");
         ThongKe.addActionListener(new java.awt.event.ActionListener() {
@@ -97,15 +97,15 @@ public class HomeFrame extends javax.swing.JFrame {
                 ThongKeActionPerformed(evt);
             }
         });
-        jPanel2.add(ThongKe);
+        pnBtnThongKe.add(ThongKe);
 
-        getContentPane().add(jPanel2);
+        getContentPane().add(pnBtnThongKe);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThongKeActionPerformed
-        // TODO add your handling code here:
+        new ThongKeView().setVisible(true);
     }//GEN-LAST:event_ThongKeActionPerformed
 
     private void qlSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qlSVActionPerformed
@@ -127,10 +127,10 @@ public class HomeFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ThongKe;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel pnBtnThongKe;
+    private javax.swing.JPanel pnButton;
+    private javax.swing.JPanel pnGroupQuanLy;
+    private javax.swing.JPanel pnTitle;
     private javax.swing.JButton qlGV;
     private javax.swing.JButton qlMonHoc;
     private javax.swing.JButton qlSV;

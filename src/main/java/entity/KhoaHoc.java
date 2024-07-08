@@ -18,21 +18,19 @@ public class KhoaHoc implements Serializable{
     private String skill;
     private int thoiGianKhoaHoc;
     private double giaKhoaHoc;
-    private String[] taiLieu;
     private List<Student> dsStudent = new ArrayList<>();
     private List<Teacher> dsTeacher = new ArrayList<>();
 
     public KhoaHoc() {
     }
 
-    public KhoaHoc(int id, String tenKhoaHoc,String ngonNgu,String skill, int thoiGianKhoaHoc, double giaKhoaHoc, String[] taiLieu, List<Student> dsStudent, List<Teacher> dsTeacher) {
+    public KhoaHoc(int id, String tenKhoaHoc,String ngonNgu,String skill, int thoiGianKhoaHoc, double giaKhoaHoc, List<Student> dsStudent, List<Teacher> dsTeacher) {
         this.id = id;
         this.tenKhoaHoc = tenKhoaHoc;
         this.thoiGianKhoaHoc = thoiGianKhoaHoc;
         this.ngonNgu = ngonNgu;
         this.skill = skill;
         this.giaKhoaHoc = giaKhoaHoc;
-        this.taiLieu = taiLieu;
         this.dsStudent = dsStudent;
         this.dsTeacher = dsTeacher;
     }
@@ -83,14 +81,6 @@ public class KhoaHoc implements Serializable{
 
     public void setGiaKhoaHoc(double giaKhoaHoc) {
         this.giaKhoaHoc = giaKhoaHoc;
-    }
-
-    public String[] getTaiLieu() {
-        return taiLieu;
-    }
-
-    public void setTaiLieu(String[] taiLieu) {
-        this.taiLieu = taiLieu;
     }
 
     public List<Student> getDsStudent() {

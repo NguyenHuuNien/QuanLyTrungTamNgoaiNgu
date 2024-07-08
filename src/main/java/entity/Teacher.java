@@ -41,5 +41,20 @@ public class Teacher extends Person implements Serializable {
     public void addStudent(Student student){
         this.dsStudent.add(student);
     }
-    
+    public void removeStudent(Student student){
+        for(Student st : dsStudent){
+            if(st.getId() == student.getId()){
+                dsStudent.remove(st);
+                break;
+            }
+        }
+    }
+    public boolean checkContainsStudent(Person per){
+        for(int i=0;i<dsStudent.size();i++){
+            if(per.getId()==dsStudent.get(i).getId()){
+                return true;
+            }
+        }
+        return false;
+    }
 }

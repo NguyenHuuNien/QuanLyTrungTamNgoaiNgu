@@ -31,10 +31,19 @@ public class KhoaHocFunc {
         return new ArrayList<>();
     }
 
+    private int pullID(){
+        for(int i=0;i<listKhoaHoc.size()-1;i++){
+            if(listKhoaHoc.get(i).getId()+1!=listKhoaHoc.get(i+1).getId()){
+                return listKhoaHoc.get(i).getId()+1;
+            }
+        }
+        return listKhoaHoc.isEmpty()?1:listKhoaHoc.get(listKhoaHoc.size()-1).getId()+1;
+    }
     public void add(KhoaHoc khoaHoc) {
-        int id = (!listKhoaHoc.isEmpty()) ? (listKhoaHoc.size() + 1) : 1;
+        int id = pullID();
         khoaHoc.setId(id);
         listKhoaHoc.add(khoaHoc);
+        listKhoaHoc.sort(Comparator.comparingInt(KhoaHoc::getId));
         writeListKhoaHoc(listKhoaHoc);
     }
 
@@ -44,7 +53,6 @@ public class KhoaHocFunc {
                 kh.setTenKhoaHoc(khoaHoc.getTenKhoaHoc());
                 kh.setThoiGianKhoaHoc(khoaHoc.getThoiGianKhoaHoc());
                 kh.setGiaKhoaHoc(khoaHoc.getGiaKhoaHoc());
-                kh.setTaiLieu(khoaHoc.getTaiLieu());
                 kh.setDsStudent(khoaHoc.getDsStudent());
                 kh.setDsTeacher(khoaHoc.getDsTeacher());
                 break;

@@ -85,7 +85,6 @@ public class StudentController {
             if(student.getName()==null&&student.getAddress()==null&&student.getDOB()==null){
                 return;
             }
-            System.out.println(student.toString());
             for(Student st : studentDao.getListStudents()){
                 if(student.getName()!=null && st.getName().contains(student.getName())){
                     dsStudent.add(st);

@@ -169,13 +169,12 @@ public class KhoaHocView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1510, 875));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1510, 850));
         setSize(new java.awt.Dimension(1500, 875));
-        getContentPane().setLayout(new java.awt.FlowLayout(1, 5, 10));
+        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         UserInfoPanel.setPreferredSize(new java.awt.Dimension(1500, 100));
-        UserInfoPanel.setLayout(new java.awt.FlowLayout(0, 10, 0));
+        UserInfoPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 0));
 
         avtLabel.setBackground(new java.awt.Color(255, 0, 255));
         avtLabel.setFont(new java.awt.Font("Liberation Serif", 1, 48)); // NOI18N
@@ -188,7 +187,7 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 100));
         jPanel2.setRequestFocusEnabled(false);
-        jPanel2.setLayout(new java.awt.FlowLayout(1, 5, 1));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 1));
 
         userID.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
         userID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -229,7 +228,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         getContentPane().add(hr1);
 
         centerPanel.setPreferredSize(new java.awt.Dimension(1500, 700));
-        centerPanel.setLayout(new java.awt.FlowLayout(0, 5, 0));
+        centerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
 
         InforPanel.setPreferredSize(new java.awt.Dimension(400, 700));
 
@@ -241,7 +240,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         InforPanel.add(jLabel4);
 
         pnAllTimKiem.setPreferredSize(new java.awt.Dimension(400, 50));
-        pnAllTimKiem.setLayout(new java.awt.FlowLayout(2, 50, 5));
+        pnAllTimKiem.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 50, 5));
 
         togModeQuanLy.setBackground(new java.awt.Color(255, 153, 153));
         togModeQuanLy.setForeground(new java.awt.Color(51, 51, 255));
@@ -256,13 +255,14 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         InforPanel.add(pnAllTimKiem);
 
+        pnMode.setBackground(new java.awt.Color(0, 0, 0));
         pnMode.setOpaque(false);
         pnMode.setPreferredSize(new java.awt.Dimension(400, 410));
         InforPanel.add(pnMode);
 
-        pnKhac.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        pnKhac.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnKhac.setPreferredSize(new java.awt.Dimension(390, 120));
-        pnKhac.setLayout(new java.awt.FlowLayout(1, 5, 20));
+        pnKhac.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
         jLabel20.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel20.setText("Danh sách sinh viên");
@@ -296,7 +296,8 @@ public class KhoaHocView extends javax.swing.JFrame {
 
         centerPanel.add(InforPanel);
 
-        hr2.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        hr2.setBackground(new java.awt.Color(0, 0, 0));
+        hr2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hr2.setPreferredSize(new java.awt.Dimension(2, 700));
 
         javax.swing.GroupLayout hr2Layout = new javax.swing.GroupLayout(hr2);
@@ -313,9 +314,9 @@ public class KhoaHocView extends javax.swing.JFrame {
         centerPanel.add(hr2);
 
         TablePanel.setPreferredSize(new java.awt.Dimension(1000, 700));
-        TablePanel.setLayout(new java.awt.FlowLayout(1, 0, 5));
+        TablePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(950, 650));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(950, 600));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -333,7 +334,7 @@ public class KhoaHocView extends javax.swing.JFrame {
         TablePanel.add(jScrollPane1);
 
         jPanel7.setPreferredSize(new java.awt.Dimension(600, 44));
-        jPanel7.setLayout(new java.awt.FlowLayout(1, 20, 10));
+        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 10));
 
         btnSapXepID.setText("Sắp xếp theo ID");
         btnSapXepID.setPreferredSize(new java.awt.Dimension(150, 24));

@@ -15,7 +15,7 @@ public class KhoaHocXML {
     public List<KhoaHoc> getKhoaHoc() {
         return khoahoc;
     }
-
+    
     public void setKhoaHoc(List<KhoaHoc> khoahoc) {
         this.khoahoc = khoahoc;
     }
