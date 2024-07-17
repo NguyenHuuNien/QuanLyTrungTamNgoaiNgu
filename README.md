@@ -34,3 +34,4 @@ password: {ngày tháng năm sinh của Giảng viên (bỏ '/')}
 
 # Chú ý:
     - Chỉ đăng ký được khóa học có giảng viên.
+## Nguoi thuc hien: Nguyen Huu Nien
